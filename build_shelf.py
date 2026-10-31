@@ -9,6 +9,8 @@ that app's tile is focused in the first row. Sources (config.json):
                             schedule; no account needed
   {"youtube": "recommended"} the signed-in YouTube home feed, through yt-dlp; only with
                             --youtube-cookies (a browser) or --youtube-cookie-file
+  {"unifi": [channels]}     what's on now (or next) on these unifi TV channels, from the same
+                            public programme guide unifi TV's web player reads; live events first
 
 The shelf is a full-width slideshow, so wide pictures are preferred everywhere. An app whose
 source fails keeps the cards it had in the previous output. Standard library plus yt-dlp.
@@ -23,7 +25,9 @@ import sys
 import tempfile
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
+import zoneinfo
 
 ROOT = pathlib.Path(__file__).resolve().parent
 TVMAZE = "https://api.tvmaze.com"
@@ -185,6 +189,85 @@ def youtube_cards(cookies):
     return cards
 
 
+# ---- unifi TV -------------------------------------------------------------------------------
+
+# The guide unifi TV's web player (tm-web-ui-cdn.api.tmcms.quickplay.com) reads: no login, the
+# player's own parameters. Not a documented API; it may change.
+UNIFI_EPG = "https://data-store-cdn.api.tmcms.quickplay.com/content/epg"
+UNIFI_IMAGE = "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/{id}/0-16x9.jpg?width=1280"
+UNIFI_PARAMS = {"reg": "my", "dt": "web", "client": "tm-unifitv-web", "pf": "regular", "ml": "regular",
+                "custseg": "residential", "locale": "en-US", "pageSize": 20}
+
+
+def http_json(url):
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return json.load(r)
+
+
+def utc(text):
+    return dt.datetime.fromisoformat(text.replace("Z", "+00:00"))
+
+
+def english(names):
+    return next((n.get("n") for n in names or [] if n.get("lang") == "en"), None) or ((names or [{}])[0].get("n") or "")
+
+
+def unifi_guide(start, end):
+    """Every channel with its airings between start and end (the guide pages 20 channels)."""
+    params = dict(UNIFI_PARAMS, start=start.strftime("%Y-%m-%dT%H:%M:%SZ"), end=end.strftime("%Y-%m-%dT%H:%M:%SZ"))
+    channels = []
+    for page in range(1, 11):
+        body = http_json(UNIFI_EPG + "?" + urllib.parse.urlencode(dict(params, pageNumber=page)))
+        header = body.get("header") or {}
+        if header.get("code") not in (None, 0) and not body.get("data"):
+            raise RuntimeError(f"guide: {header.get('errors') or header.get('message')}")
+        channels += body.get("data") or []
+        if not body.get("data") or len(channels) >= (header.get("count") or 0):
+            break
+    return channels
+
+
+def clock(t):
+    return t.strftime("%I:%M %p").lstrip("0")
+
+
+def unifi_cards(source):
+    """Per channel, the programme on now (skipping filler), or a live event starting within half an
+    hour; live events first, then the channels in the order given."""
+    tz = zoneinfo.ZoneInfo(source.get("timezone", "Asia/Kuala_Lumpur"))
+    skip = [s.lower() for s in source.get("skip", [])]
+    now = dt.datetime.now(dt.timezone.utc)
+    guide = unifi_guide(now.replace(minute=0, second=0, microsecond=0), now + dt.timedelta(hours=4))
+    by_name = {english(c.get("lon")).strip().lower(): c for c in guide}
+    live, rest = [], []
+    for wanted in source["unifi"]:
+        channel = by_name.get(wanted.strip().lower())
+        if not channel:
+            log(f"unifi: no channel called {wanted!r}")
+            continue
+        options = []
+        for airing in sorted(channel.get("airing") or [], key=lambda a: a.get("sc_st_dt", "")):
+            start, end = utc(airing["sc_st_dt"]), utc(airing["sc_ed_dt"])
+            title = english((airing.get("pgm") or {}).get("lon")).strip()
+            if end <= now or not title or any(s in title.lower() for s in skip):
+                continue
+            options.append((start, end, title))
+        if not options:
+            continue
+        # The show on now, unless a live event starts within half an hour.
+        soon_live = [o for o in options if o[2].startswith("(L)") and o[0] - now <= dt.timedelta(minutes=30)]
+        start, end, title = soon_live[0] if soon_live else options[0]
+        is_live = title.startswith("(L)")
+        title = title.removeprefix("(L)").strip()
+        when = (f"Now until {clock(end.astimezone(tz))}" if start <= now
+                else f"{clock(start.astimezone(tz))} – {clock(end.astimezone(tz))}")
+        meta = " · ".join(p for p in (english(channel.get("lon")), "Live" if is_live else None, when) if p)
+        card = {"title": title[:120], "meta": meta[:180], "image": UNIFI_IMAGE.format(id=channel["cid"])}
+        (live if is_live else rest).append(card)
+    return (live + rest)[:MAX_ITEMS]
+
+
 # ---- main -----------------------------------------------------------------------------------
 
 def write_atomically(path, text):
@@ -224,6 +307,8 @@ def main():
                 if schedule is None:
                     schedule = tvmaze_schedule(cfg.get("days_back", 7), cfg.get("days_ahead", 7))
                 cards = tvmaze_cards(source["tvmaze"], schedule)
+            elif "unifi" in source:
+                cards = unifi_cards(source)
             elif "youtube" in source:
                 if not cookies:
                     log(f"{pkg}: skipped (no YouTube cookies given)")

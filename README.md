@@ -9,10 +9,11 @@ Tigris shows that app's cards as a full-width slideshow.
 | Netflix | `com.netflix.ninja` | New and upcoming episodes, from [TVmaze](https://www.tvmaze.com) |
 | Prime Video | `com.amazon.amazonvideo.livingroom` | New and upcoming episodes, from TVmaze |
 | YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations (needs the `YT_COOKIES` secret) |
+| unifi TV | `com.tm.unifitv.tv` | What's on now on your channels, from unifi TV's programme guide |
 
 ## How it runs
 
-GitHub Actions rebuilds `shelf.json` every three hours (and on demand: Actions → Update shelf →
+GitHub Actions rebuilds `shelf.json` every hour (and on demand: Actions → Update shelf →
 Run workflow). Point Tigris at:
 
 ```
@@ -77,8 +78,13 @@ A JSON object keyed by app package; each value is a list of cards (`max_cards` i
   first, then the most recent releases, then what is coming soonest. Batch drops read
   "S2 · 6 episodes". The service name is TVmaze's (`Netflix`, `Prime Video`, `Disney+`,
   `HBO Max`, `iQIYI`, …).
-- `{"youtube": "recommended"}`: the YouTube home feed, only when `--youtube-cookies` is given.
+- `{"youtube": "recommended"}`: the YouTube home feed, only with YouTube cookies (see above).
   Mixes show the picture of their first video.
+- `{"unifi": ["TV3", "beIN SPORTS 1", …], "skip": ["WOW SHOP"]}`: per channel (names as unifi TV
+  shows them), the programme on now, or a live event starting within half an hour; live events
+  first, then the channels in the order listed. Titles containing a `skip` text are passed over.
+  The guide has no programme pictures, so cards show the channel's logo. It is the guide unifi TV's
+  web player reads, without a login; not a documented API, so it may change.
 - Pictures are wide (1280×720 or larger) wherever the source has them; the shelf crops posters
   badly.
 - An app whose source fails keeps its previous cards, so a hiccup doesn't empty the shelf.

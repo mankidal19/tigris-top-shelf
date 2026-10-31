@@ -2,7 +2,7 @@ name: Update shelf
 
 on:
   schedule:
-    - cron: "17 */3 * * *"   # every 3 hours
+    - cron: "17 * * * *"   # hourly: the unifi TV guide changes by the hour
   workflow_dispatch:
   push:
     paths: [build_shelf.py, config.json, .github/workflows/update.yml]
