@@ -253,13 +253,31 @@ def show_of(video_title):
     return name if len(norm(name)) >= 3 else None
 
 
+YOUTUBE_COOKIE = ""  # a Cookie header from --youtube-cookie-file, for YouTube's own pages
+
+
+def cookie_header(path):
+    """The youtube.com cookies of a Netscape cookies.txt, as one Cookie header."""
+    pairs = []
+    for line in pathlib.Path(path).read_text().splitlines():
+        fields = line.removeprefix("#HttpOnly_").split("\t")
+        if len(fields) >= 7 and not line.startswith("# ") and fields[0].lstrip(".").endswith("youtube.com"):
+            pairs.append(f"{fields[5]}={fields[6]}")
+    return "; ".join(pairs)
+
+
 def video_category(video_id):
-    """YouTube's category for a video ("Music", "Gaming", "Sports", ...), from its watch page."""
-    req = urllib.request.Request(f"https://www.youtube.com/watch?v={video_id}",
-                                 headers={"User-Agent": "Mozilla/5.0 (" + UA + ")", "Accept-Language": "en"})
+    """YouTube's category for a video ("Music", "Gaming", "Sports", ...), from its watch page. Signed
+    in where cookies were given: YouTube asks servers like GitHub's to prove they aren't bots."""
+    headers = {"User-Agent": "Mozilla/5.0 (" + UA + ")", "Accept-Language": "en"}
+    if YOUTUBE_COOKIE:
+        headers["Cookie"] = YOUTUBE_COOKIE
+    req = urllib.request.Request(f"https://www.youtube.com/watch?v={video_id}", headers=headers)
     with urllib.request.urlopen(req, timeout=30) as r:
         found = re.search(r'"category":("[^"]+")', r.read().decode("utf-8", "replace"))
-    return json.loads(found.group(1)) if found else ""  # a JSON string: "Science \u0026 Technology"
+    if not found:  # not remembered as a miss: the next run asks again
+        raise RuntimeError("no category on the watch page")
+    return json.loads(found.group(1))  # a JSON string: "Science \u0026 Technology"
 
 
 def youtube_cards(cookies):
@@ -288,7 +306,7 @@ def youtube_cards(cookies):
         if show and not allowed(title, about("anime", show), about("series", show)):
             continue
         # One of each category, so five music videos don't fill the shelf. Unknown ones pass.
-        category = cached(f"category|{video}", lambda: video_category(video)) or ""
+        category = cached(f"ytcat|{video}", lambda: video_category(video)) or ""
         if category and category in categories:
             continue
         image = thumbnail(video)
@@ -731,6 +749,9 @@ def main():
     cookies = (["--cookies-from-browser", args.youtube_cookies] if args.youtube_cookies
                else ["--cookies", args.youtube_cookie_file] if args.youtube_cookie_file else None)
 
+    global YOUTUBE_COOKIE
+    if args.youtube_cookie_file:
+        YOUTUBE_COOKIE = cookie_header(args.youtube_cookie_file)
     cfg = json.loads((ROOT / "config.json").read_text())
     global MAX_ITEMS, MIN_WIDE
     MAX_ITEMS = max(1, min(12, int(cfg.get("max_cards", MAX_ITEMS))))
@@ -793,7 +814,8 @@ def main():
 
     # Expired entries would be looked up again anyway; dropping them keeps the file from growing.
     today = dt.date.today()
-    cache = {k: v for k, v in cache.items() if (today - dt.date.fromisoformat(v["at"])).days < HIT_DAYS}
+    cache = {k: v for k, v in cache.items()
+             if (today - dt.date.fromisoformat(v["at"])).days < HIT_DAYS and not k.startswith("category|")}
     cache_text = json.dumps(dict(sorted(cache.items())), ensure_ascii=False, indent=1) + "\n"
     if not CACHE_FILE.exists() or CACHE_FILE.read_text() != cache_text:
         write_atomically(CACHE_FILE, cache_text)
