@@ -12,8 +12,8 @@ that app's tile is focused in the first row. Sources (config.json):
                             every run; new Netflix episodes (as "tvmaze") fill any free places
   {"youtube": "recommended"} the signed-in YouTube home feed, through yt-dlp; only with
                             --youtube-cookies (a browser) or --youtube-cookie-file
-  {"youtube_channel": "@X"} one card per show from a streaming service's YouTube channel (its latest
-                            episodes, teasers and trailers), e.g. Viu Malaysia
+  {"viu": "my"}             a random handful of the Top 10 on Viu's home page for that country, a
+                            new draw every run
   {"rtmklik": {...}}        RTMKlik: its special live channels (Saluran Khas), chosen channel cards
                             (RTMKlik publishes no schedule) and, from the unifi TV guide, what's on
                             TV1/TV2 now
@@ -449,52 +449,44 @@ def unifi_cards(source, cookies=None):
     return [card for _, card in sorted(live, key=lambda c: c[0]) + sorted(rest, key=lambda c: c[0])][:MAX_ITEMS]
 
 
-# ---- a service's YouTube channel ----------------------------------------------------------------
+# ---- Viu ------------------------------------------------------------------------------------
 
-TEASER = re.compile(r"\b(teaser|trailer|coming soon|akan datang)\b", re.I)
-EPISODE = re.compile(r"\b(episod|episode|ep)\s*\.?\s*\d+|episod penuh|full episode", re.I)
-
-
-def show_name(video_title):
-    """The show a channel's video is about: "#TheHiddenHand (Dia Perempuan Sialan) : EPISOD 12 |
-    #ViuMalaysia" -> "The Hidden Hand (Dia Perempuan Sialan)"."""
-    t = video_title.split(" | ")[0]
-    t = re.sub(r"^\s*\[[^\]]*\]\s*", "", t)                                   # "[FINAL TRAILER] ..."
-    t = re.sub(r"^\s*(episod penuh|full episode)\s*:\s*", "", t, flags=re.I)   # "Episod Penuh : ..."
-    t = re.split(r"\s*(?::\s*(?:episod|episode)\b|-\s*(?:ep|episod|episode)\s*\d|[-\[(]?\s*(?:teaser|trailer)\b|\(bm sub\)|\[bm sub\]|\bbm sub\b)",
-                 t, flags=re.I)[0]
-    t = re.sub(r"#([A-Za-z0-9]+)", lambda m: re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", m.group(1)), t)  # #TheHiddenHand
-    t = " ".join(t.replace("-", " - ").split()).strip(" -:")
-    t = re.sub(r"\s+-\s*$", "", t)
-    return t.title() if t.isupper() else t
+VIU_HOME = "https://www.viu.com/ott/{country}/en"
 
 
-def channel_cards(source, cookies):
-    """One card per show among the channel's latest uploads, newest first."""
-    url = f"https://www.youtube.com/{source['youtube_channel'].lstrip('/')}/videos"
-    run = subprocess.run(["yt-dlp", *(cookies or []), "--flat-playlist", "-J", "--playlist-end", "40", "--no-warnings", url],
-                         capture_output=True, text=True, timeout=300)
-    if run.returncode != 0:
-        raise RuntimeError(run.stderr.strip().splitlines()[-1] if run.stderr.strip() else "yt-dlp failed")
-    skip = [s.lower() for s in source.get("skip", [])]
-    service = source.get("service", "")
-    cards, seen = [], set()
-    for e in json.loads(run.stdout).get("entries") or []:
-        title = (e or {}).get("title") or ""
-        if len((e or {}).get("id") or "") != 11 or not title or any(s in title.lower() for s in skip):
+def viu_cards(country, row="Top 10"):
+    """MAX_ITEMS of the shows in a row of Viu's home page (its "Top 10" by default), drawn at random
+    so the shelf rotates. The page carries its rows as JSON (__NEXT_DATA__), so one fetch does."""
+    req = urllib.request.Request(VIU_HOME.format(country=country), headers={"User-Agent": "Mozilla/5.0 (" + UA + ")"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        page = r.read().decode("utf-8", "replace")
+    found = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', page, re.S)
+    if not found:
+        raise RuntimeError("no __NEXT_DATA__ on Viu's home page")
+    home = json.loads(found.group(1))["props"]["pageProps"]["fallback"]["HOME_INDEX"]["data"]
+    grid = next((g for g in home.get("grid") or [] if norm(g.get("name")) == norm(row)), None)
+    if not grid:
+        raise RuntimeError(f"no {row!r} row on Viu's home page")
+    # Air times ("Tue - Wed | 12PM") sit on the banner and on rows like "Highlight", not on the Top 10.
+    airs = {}
+    for show in home.get("banner") or []:
+        if show.get("series_update_cycle_description") and "|" in show["series_update_cycle_description"]:
+            airs[norm(show.get("series_name"))] = show["series_update_cycle_description"]
+    for g in home.get("grid") or []:
+        for show in g.get("product") or []:
+            t = (show.get("title") or "").strip()
+            if re.match(r"(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\b", t) and "|" in t:
+                airs.setdefault(norm(show.get("series_name")), t)
+    pool = []
+    for rank, show in enumerate(grid.get("product") or [], 1):
+        name = (show.get("series_name") or "").strip()
+        image = show.get("cover_landscape_image_url") or show.get("cover_image_url")
+        if not name or not image:
             continue
-        show = show_name(title)
-        if len(norm(show)) < 3 or norm(show) in seen:
-            continue
-        image = thumbnail(e["id"])
-        if not image:
-            continue
-        seen.add(norm(show))
-        kind = "Coming soon" if TEASER.search(title) else ("New episode" if EPISODE.search(title) else None)
-        cards.append({"title": show[:120], "meta": " · ".join(p for p in (service, kind) if p)[:180], "image": image})
-        if len(cards) == MAX_ITEMS:
-            break
-    return cards
+        when = airs.get(norm(name), "").replace(" | ", " ")
+        meta = " · ".join(p for p in ("Viu", f"#{rank} in {row}", show.get("series_category_name"), when) if p)
+        pool.append({"title": name[:120], "meta": meta[:180], "image": image})
+    return random.sample(pool, min(MAX_ITEMS, len(pool)))
 
 
 # ---- RTMKlik --------------------------------------------------------------------------------
@@ -590,9 +582,8 @@ def main():
                 if schedule is None:
                     schedule = tvmaze_schedule(cfg.get("days_back", 7), cfg.get("days_ahead", 7))
                 cards = [dict(c, source=source.get("label", f"New on {source['tvmaze']}")) for c in tvmaze_cards(source["tvmaze"], schedule)]
-            elif "youtube_channel" in source:
-                cards = [dict(c, source=source.get("label", f"New on {source.get('service', 'YouTube')}"))
-                         for c in channel_cards(source, cookies)]
+            elif "viu" in source:
+                cards = [dict(c, source=source.get("label", "Top 10 on Viu")) for c in viu_cards(source["viu"], source.get("row", "Top 10"))]
             elif "rtmklik" in source:
                 cards = [dict(c, source=source.get("label", "On RTMKlik")) for c in rtmklik_cards(source["rtmklik"], cookies)]
             elif "unifi" in source:
