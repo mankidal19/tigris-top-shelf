@@ -1,20 +1,20 @@
 {
   "com.netflix.ninja": [
     {
-      "title": "Firefly Wedding",
-      "meta": "Netflix · #6 in TV · New this week",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/619/1549010.jpg",
-      "source": "Top 10 in Malaysia"
-    },
-    {
       "title": "Where the Mask Ends",
       "meta": "Netflix · #7 in TV · New this week",
       "image": "https://static.tvmaze.com/uploads/images/original_untouched/596/1491800.jpg",
       "source": "Top 10 in Malaysia"
     },
     {
+      "title": "Firefly Wedding",
+      "meta": "Netflix · #6 in TV · New this week",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/619/1549010.jpg",
+      "source": "Top 10 in Malaysia"
+    },
+    {
       "title": "Steel Ball Run: JoJo's Bizarre Adventure",
-      "meta": "Netflix · S2 E6 · Out Fri 30 Oct",
+      "meta": "Netflix · S2 E7 · Out Fri 30 Oct",
       "image": "https://static.tvmaze.com/uploads/images/original_untouched/618/1546750.jpg",
       "source": "New on Netflix"
     },
@@ -39,12 +39,6 @@
       "source": "New on Prime Video"
     },
     {
-      "title": "Helluva Boss",
-      "meta": "Prime Video · S3 · 2 episodes · Out Wed 28 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/589/1472898.jpg",
-      "source": "New on Prime Video"
-    },
-    {
       "title": "The Traitors Telugu",
       "meta": "Prime Video · S1 E10 · Coming Thu 5 Nov",
       "image": "https://static.tvmaze.com/uploads/images/original_untouched/644/1612250.jpg",
@@ -65,21 +59,15 @@
   ],
   "com.google.android.youtube.tv": [
     {
-      "title": "HYLO Open 2026 | Tai/Yap (MAS) vs Chiu/Wang (TPE) [5] | QF",
-      "meta": "YouTube · BWF TV · 42 min",
-      "image": "https://i.ytimg.com/vi/tW8L6Hno5LE/hq720.jpg",
+      "title": "The Guy She Was Interested In Wasn't a Guy at All | Official Trailer | Crunchyroll",
+      "meta": "YouTube · Crunchyroll · 1 min",
+      "image": "https://i.ytimg.com/vi/2KPFnP1othM/hq720.jpg",
       "source": "Recommended for you"
     },
     {
-      "title": "Mix - Demi Lovato - Heart Attack (Live On Honda Civic Tour: Future Now)",
+      "title": "Mix - LEE HI - '한숨 (BREATHE)' M/V",
       "meta": "YouTube · Mix",
-      "image": "https://i.ytimg.com/vi/BiDwcISEbBw/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "He's Secretly The Hottest Guy In School | Captivated, By You",
-      "meta": "YouTube · Crunchyroll · 2 min",
-      "image": "https://i.ytimg.com/vi/Exv708VJu6w/hq720.jpg",
+      "image": "https://i.ytimg.com/vi/5iSlfF8TQ9k/hq720.jpg",
       "source": "Recommended for you"
     },
     {
@@ -89,41 +77,47 @@
       "source": "Recommended for you"
     },
     {
-      "title": "[Sana’s Fridge Interview] Sana Got Scammed by SEVENTEEN Oppas… ($0 Lost) l EP.26 Jeonghan X Joshua",
-      "meta": "YouTube · 일일칠 - 117 · 59 min",
-      "image": "https://i.ytimg.com/vi/ryNZ_NPJo88/hq720.jpg",
+      "title": "TCG card shop simulator",
+      "meta": "YouTube · Casual Gamer · 19 min",
+      "image": "https://i.ytimg.com/vi/4AVma597jhU/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "[GOING SEVENTEEN] EP.164 WHO ARE YOU? #1",
+      "meta": "YouTube · SEVENTEEN · 27 min",
+      "image": "https://i.ytimg.com/vi/S08KzAC4vDY/hq720.jpg",
       "source": "Recommended for you"
     }
   ],
   "com.tm.unifitv.tv": [
     {
-      "title": "2026 LET: Wistron Ladies Open - Day 3",
-      "meta": "SPOTV · Live · Now until 5:00 PM",
+      "title": "ADUAN JIWA",
+      "meta": "TV3 · 6:30 PM – 7:00 PM",
+      "image": "https://i.ytimg.com/vi/V3wThi5NC0E/hq720.jpg",
+      "source": "On TV now"
+    },
+    {
+      "title": "BLIPPI WONDERS",
+      "meta": "TV9 · Now until 6:30 PM",
+      "image": "https://i.ytimg.com/vi/I4ttVbgda6s/hq720.jpg",
+      "source": "On TV now"
+    },
+    {
+      "title": "GBRB: Joy Pops Laugh Pops",
+      "meta": "tvN HD · Now until 6:15 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280",
+      "source": "On TV now"
+    },
+    {
+      "title": "2026 PYCL, Philippines S2 - Rd 1 Dentacare Pearly Whites vs Thrifty Drivers",
+      "meta": "SPOTV · Now until 6:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280",
       "source": "On TV now"
     },
     {
-      "title": "2026 MotoGP Rd 19 Petronas Grand Prix of Malaysia - Qualifying/Sprint",
-      "meta": "SPOTV2 · Live · Now until 4:00 PM",
-      "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg",
-      "source": "On TV now"
-    },
-    {
-      "title": "SEINDAH KASIH",
-      "meta": "TV3 · Now until 4:00 PM",
-      "image": "https://i.ytimg.com/vi/hlWzrc79mgk/hq720.jpg",
-      "source": "On TV now"
-    },
-    {
-      "title": "TELAH KU IKHLASKAN",
-      "meta": "TV9 · Now until 3:30 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280",
-      "source": "On TV now"
-    },
-    {
-      "title": "3 Meals A Day : Light",
-      "meta": "tvN HD · Now until 4:25 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280",
+      "title": "2026 FIM EWC Highlights - Rd 4 Bol d'Or, France",
+      "meta": "SPOTV2 · Now until 7:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280",
       "source": "On TV now"
     }
   ],
@@ -147,15 +141,15 @@
       "source": "On RTMKlik"
     },
     {
-      "title": "Rahsia Usia (Ulangan)",
-      "meta": "TV1 · Now until 3:30 PM",
+      "title": "Iqra' 2026 (Ulangan)",
+      "meta": "TV1 · Now until 6:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280",
       "source": "On RTMKlik"
     },
     {
-      "title": "Vasantham 2026",
-      "meta": "TV2 · Now until 4:00 PM",
-      "image": "https://i.ytimg.com/vi/Go2McXBTuNM/hqdefault.jpg",
+      "title": "Inspector Gadget",
+      "meta": "TV2 · Now until 6:30 PM",
+      "image": "https://i.ytimg.com/vi/q3UDI7GrhWU/hqdefault.jpg",
       "source": "On RTMKlik"
     }
   ],
