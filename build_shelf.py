@@ -282,14 +282,17 @@ def video_category(video_id):
 
 def youtube_cards(cookies):
     """The signed-in YouTube home feed, one video per category; [cookies] are yt-dlp's cookie options."""
-    run = subprocess.run(
-        ["yt-dlp", *cookies, "--flat-playlist", "-J", "--playlist-end", "30", "--no-warnings", ":ytrec"],
-        capture_output=True, text=True, timeout=300,
-    )
-    if run.returncode != 0:
-        raise RuntimeError(run.stderr.strip().splitlines()[-1] if run.stderr.strip() else f"yt-dlp exit {run.returncode}")
+    # YouTube now and then sends a signed-in home feed with nothing in it ("Try searching to get
+    # started"); a second ask a little later usually has the recommendations.
+    for attempt in range(2):
+        entries = yt_dlp_json(":ytrec", cookies, "--playlist-end", "30").get("entries") or []
+        if entries:
+            break
+        log("youtube: empty home feed" + ("; asking again" if attempt == 0 else ""))
+        if attempt == 0:
+            time.sleep(20)
     cards, categories = [], set()
-    for e in json.loads(run.stdout).get("entries") or []:
+    for e in entries:
         if not e:
             continue
         raw, title = e.get("id") or "", (e.get("title") or "").strip()
