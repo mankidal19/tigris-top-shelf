@@ -8,36 +8,39 @@ Tigris shows that app's cards as a full-width slideshow.
 |---|---|---|
 | Netflix | `com.netflix.ninja` | New and upcoming episodes, from [TVmaze](https://www.tvmaze.com) |
 | Prime Video | `com.amazon.amazonvideo.livingroom` | New and upcoming episodes, from TVmaze |
-| YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations, built on your Mac only |
+| YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations (needs the `YT_COOKIES` secret) |
 
-## Two ways to run it
+## How it runs
 
-**Public, Netflix and Prime Video only.** GitHub Actions rebuilds `shelf.json` here every six
-hours. No account needed:
+GitHub Actions rebuilds `shelf.json` every three hours (and on demand: Actions → Update shelf →
+Run workflow). Point Tigris at:
 
 ```
 https://raw.githubusercontent.com/mankidal19/tigris-top-shelf/main/shelf.json
 ```
 
-**Private, with YouTube.** Your recommendations need your YouTube login, and they say a lot about
-what you watch, so they never go to GitHub. A Mac on the same network builds the whole feed every
-hour with your browser's own cookies (read in place by [yt-dlp](https://github.com/yt-dlp/yt-dlp),
-never copied) and serves it on the home network only:
+Netflix and Prime Video need nothing. YouTube needs the repo secret **`YT_COOKIES`**: the
+`youtube.com` cookies of a signed-in browser, in Netscape `cookies.txt` format. The workflow writes
+it to a private temp file for the run only. Without the secret, YouTube is left out.
+
+To create or refresh it (only youtube.com cookies, not Google-wide ones):
 
 ```sh
-brew install yt-dlp
-mac/setup.sh install chrome:Default   # the browser profile signed in to YouTube
-# Feed: http://<this Mac's IP>:8765/shelf.json
+yt-dlp --cookies-from-browser chrome:Default --cookies all.txt --skip-download --playlist-end 1 :ytrec
+{ echo "# Netscape HTTP Cookie File"; awk -F'\t' 'NF>=7 && $1 ~ /^(#HttpOnly_)?\.?([a-z0-9-]+\.)*youtube\.com$/' all.txt; } > yt.txt
+gh secret set YT_COOKIES -R mankidal19/tigris-top-shelf < yt.txt && rm all.txt yt.txt
 ```
 
-The first build asks macOS for "Chrome Safe Storage": choose **Always Allow**, or the hourly
-builds will ask again. `mac/setup.sh status` shows the last runs; `mac/setup.sh uninstall` stops
-both jobs. The TV only gets a shelf while the Mac is awake. Give the Mac a fixed address in the
-router so the TV's setting keeps working.
+Things to know:
+
+- **The feed is public.** Anyone with the URL can read your recommended video titles.
+- YouTube signs the cookies out when they expire or when you sign out of that browser, and it
+  sometimes blocks GitHub's servers ("confirm you're not a bot"). Either way the YouTube cards
+  stop changing (the last ones stay); refresh the secret as above.
 
 ## Use it in Tigris
 
-1. Tigris settings → **Top Shelf** → **Custom source**: one of the feed URLs above.
+1. Tigris settings → **Top Shelf** → **Custom source**: the feed URL above.
 2. Put the apps in the first row of the home screen.
 3. Focus an app's tile; its shelf slides in. OK still opens the app.
 
@@ -79,8 +82,9 @@ A JSON object keyed by app package; each value is a list of at most 12 cards:
   badly.
 - An app whose source fails keeps its previous cards, so a hiccup doesn't empty the shelf.
 
-Run it by hand with `python3 build_shelf.py` (public part) or
-`python3 build_shelf.py --out /tmp/shelf.json --youtube-cookies chrome:Default` (everything).
+Run it by hand with `python3 build_shelf.py` (no YouTube),
+`python3 build_shelf.py --youtube-cookies chrome:Default` (YouTube from a browser) or
+`--youtube-cookie-file yt.txt`.
 
 ## Notes
 

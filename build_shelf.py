@@ -7,8 +7,8 @@ that app's tile is focused in the first row. Sources (config.json):
 
   {"tvmaze": "<service>"}   new and upcoming episodes on a streaming service, from TVmaze's
                             schedule; no account needed
-  {"youtube": "recommended"} the YouTube home feed of a signed-in browser, through yt-dlp; only
-                            with --youtube-cookies, so it never runs on a server
+  {"youtube": "recommended"} the signed-in YouTube home feed, through yt-dlp; only with
+                            --youtube-cookies (a browser) or --youtube-cookie-file
 
 The shelf is a full-width slideshow, so wide pictures are preferred everywhere. An app whose
 source fails keeps the cards it had in the previous output. Standard library plus yt-dlp.
@@ -154,11 +154,10 @@ def duration_text(seconds):
     return f"{minutes} min" if minutes < 60 else f"{minutes // 60} h {minutes % 60} min"
 
 
-def youtube_cards(browser):
-    """The signed-in YouTube home feed, read with the browser's own cookies (never stored)."""
+def youtube_cards(cookies):
+    """The signed-in YouTube home feed; [cookies] are yt-dlp's cookie options."""
     run = subprocess.run(
-        ["yt-dlp", "--cookies-from-browser", browser, "--flat-playlist", "-J", "--playlist-end", "30",
-         "--no-warnings", ":ytrec"],
+        ["yt-dlp", *cookies, "--flat-playlist", "-J", "--playlist-end", "30", "--no-warnings", ":ytrec"],
         capture_output=True, text=True, timeout=300,
     )
     if run.returncode != 0:
@@ -202,8 +201,11 @@ def main():
     ap.add_argument("--out", type=pathlib.Path, default=ROOT / "shelf.json")
     ap.add_argument("--youtube-cookies", metavar="BROWSER",
                     help='browser to read YouTube cookies from, as yt-dlp names it (e.g. "chrome:Default"); '
-                         "without it YouTube apps are left out")
+                         "without it (or --youtube-cookie-file) YouTube apps are left out")
+    ap.add_argument("--youtube-cookie-file", metavar="FILE", help="Netscape cookies.txt holding youtube.com cookies")
     args = ap.parse_args()
+    cookies = (["--cookies-from-browser", args.youtube_cookies] if args.youtube_cookies
+               else ["--cookies", args.youtube_cookie_file] if args.youtube_cookie_file else None)
 
     cfg = json.loads((ROOT / "config.json").read_text())
     try:
@@ -220,10 +222,10 @@ def main():
                     schedule = tvmaze_schedule(cfg.get("days_back", 7), cfg.get("days_ahead", 7))
                 cards = tvmaze_cards(source["tvmaze"], schedule)
             elif "youtube" in source:
-                if not args.youtube_cookies:
-                    log(f"{pkg}: skipped (no --youtube-cookies)")
+                if not cookies:
+                    log(f"{pkg}: skipped (no YouTube cookies given)")
                     continue
-                cards = youtube_cards(args.youtube_cookies)
+                cards = youtube_cards(cookies)
             else:
                 log(f"{pkg}: unknown source {source}")
                 continue

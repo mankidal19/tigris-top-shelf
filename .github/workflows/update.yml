@@ -2,7 +2,7 @@ name: Update shelf
 
 on:
   schedule:
-    - cron: "17 */6 * * *"   # every 6 hours; TVmaze's schedule changes about daily
+    - cron: "17 */3 * * *"   # every 3 hours
   workflow_dispatch:
   push:
     paths: [build_shelf.py, config.json, .github/workflows/update.yml]
@@ -17,11 +17,24 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - name: Install yt-dlp
+        run: python3 -m pip install --quiet --upgrade yt-dlp
       - name: Build shelf.json
-        run: python3 build_shelf.py   # no YouTube cookies here: Netflix and Prime Video only
+        env:
+          YT_COOKIES: ${{ secrets.YT_COOKIES }}   # youtube.com cookies (Netscape cookies.txt); optional
+        run: |
+          if [ -n "$YT_COOKIES" ]; then
+            umask 077
+            printf '%s\n' "$YT_COOKIES" > "$RUNNER_TEMP/yt-cookies.txt"
+            python3 build_shelf.py --youtube-cookie-file "$RUNNER_TEMP/yt-cookies.txt" || status=$?
+            rm -f "$RUNNER_TEMP/yt-cookies.txt"
+            exit ${status:-0}
+          else
+            python3 build_shelf.py
+          fi
       - name: Commit if it changed
         run: |
           if git diff --quiet -- shelf.json; then echo "No changes"; exit 0; fi
