@@ -1,110 +1,130 @@
 {
   "com.netflix.ninja": [
     {
+      "title": "Firefly Wedding",
+      "meta": "Netflix · #6 in TV · New this week",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/619/1549010.jpg",
+      "source": "Top 10 in Malaysia"
+    },
+    {
+      "title": "Where the Mask Ends",
+      "meta": "Netflix · #7 in TV · New this week",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/596/1491800.jpg",
+      "source": "Top 10 in Malaysia"
+    },
+    {
+      "title": "Steel Ball Run: JoJo's Bizarre Adventure",
+      "meta": "Netflix · S2 E6 · Out Fri 30 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/618/1546750.jpg",
+      "source": "New on Netflix"
+    },
+    {
       "title": "How to Ruin Diwali: Meet the Parents",
       "meta": "Netflix · S1 · 3 episodes · Out Fri 30 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1619461.jpg"
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1619461.jpg",
+      "source": "New on Netflix"
     },
     {
       "title": "Love Village",
       "meta": "Netflix · S3 · 4 episodes · Out Tue 27 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/459/1148808.jpg"
-    },
-    {
-      "title": "The One About Matthew Perry",
-      "meta": "Netflix · S1 · 3 episodes · Out Tue 27 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1619456.jpg"
-    },
-    {
-      "title": "Screwballs",
-      "meta": "Netflix · S6 E12 · Out Sat 24 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/557/1393245.jpg"
-    },
-    {
-      "title": "WWE Monday Night RAW",
-      "meta": "Netflix · S33 E44 · Coming Mon 2 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/222/556828.jpg"
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/459/1148808.jpg",
+      "source": "New on Netflix"
     }
   ],
   "com.amazon.amazonvideo.livingroom": [
     {
       "title": "Last One Laughing: Halloween",
       "meta": "Prime Video · S1 E4 · Out Fri 30 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1618814.jpg"
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1618814.jpg",
+      "source": "New on Prime Video"
     },
     {
       "title": "Helluva Boss",
       "meta": "Prime Video · S3 · 2 episodes · Out Wed 28 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/589/1472898.jpg"
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/589/1472898.jpg",
+      "source": "New on Prime Video"
     },
     {
       "title": "The Traitors Telugu",
       "meta": "Prime Video · S1 E10 · Coming Thu 5 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/644/1612250.jpg"
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/644/1612250.jpg",
+      "source": "New on Prime Video"
     },
     {
       "title": "The Assassin",
       "meta": "Prime Video · S2 · 6 episodes · Coming Fri 6 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/579/1448166.jpg"
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/579/1448166.jpg",
+      "source": "New on Prime Video"
     },
     {
       "title": "A Tale of the Secret Saint",
       "meta": "Prime Video · S1 E7 · Coming Sat 7 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602819.jpg"
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602819.jpg",
+      "source": "New on Prime Video"
     }
   ],
   "com.google.android.youtube.tv": [
     {
       "title": "HYLO Open 2026 | Tai/Yap (MAS) vs Chiu/Wang (TPE) [5] | QF",
       "meta": "YouTube · BWF TV · 42 min",
-      "image": "https://i.ytimg.com/vi/tW8L6Hno5LE/hq720.jpg"
+      "image": "https://i.ytimg.com/vi/tW8L6Hno5LE/hq720.jpg",
+      "source": "Recommended for you"
     },
     {
       "title": "스미다 아이코(住田愛子) - Butter-Fly｜한일톱텐쇼 8회",
       "meta": "YouTube · MBN MUSIC · 3 min",
-      "image": "https://i.ytimg.com/vi/RilLKNM55nQ/hq720.jpg"
+      "image": "https://i.ytimg.com/vi/RilLKNM55nQ/hq720.jpg",
+      "source": "Recommended for you"
     },
     {
-      "title": "Bride of the Barrier Master | Official Teaser | Netflix Anime",
-      "meta": "YouTube · Netflix Anime · 2 min",
-      "image": "https://i.ytimg.com/vi/caHtefjiVes/hq720.jpg"
+      "title": "He's Secretly The Hottest Guy In School | Captivated, By You",
+      "meta": "YouTube · Crunchyroll · 2 min",
+      "image": "https://i.ytimg.com/vi/Exv708VJu6w/hq720.jpg",
+      "source": "Recommended for you"
     },
     {
-      "title": "Kashmir / Vivaldi's Four Seasons - Jenny Oaks Baker | Official Music Video",
-      "meta": "YouTube · Jenny Oaks Baker · 5 min",
-      "image": "https://i.ytimg.com/vi/a_fRhsLfjAc/hqdefault.jpg"
+      "title": "[10/26/2026] coming to a stream near you this winter: fields of mistria",
+      "meta": "YouTube · MegageekEXE VODs · 2 h 59 min",
+      "image": "https://i.ytimg.com/vi/wIRjcWZcuvA/hq720.jpg",
+      "source": "Recommended for you"
     },
     {
-      "title": "Dzikir Pagi Pembuka Rezeki HARI KAMIS | Doa Pembuka Rezeki Dari Segala Penjuru | Zikir Pagi",
-      "meta": "YouTube · Lafadz Doa · 11 h 22 min",
-      "image": "https://i.ytimg.com/vi/eP5fq8437e8/hq720.jpg"
+      "title": "Azfar jadi bapak ayam?? ft. Azfar Heri | Studio Sembang #210",
+      "meta": "YouTube · Sembang Entertainment · 20 min",
+      "image": "https://i.ytimg.com/vi/wgQqHQYerTE/hq720.jpg",
+      "source": "Recommended for you"
     }
   ],
   "com.tm.unifitv.tv": [
     {
-      "title": "2026 MotoGP Rd 19 Petronas Grand Prix of Malaysia - Qualifying/Sprint",
-      "meta": "SPOTV2 · Live · Now until 4:00 PM",
-      "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg"
+      "title": "2026 LET: Wistron Ladies Open - Day 3",
+      "meta": "SPOTV · Live · Now until 5:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280",
+      "source": "On TV now"
     },
     {
-      "title": "JALAN-JALAN MAKAN ANGIN 2019",
-      "meta": "TV3 · Now until 1:30 PM",
-      "image": "https://i.ytimg.com/vi/Xi6wlOeswyo/hq720.jpg"
+      "title": "2026 MotoGP Rd 19 Petronas Grand Prix of Malaysia - Qualifying/Sprint",
+      "meta": "SPOTV2 · Live · Now until 4:00 PM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg",
+      "source": "On TV now"
+    },
+    {
+      "title": "SEINDAH KASIH",
+      "meta": "TV3 · Now until 4:00 PM",
+      "image": "https://i.ytimg.com/vi/hlWzrc79mgk/hq720.jpg",
+      "source": "On TV now"
     },
     {
       "title": "TELAH KU IKHLASKAN",
-      "meta": "TV9 · 2:00 PM – 3:30 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
+      "meta": "TV9 · Now until 3:30 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280",
+      "source": "On TV now"
     },
     {
-      "title": "World Dice Tour 4",
-      "meta": "tvN HD · Now until 2:35 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
-    },
-    {
-      "title": "FRUITS BASKET",
-      "meta": "Animax · Now until 1:40 PM",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/120-PautbsS8uEAe.jpg"
+      "title": "3 Meals A Day : Light",
+      "meta": "tvN HD · Now until 4:25 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280",
+      "source": "On TV now"
     }
   ]
 }
