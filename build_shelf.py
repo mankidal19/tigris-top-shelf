@@ -7,6 +7,9 @@ that app's tile is focused in the first row. Sources (config.json):
 
   {"tvmaze": "<service>"}   new and upcoming episodes on a streaming service, from TVmaze's
                             schedule; no account needed
+  {"netflix_top10": "MY"}   a random handful of Netflix's official weekly Top 10 shows for a
+                            country (top10.netflix.com) that TVmaze has pictures for, a new draw
+                            every run; new Netflix episodes (as "tvmaze") fill any free places
   {"youtube": "recommended"} the signed-in YouTube home feed, through yt-dlp; only with
                             --youtube-cookies (a browser) or --youtube-cookie-file
   {"unifi": [channels]}     what's on now (or next) on these unifi TV channels, from the same
@@ -23,6 +26,7 @@ import datetime as dt
 import json
 import os
 import pathlib
+import random
 import re
 import subprocess
 import sys
@@ -137,6 +141,46 @@ def tvmaze_cards(service, schedule):
         if len(wide) == MAX_ITEMS:
             break
     return (wide + (posters if len(wide) < MIN_WIDE else []))[:MAX_ITEMS]
+
+
+# ---- Netflix Top 10 -------------------------------------------------------------------------
+
+NETFLIX_TOP10 = "https://www.netflix.com/tudum/top10/data/all-weeks-countries.tsv"
+COUNTRIES = {"MY": "Malaysia", "SG": "Singapore", "ID": "Indonesia", "KR": "South Korea", "US": "the US"}
+
+
+def netflix_top10(country):
+    """This week's rows for [country] (ISO code); the file covers every country and week, so it
+    is streamed and filtered rather than kept."""
+    req = urllib.request.Request(NETFLIX_TOP10, headers={"User-Agent": UA})
+    rows = []
+    with urllib.request.urlopen(req, timeout=120) as r:
+        header = r.readline().decode("utf-8").rstrip("\n").split("\t")
+        for raw in r:
+            line = raw.decode("utf-8").rstrip("\n").split("\t")
+            if len(line) == len(header) and line[header.index("country_iso2")] == country:
+                rows.append(dict(zip(header, line)))
+    if not rows:
+        raise RuntimeError(f"no Top 10 rows for {country}")
+    week = max(r["week"] for r in rows)
+    return [r for r in rows if r["week"] == week]
+
+
+def netflix_top10_cards(country, label):
+    """MAX_ITEMS of the country's Top 10 shows, drawn at random so the shelf rotates. Only shows
+    TVmaze has wide art for take part (TVmaze has no films)."""
+    pool = []
+    for row in netflix_top10(country):
+        if row["category"] != "TV":
+            continue
+        title = row["show_title"].strip()
+        image = programme_picture("series", title, None, None)
+        if not image:
+            continue
+        new = row.get("cumulative_weeks_in_top_10") == "1"
+        meta = " · ".join(p for p in ("Netflix", f"#{row['weekly_rank']} in TV", "New this week" if new else None) if p)
+        pool.append({"title": title[:120], "meta": meta[:180], "image": image, "source": label})
+    return random.sample(pool, min(MAX_ITEMS, len(pool)))
 
 
 # ---- YouTube --------------------------------------------------------------------------------
@@ -434,17 +478,26 @@ def main():
     feed, schedule = {}, None
     for pkg, source in cfg["apps"].items():
         try:
-            if "tvmaze" in source:
+            if "netflix_top10" in source:
+                code = source["netflix_top10"]
+                cards = netflix_top10_cards(code, source.get("label", f"Top 10 in {COUNTRIES.get(code, code)}"))
+                if len(cards) < MAX_ITEMS:  # fill up with new episodes
+                    if schedule is None:
+                        schedule = tvmaze_schedule(cfg.get("days_back", 7), cfg.get("days_ahead", 7))
+                    seen = {norm(c["title"]) for c in cards}
+                    cards += [dict(c, source="New on Netflix") for c in tvmaze_cards("Netflix", schedule)
+                              if norm(c["title"]) not in seen][:MAX_ITEMS - len(cards)]
+            elif "tvmaze" in source:
                 if schedule is None:
                     schedule = tvmaze_schedule(cfg.get("days_back", 7), cfg.get("days_ahead", 7))
-                cards = tvmaze_cards(source["tvmaze"], schedule)
+                cards = [dict(c, source=source.get("label", f"New on {source['tvmaze']}")) for c in tvmaze_cards(source["tvmaze"], schedule)]
             elif "unifi" in source:
-                cards = unifi_cards(source, cookies)
+                cards = [dict(c, source=source.get("label", "On TV now")) for c in unifi_cards(source, cookies)]
             elif "youtube" in source:
                 if not cookies:
                     log(f"{pkg}: skipped (no YouTube cookies given)")
                     continue
-                cards = youtube_cards(cookies)
+                cards = [dict(c, source=source.get("label", "Recommended for you")) for c in youtube_cards(cookies)]
             else:
                 log(f"{pkg}: unknown source {source}")
                 continue

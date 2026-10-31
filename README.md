@@ -6,7 +6,7 @@ Tigris shows that app's cards as a full-width slideshow.
 
 | App | Package | Source |
 |---|---|---|
-| Netflix | `com.netflix.ninja` | New and upcoming episodes, from [TVmaze](https://www.tvmaze.com) |
+| Netflix | `com.netflix.ninja` | Netflix's official Top 10 shows in Malaysia (random 5 each run), topped up with new episodes |
 | Prime Video | `com.amazon.amazonvideo.livingroom` | New and upcoming episodes, from TVmaze |
 | YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations (needs the `YT_COOKIES` secret) |
 | unifi TV | `com.tm.unifitv.tv` | What's on now on your channels, from unifi TV's programme guide |
@@ -49,7 +49,9 @@ Things to know:
 
 ## The feed
 
-A JSON object keyed by app package; each value is a list of cards (`max_cards` in `config.json`, 5 by default; Tigris takes up to 12):
+A JSON object keyed by app package; each value is a list of cards, each with an optional `source`,
+the small heading Tigris shows over the title ("Top 10 in Malaysia", "On TV now"; set `"label"` on an
+app in `config.json` to change it). The list is (`max_cards` in `config.json`, 5 by default; Tigris takes up to 12):
 
 ```json
 {
@@ -74,6 +76,10 @@ A JSON object keyed by app package; each value is a list of cards (`max_cards` i
 }
 ```
 
+- `{"netflix_top10": "MY"}`: Netflix's official weekly Top 10 shows for that country
+  ([top10.netflix.com](https://top10.netflix.com)), drawn at random each run so the shelf rotates.
+  Only shows TVmaze has wide art for take part (TVmaze has no films, so films are left out);
+  new Netflix episodes fill any free places. Netflix's own data has no pictures.
 - `{"tvmaze": "<service>"}`: one card per show with an episode out in the window, ordered today
   first, then the most recent releases, then what is coming soonest. Batch drops read
   "S2 · 6 episodes". The service name is TVmaze's (`Netflix`, `Prime Video`, `Disney+`,

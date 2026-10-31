@@ -4,7 +4,7 @@
   "days_ahead": 7,
   "apps": {
     "com.netflix.ninja": {
-      "tvmaze": "Netflix"
+      "netflix_top10": "MY"
     },
     "com.amazon.amazonvideo.livingroom": {
       "tvmaze": "Prime Video"
@@ -23,7 +23,9 @@
         "beIN SPORTS 1",
         "beIN SPORTS 2",
         "beIN SPORTS 3",
-        "beIN SPORTS 4"
+        "beIN SPORTS 4",
+        "AXN",
+        "K Plus"
       ],
       "skip": [
         "WOW SHOP",
@@ -42,7 +44,9 @@
           "Animax"
         ],
         "series": [
-          "tvN HD"
+          "tvN HD",
+          "AXN",
+          "K Plus"
         ],
         "youtube": [
           "TV3",
