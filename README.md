@@ -15,7 +15,7 @@ Tigris shows that app's cards as a full-width slideshow.
 
 ## How it runs
 
-GitHub Actions rebuilds `shelf.json` every hour (and on demand: Actions → Update shelf →
+GitHub Actions rebuilds `shelf.json` every 2 hours from 6am to 10pm Malaysia time (and on demand: Actions → Update shelf →
 Run workflow). Point Tigris at:
 
 ```
@@ -114,10 +114,17 @@ to change it:
 
   A picture is only used when the names agree, so a miss shows the logo rather than the wrong show.
   Lookups are remembered in `image_cache.json` (found pictures for 30 days, misses for 3), so each
-  programme is looked up once rather than every hour.
+  programme is looked up once rather than on every run.
 - Pictures are wide (1280×720 or larger) wherever the source has them; the shelf crops posters
   badly.
 - An app whose source fails keeps its previous cards, so a hiccup doesn't empty the shelf.
+- `"never"`: words and phrases that keep a card off every shelf, grouped as `horror` and `lgbtq`
+  (any group name works). They are matched as whole words, ignoring case and punctuation, against
+  the card's title and details and, where the source has them, its genres and description: TVmaze's
+  genres and summary (Netflix, Prime Video, and tvN/AXN/K Plus on unifi TV), AniList's genres and
+  tags such as "Boys' Love" or "LGBTQ+ Themes" (Animax), the unifi TV guide's own genres and
+  descriptions, and Viu's and RTMKlik's synopses. YouTube cards only have a title and channel to go
+  on. Previous cards kept after a failure are checked again too.
 
 Run it by hand with `python3 build_shelf.py` (no YouTube),
 `python3 build_shelf.py --youtube-cookies chrome:Default` (YouTube from a browser) or

@@ -2,6 +2,15 @@
   "max_cards": 5,
   "days_back": 7,
   "days_ahead": 7,
+  "never": {
+    "horror": ["horror", "horor", "seram", "zombie", "zombies", "haunted", "haunting", "exorcist", "exorcism",
+               "possession", "demonic", "slasher", "paranormal", "poltergeist", "hantu", "pontianak", "puaka",
+               "toyol", "polong", "jembalang", "pocong", "kuntilanak", "penanggal", "langsuir", "bunian"],
+    "lgbtq": ["lgbt", "lgbtq", "lgbtqia", "gay", "gays", "lesbian", "lesbians", "bisexual", "transgender",
+              "transsexual", "trans woman", "trans man", "queer", "homosexual", "same sex", "drag queen",
+              "drag race", "boys love", "bl series", "yaoi", "yuri", "shounen ai", "shoujo ai", "girls love",
+              "lgbtq themes", "pride month"]
+  },
   "apps": {
     "com.netflix.ninja": {
       "netflix_top10": "MY"

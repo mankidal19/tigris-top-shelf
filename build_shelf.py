@@ -23,6 +23,9 @@ that app's tile is focused in the first row. Sources (config.json):
                             (sports: TheSportsDB, anime: AniList, series: TVmaze, youtube: a
                             YouTube search); the channel logo stays the fallback
 
+"never" in config.json lists words and phrases (horror, LGBTQ themes) that keep a card off the shelf
+when they appear in its title, details, genres or description, wherever a source gives those.
+
 The shelf is a full-width slideshow, so wide pictures are preferred everywhere. An app whose
 source fails keeps the cards it had in the previous output. Standard library plus yt-dlp.
 """
@@ -47,6 +50,21 @@ TVMAZE = "https://api.tvmaze.com"
 UA = "tigris-top-shelf (github.com/mankidal19/tigris-top-shelf)"
 MAX_ITEMS = 5  # cards per app; config.json "max_cards" changes it (Tigris keeps at most 12)
 MIN_WIDE = 3  # below this many shows with wide art, posters fill a TVmaze shelf up
+NEVER = []  # normalised words and phrases from config.json "never"; see allowed()
+
+
+def allowed(*texts):
+    """False when any text (title, details, genres, description) holds a "never" word or phrase,
+    matched as whole words: "gay" catches "Gay" and "gay-themed" but not "Gaya"."""
+    words = f" {norm(' '.join(t for t in texts if t))} "
+    hit = next((w for w in NEVER if f" {w} " in words), None)
+    if hit:
+        log(f"left out {texts[0]!r} ({hit!r})")
+    return hit is None
+
+
+def plain(html):
+    return re.sub(r"<[^>]+>", " ", html or "")
 
 
 def log(*args):
@@ -136,6 +154,9 @@ def tvmaze_cards(service, schedule):
 
     wide, posters = [], []
     for day, show, ep in sorted(newest.values(), key=order):
+        if not allowed(show["name"], " ".join(show.get("genres") or []), plain(show.get("summary")),
+                       ep.get("name"), plain(ep.get("summary"))):
+            continue
         image, is_wide = show_image(show, ep)
         time.sleep(0.6)
         if not image or not image.startswith("http"):
@@ -179,8 +200,10 @@ def netflix_top10_cards(country, label):
         if row["category"] != "TV":
             continue
         title = row["show_title"].strip()
+        if not allowed(title, row.get("season_title")):
+            continue
         image = programme_picture("series", title, None, None)
-        if not image:
+        if not image or not allowed(title, about("series", title)):
             continue
         new = row.get("cumulative_weeks_in_top_10") == "1"
         meta = " · ".join(p for p in ("Netflix", f"#{row['weekly_rank']} in TV", "New this week" if new else None) if p)
@@ -229,10 +252,12 @@ def youtube_cards(cookies):
         video = raw[2:] if mix else raw
         if len(video) != 11 or not title:
             continue
+        who = e.get("channel") or e.get("uploader")
+        if not allowed(title, who, e.get("description")):
+            continue
         image = thumbnail(video)
         if not image:
             continue
-        who = e.get("channel") or e.get("uploader")
         kind = "Mix" if mix else ("Live" if e.get("live_status") == "is_live" or not e.get("duration")
                                   else duration_text(e.get("duration")))
         cards.append({"title": title[:120], "meta": " · ".join(p for p in ("YouTube", who, kind) if p)[:180],
@@ -391,6 +416,43 @@ def youtube_picture(title, channel, cookies):
     return None
 
 
+def series_about(title):
+    """TVmaze's genres and summary for the show of that exact name ("" when there is none)."""
+    try:
+        show = tvmaze(f"/singlesearch/shows?q={urllib.parse.quote(title)}")
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return ""
+        raise
+    if norm(show.get("name")) != norm(title):
+        return ""
+    return " ".join([*(show.get("genres") or []), plain(show.get("summary"))]).strip()
+
+
+def anime_about(title):
+    """AniList's genres, tags (e.g. "Boys' Love", "LGBTQ+ Themes") and description."""
+    body = json.dumps({"query": "query($q:String){Media(search:$q,type:ANIME){title{romaji english native} synonyms "
+                                "genres tags{name} description}}", "variables": {"q": title}}).encode()
+    req = urllib.request.Request("https://graphql.anilist.co", data=body,
+                                 headers={"Content-Type": "application/json", "User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        media = (json.load(r).get("data") or {}).get("Media") or {}
+    names = [n for n in (media.get("title") or {}).values() if n] + (media.get("synonyms") or [])
+    if not any(norm(n) == norm(title) for n in names):
+        return ""
+    return " ".join([*(media.get("genres") or []), *(t["name"] for t in media.get("tags") or []),
+                     plain(media.get("description"))]).strip()
+
+
+def about(kind, title):
+    """Genres and description for the "never" check, where [kind]'s source has them."""
+    if kind == "series":
+        return cached(f"about|series|{norm(title)}", lambda: series_about(title)) or ""
+    if kind == "anime":
+        return cached(f"about|anime|{norm(title)}", lambda: anime_about(title)) or ""
+    return ""
+
+
 def programme_picture(kind, title, channel, cookies):
     if kind == "sports":
         return cached(f"sports|{norm(title)}", lambda: sports_picture(title))
@@ -423,6 +485,8 @@ def unifi_cards(source, cookies=None):
         meta = " · ".join(p for p in (name, "Live" if is_live else None, when) if p)
         kind = next((k for k, names in source.get("images", {}).items()
                      if wanted.strip().lower() in (n.lower() for n in names)), None)
+        if not allowed(title, about(kind, title)):
+            return
         image = (programme_picture(kind, title, name, cookies) if kind else None) or UNIFI_IMAGE.format(id=channel["cid"])
         (live if is_live else rest).append((order, {"title": title[:120], "meta": meta[:180], "image": image}))
 
@@ -434,8 +498,13 @@ def unifi_cards(source, cookies=None):
         options = []
         for airing in sorted(channel.get("airing") or [], key=lambda a: a.get("sc_st_dt", "")):
             start, end = utc(airing["sc_st_dt"]), utc(airing["sc_ed_dt"])
-            title = english((airing.get("pgm") or {}).get("lon")).strip()
+            pgm = airing.get("pgm") or {}
+            title = english(pgm.get("lon")).strip()
             if end <= now or not title or any(s in title.lower() for s in skip):
+                continue
+            # The guide's own genres ("log") and description ("lod").
+            genres = " ".join(n for g in pgm.get("log") or [] for n in (g.get("n") or []))
+            if not allowed(title, genres, english(pgm.get("lod")), english(pgm.get("losetl"))):
                 continue
             options.append((start, end, title))
         if not options:
@@ -481,7 +550,7 @@ def viu_cards(country, row="Top 10"):
     for rank, show in enumerate(grid.get("product") or [], 1):
         name = (show.get("series_name") or "").strip()
         image = show.get("cover_landscape_image_url") or show.get("cover_image_url")
-        if not name or not image:
+        if not name or not image or not allowed(name, show.get("title"), show.get("synopsis"), show.get("series_category_name")):
             continue
         when = airs.get(norm(name), "").replace(" | ", " ")
         meta = " · ".join(p for p in ("Viu", f"#{rank} in {row}", show.get("series_category_name"), when) if p)
@@ -510,7 +579,9 @@ def rtm_image(item):
 def rtmklik_cards(source, cookies):
     """Saluran Khas first (live events), then the channel cards asked for, then TV1/TV2 now."""
     cards = []
-    for item in rtm_items(RTM_SPECIALS)[:source.get("max_specials", 2)]:
+    specials = [i for i in rtm_items(RTM_SPECIALS)
+                if allowed(i.get("title"), ((i.get("data") or {}).get("description") or ""))]
+    for item in specials[:source.get("max_specials", 2)]:
         if rtm_image(item):
             cards.append({"title": (item.get("title") or "").strip()[:120], "meta": "RTMKlik · Saluran Khas · Live",
                           "image": rtm_image(item)})
@@ -555,6 +626,8 @@ def main():
     global MAX_ITEMS, MIN_WIDE
     MAX_ITEMS = max(1, min(12, int(cfg.get("max_cards", MAX_ITEMS))))
     MIN_WIDE = min(MIN_WIDE, MAX_ITEMS)
+    global NEVER
+    NEVER = sorted({norm(w) for words in (cfg.get("never") or {}).values() for w in words} - {""})
     try:
         previous = json.loads(args.out.read_text())
         previous = previous if isinstance(previous, dict) else {}
@@ -601,9 +674,10 @@ def main():
             feed[pkg] = cards
             log(f"{pkg}: {len(cards)} cards")
         except Exception as e:  # keep what the TV already had
-            log(f"{pkg}: failed ({e}); keeping {len(previous.get(pkg) or [])} previous cards")
-            if previous.get(pkg):
-                feed[pkg] = previous[pkg][:MAX_ITEMS]
+            log(f"{pkg}: failed ({e}); keeping its previous cards")
+            kept = [c for c in previous.get(pkg) or [] if allowed(c.get("title"), c.get("meta"))]
+            if kept:
+                feed[pkg] = kept[:MAX_ITEMS]
 
     cache_text = json.dumps(dict(sorted(cache.items())), ensure_ascii=False, indent=1) + "\n"
     if not CACHE_FILE.exists() or CACHE_FILE.read_text() != cache_text:
