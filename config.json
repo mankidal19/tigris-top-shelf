@@ -1,5 +1,9 @@
 {
-  "network": "Netflix",
   "days_back": 7,
-  "days_ahead": 7
+  "days_ahead": 7,
+  "apps": {
+    "com.netflix.ninja": {"tvmaze": "Netflix"},
+    "com.amazon.amazonvideo.livingroom": {"tvmaze": "Prime Video"},
+    "com.google.android.youtube.tv": {"youtube": "recommended"}
+  }
 }

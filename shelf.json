@@ -1,42 +1,101 @@
-[
-  {
-    "title": "How to Ruin Diwali: Meet the Parents",
-    "meta": "Netflix · S1 · 3 episodes · Out Fri 30 Oct",
-    "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1619461.jpg"
-  },
-  {
-    "title": "Love Village",
-    "meta": "Netflix · S3 · 4 episodes · Out Tue 27 Oct",
-    "image": "https://static.tvmaze.com/uploads/images/original_untouched/459/1148808.jpg"
-  },
-  {
-    "title": "The One About Matthew Perry",
-    "meta": "Netflix · S1 · 3 episodes · Out Tue 27 Oct",
-    "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1619456.jpg"
-  },
-  {
-    "title": "Screwballs",
-    "meta": "Netflix · S6 E12 · Out Sat 24 Oct",
-    "image": "https://static.tvmaze.com/uploads/images/original_untouched/557/1393245.jpg"
-  },
-  {
-    "title": "WWE Monday Night RAW",
-    "meta": "Netflix · S33 E44 · Coming Mon 2 Nov",
-    "image": "https://static.tvmaze.com/uploads/images/original_untouched/222/556828.jpg"
-  },
-  {
-    "title": "Midnight Diner: Tokyo Stories",
-    "meta": "Netflix · S3 E3 · Coming Wed 4 Nov",
-    "image": "https://static.tvmaze.com/uploads/images/original_untouched/219/549746.jpg"
-  },
-  {
-    "title": "Love Is Blind",
-    "meta": "Netflix · S11 E12 · Coming Wed 4 Nov",
-    "image": "https://static.tvmaze.com/uploads/images/original_untouched/239/599875.jpg"
-  },
-  {
-    "title": "Black Doves",
-    "meta": "Netflix · S2 · 6 episodes · Coming Thu 5 Nov",
-    "image": "https://static.tvmaze.com/uploads/images/original_untouched/539/1348673.jpg"
-  }
-]
+{
+  "com.netflix.ninja": [
+    {
+      "title": "How to Ruin Diwali: Meet the Parents",
+      "meta": "Netflix · S1 · 3 episodes · Out Fri 30 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1619461.jpg"
+    },
+    {
+      "title": "Love Village",
+      "meta": "Netflix · S3 · 4 episodes · Out Tue 27 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/459/1148808.jpg"
+    },
+    {
+      "title": "The One About Matthew Perry",
+      "meta": "Netflix · S1 · 3 episodes · Out Tue 27 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1619456.jpg"
+    },
+    {
+      "title": "Screwballs",
+      "meta": "Netflix · S6 E12 · Out Sat 24 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/557/1393245.jpg"
+    },
+    {
+      "title": "WWE Monday Night RAW",
+      "meta": "Netflix · S33 E44 · Coming Mon 2 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/222/556828.jpg"
+    },
+    {
+      "title": "Midnight Diner: Tokyo Stories",
+      "meta": "Netflix · S3 E3 · Coming Wed 4 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/219/549746.jpg"
+    },
+    {
+      "title": "Love Is Blind",
+      "meta": "Netflix · S11 E12 · Coming Wed 4 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/239/599875.jpg"
+    },
+    {
+      "title": "Black Doves",
+      "meta": "Netflix · S2 · 6 episodes · Coming Thu 5 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/539/1348673.jpg"
+    }
+  ],
+  "com.amazon.amazonvideo.livingroom": [
+    {
+      "title": "Last One Laughing: Halloween",
+      "meta": "Prime Video · S1 E4 · Out Fri 30 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1618814.jpg"
+    },
+    {
+      "title": "Helluva Boss",
+      "meta": "Prime Video · S3 · 2 episodes · Out Wed 28 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/589/1472898.jpg"
+    },
+    {
+      "title": "The Traitors Telugu",
+      "meta": "Prime Video · S1 E10 · Coming Thu 5 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/644/1612250.jpg"
+    },
+    {
+      "title": "The Assassin",
+      "meta": "Prime Video · S2 · 6 episodes · Coming Fri 6 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/579/1448166.jpg"
+    },
+    {
+      "title": "A Tale of the Secret Saint",
+      "meta": "Prime Video · S1 E7 · Coming Sat 7 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602819.jpg"
+    },
+    {
+      "title": "LOL: Last One Laughing Philippines",
+      "meta": "Prime Video · S2 E1 · Out Fri 30 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/528/1320355.jpg"
+    },
+    {
+      "title": "The Greatest",
+      "meta": "Prime Video · S1 · 8 episodes · Coming Wed 4 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/646/1615462.jpg"
+    },
+    {
+      "title": "Thursday Night Football on Prime Video",
+      "meta": "Prime Video · S5 E8 · Coming Thu 5 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/414/1036969.jpg"
+    },
+    {
+      "title": "The Traitors Italia",
+      "meta": "Prime Video · S2 · 3 episodes · Coming Fri 6 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/591/1478874.jpg"
+    },
+    {
+      "title": "Campus Drivers",
+      "meta": "Prime Video · S1 · 6 episodes · Coming Fri 6 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/644/1612246.jpg"
+    },
+    {
+      "title": "Demons' Crest",
+      "meta": "Prime Video · S1 E1 · Coming Fri 6 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/646/1616248.jpg"
+    }
+  ]
+}
