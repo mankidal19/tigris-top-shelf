@@ -12,8 +12,8 @@ that app's tile is focused in the first row. Sources (config.json):
                             every run; new Netflix episodes (as "tvmaze") fill any free places
   {"youtube": "recommended"} the signed-in YouTube home feed, through yt-dlp; only with
                             --youtube-cookies (a browser) or --youtube-cookie-file
-  {"youtube_channel": "@X"} one card per show from a streaming service's YouTube channel (its latest
-                            episodes, teasers and trailers), e.g. Viu Malaysia; through yt-dlp
+  {"youtube_playlists": "@X"} the newest videos of a channel's most recently updated show
+                            playlists, e.g. Viu Malaysia's dramas; through yt-dlp
   {"viu": "my"}             a random handful of the Top 10 on Viu's home page for that country, a
                             new draw every run
   {"rtmklik": {...}}        RTMKlik: its special live channels (Saluran Khas), chosen channel cards
@@ -520,52 +520,71 @@ def unifi_cards(source, cookies=None):
     return [card for _, card in sorted(live, key=lambda c: c[0]) + sorted(rest, key=lambda c: c[0])][:MAX_ITEMS]
 
 
-# ---- a service's YouTube channel ----------------------------------------------------------------
+# ---- a service's YouTube playlists ------------------------------------------------------------
 
 TEASER = re.compile(r"\b(teaser|trailer|coming soon|akan datang)\b", re.I)
-EPISODE = re.compile(r"\b(episod|episode|ep)\s*\.?\s*\d+|episod penuh|full episode", re.I)
+EPISODE = re.compile(r"\b(?:episod|episode|ep)\s*\.?\s*(\d+)", re.I)
 
 
-def show_name(video_title):
-    """The show a channel's video is about: "#TheHiddenHand (Dia Perempuan Sialan) : EPISOD 12 |
-    #ViuMalaysia" -> "The Hidden Hand (Dia Perempuan Sialan)"."""
-    t = video_title.split(" | ")[0]
-    t = re.sub(r"^\s*\[[^\]]*\]\s*", "", t)                                   # "[FINAL TRAILER] ..."
-    t = re.sub(r"^\s*(episod penuh|full episode)\s*:\s*", "", t, flags=re.I)   # "Episod Penuh : ..."
-    t = re.split(r"\s*(?::\s*(?:episod|episode)\b|-\s*(?:ep|episod|episode)\s*\d|[-\[(]?\s*(?:teaser|trailer)\b|\(bm sub\)|\[bm sub\]|\bbm sub\b)",
-                 t, flags=re.I)[0]
-    t = re.sub(r"#([A-Za-z0-9]+)", lambda m: re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", m.group(1)), t)  # #TheHiddenHand
-    t = " ".join(t.replace("-", " - ").split()).strip(" -:")
-    t = re.sub(r"\s+-\s*$", "", t)
-    return t.title() if t.isupper() else t
-
-
-def channel_cards(source, cookies):
-    """One card per show among the channel's latest uploads, newest first."""
-    url = f"https://www.youtube.com/{source['youtube_channel'].lstrip('/')}/videos"
-    run = subprocess.run(["yt-dlp", *(cookies or []), "--flat-playlist", "-J", "--playlist-end", "40", "--no-warnings", url],
+def yt_dlp_json(url, cookies, *extra):
+    run = subprocess.run(["yt-dlp", *(cookies or []), "--flat-playlist", "-J", "--no-warnings", *extra, url],
                          capture_output=True, text=True, timeout=300)
     if run.returncode != 0:
         raise RuntimeError(run.stderr.strip().splitlines()[-1] if run.stderr.strip() else "yt-dlp failed")
+    return json.loads(run.stdout)
+
+
+def video_label(title):
+    """"#BayanganDendam : EPISOD 3 | #ViuMalaysia" -> "Episode 3"; teasers and trailers -> "Coming soon"."""
+    found = EPISODE.search(title)
+    if found:
+        return f"Episode {int(found.group(1))}"
+    return "Coming soon" if TEASER.search(title) else None
+
+
+def playlist_cards(source, cookies):
+    """The channel's most recently updated show playlists ("playlists", 3 by default) and the newest
+    two videos of each, taking turns between the shows. One yt-dlp request for the list, one per
+    playlist."""
+    channel = source["youtube_playlists"].lstrip("/")
+    # sort=lad: by the last video added, the channel's own "Last video added" order.
+    listing = yt_dlp_json(f"https://www.youtube.com/{channel}/playlists?view=1&sort=lad", cookies, "--playlist-end", "12")
     skip = [s.lower() for s in source.get("skip", [])]
     service = source.get("service", "")
-    cards, seen = [], set()
-    for e in json.loads(run.stdout).get("entries") or []:
-        title = (e or {}).get("title") or ""
-        if len((e or {}).get("id") or "") != 11 or not title or any(s in title.lower() for s in skip):
+    shows, seen = [], set()
+    for p in listing.get("entries") or []:
+        name = " ".join(((p or {}).get("title") or "").split())
+        # "#ViuandiQIYI", "#ViuEventHighlights": hashtag playlists are collections, not shows.
+        if not name or name.startswith("#") or any(s in name.lower() for s in skip) or norm(name) in seen:
             continue
-        show = show_name(title)
-        if len(norm(show)) < 3 or norm(show) in seen or not allowed(show, title, e.get("description")):
+        if not allowed(name):
             continue
-        image = thumbnail(e["id"])
-        if not image:
-            continue
-        seen.add(norm(show))
-        kind = "Coming soon" if TEASER.search(title) else ("New episode" if EPISODE.search(title) else None)
-        cards.append({"title": show[:120], "meta": " · ".join(p for p in (service, kind) if p)[:180], "image": image})
-        if len(cards) == MAX_ITEMS:
+        videos = []
+        for e in yt_dlp_json(f"https://www.youtube.com/playlist?list={p['id']}", cookies).get("entries") or []:
+            title = (e or {}).get("title") or ""
+            if len((e or {}).get("id") or "") == 11 and title and not any(s in title.lower() for s in skip) \
+                    and allowed(name, title, e.get("description")):
+                videos.append(e)
+        # Playlists run either way; the highest episode number is the newest, else the first video.
+        def episode(e):
+            found = EPISODE.search(e["title"])
+            return int(found.group(1)) if found else -1
+        newest = sorted(videos, key=episode, reverse=True) if any(episode(e) >= 0 for e in videos) else videos
+        cards = []
+        for e in newest:
+            image = thumbnail(e["id"])
+            if image:
+                meta = " · ".join(x for x in (service, video_label(e["title"])) if x)
+                cards.append({"title": name[:120], "meta": meta[:180], "image": image})
+            if len(cards) == 2:
+                break
+        if cards:
+            seen.add(norm(name))
+            shows.append(cards)
+        if len(shows) == source.get("playlists", 3):
             break
-    return cards
+    # Each show's newest first, then each one's second.
+    return [c for step in range(2) for cards in shows for c in cards[step:step + 1]][:MAX_ITEMS]
 
 
 # ---- Viu ------------------------------------------------------------------------------------
@@ -705,9 +724,9 @@ def main():
                 if schedule is None:
                     schedule = tvmaze_schedule(cfg.get("days_back", 7), cfg.get("days_ahead", 7))
                 cards = [dict(c, source=source.get("label", f"New on {source['tvmaze']}")) for c in tvmaze_cards(source["tvmaze"], schedule)]
-            elif "youtube_channel" in source:
+            elif "youtube_playlists" in source:
                 cards = [dict(c, source=source.get("label", f"New on {source.get('service', 'YouTube')}"))
-                         for c in channel_cards(source, cookies)]
+                         for c in playlist_cards(source, cookies)]
             elif "viu" in source:
                 cards = [dict(c, source=source.get("label", "Top 10 on Viu")) for c in viu_cards(source["viu"], source.get("row", "Top 10"))]
             elif "rtmklik" in source:

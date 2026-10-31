@@ -84,9 +84,12 @@
       }
     },
     "com.vuclip.viu.tv": {
-      "youtube_channel": "@ViuMalaysia",
+      "youtube_playlists": "@ViuMalaysia",
+      "playlists": 3,
       "service": "Viu",
       "skip": [
+        "viu shorts",
+        "episod penuh",
         "throwback",
         "#shorts"
       ]
