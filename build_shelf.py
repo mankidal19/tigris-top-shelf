@@ -745,6 +745,9 @@ def main():
                     help='browser to read YouTube cookies from, as yt-dlp names it (e.g. "chrome:Default"); '
                          "without it (or --youtube-cookie-file) YouTube apps are left out")
     ap.add_argument("--youtube-cookie-file", metavar="FILE", help="Netscape cookies.txt holding youtube.com cookies")
+    ap.add_argument("--only", metavar="KINDS",
+                    help='rebuild only apps with these sources, comma-separated (e.g. "unifi,rtmklik"); '
+                         "the other apps keep their cards from the previous output")
     args = ap.parse_args()
     cookies = (["--cookies-from-browser", args.youtube_cookies] if args.youtube_cookies
                else ["--cookies", args.youtube_cookie_file] if args.youtube_cookie_file else None)
@@ -770,7 +773,13 @@ def main():
     except (OSError, ValueError):
         cache = {}
     feed, schedule = {}, None
+    only = {k.strip() for k in args.only.split(",") if k.strip()} if args.only else None
     for pkg, source in cfg["apps"].items():
+        # The frequent run refreshes what's on TV now; everything else stays as the full run left it.
+        if only is not None and not only & set(source):
+            if previous.get(pkg):
+                feed[pkg] = previous[pkg]
+            continue
         try:
             if "netflix_top10" in source:
                 code = source["netflix_top10"]

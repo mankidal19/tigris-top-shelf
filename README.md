@@ -15,7 +15,10 @@ Tigris shows that app's cards as a full-width slideshow.
 
 ## How it runs
 
-GitHub Actions rebuilds `shelf.json` every 2 hours from 6am to 10pm Malaysia time (and on demand: Actions → Update shelf →
+GitHub Actions rebuilds `shelf.json` every 2 hours from 6am to 10pm Malaysia time, and refreshes
+just the live-TV apps (unifi TV, RTMKlik; `--only unifi,rtmklik`) on the half hours between, until
+midnight, so "On TV now" is never more than about half an hour old while YouTube is asked no more
+often than before (and on demand: Actions → Update shelf →
 Run workflow). Point Tigris at:
 
 ```
