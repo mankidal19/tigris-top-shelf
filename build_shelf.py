@@ -28,8 +28,8 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent
 TVMAZE = "https://api.tvmaze.com"
 UA = "tigris-top-shelf (github.com/mankidal19/tigris-top-shelf)"
-MAX_ITEMS = 12  # Tigris drops anything past 12
-MIN_WIDE = 6  # below this many shows with wide art, posters fill a TVmaze shelf up
+MAX_ITEMS = 5  # cards per app; config.json "max_cards" changes it (Tigris keeps at most 12)
+MIN_WIDE = 3  # below this many shows with wide art, posters fill a TVmaze shelf up
 
 
 def log(*args):
@@ -208,6 +208,9 @@ def main():
                else ["--cookies", args.youtube_cookie_file] if args.youtube_cookie_file else None)
 
     cfg = json.loads((ROOT / "config.json").read_text())
+    global MAX_ITEMS, MIN_WIDE
+    MAX_ITEMS = max(1, min(12, int(cfg.get("max_cards", MAX_ITEMS))))
+    MIN_WIDE = min(MIN_WIDE, MAX_ITEMS)
     try:
         previous = json.loads(args.out.read_text())
         previous = previous if isinstance(previous, dict) else {}
@@ -236,7 +239,7 @@ def main():
         except Exception as e:  # keep what the TV already had
             log(f"{pkg}: failed ({e}); keeping {len(previous.get(pkg) or [])} previous cards")
             if previous.get(pkg):
-                feed[pkg] = previous[pkg]
+                feed[pkg] = previous[pkg][:MAX_ITEMS]
 
     text = json.dumps(feed, ensure_ascii=False, indent=2) + "\n"
     if args.out.exists() and args.out.read_text() == text:

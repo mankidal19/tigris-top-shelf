@@ -1,4 +1,5 @@
 {
+  "max_cards": 5,
   "days_back": 7,
   "days_ahead": 7,
   "apps": {

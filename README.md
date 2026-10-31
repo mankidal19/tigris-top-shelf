@@ -48,7 +48,7 @@ Things to know:
 
 ## The feed
 
-A JSON object keyed by app package; each value is a list of at most 12 cards:
+A JSON object keyed by app package; each value is a list of cards (`max_cards` in `config.json`, 5 by default; Tigris takes up to 12):
 
 ```json
 {
@@ -62,6 +62,7 @@ A JSON object keyed by app package; each value is a list of at most 12 cards:
 
 ```json
 {
+  "max_cards": 5,
   "days_back": 7,
   "days_ahead": 7,
   "apps": {
