@@ -253,15 +253,24 @@ def show_of(video_title):
     return name if len(norm(name)) >= 3 else None
 
 
+def video_category(video_id):
+    """YouTube's category for a video ("Music", "Gaming", "Sports", ...), from its watch page."""
+    req = urllib.request.Request(f"https://www.youtube.com/watch?v={video_id}",
+                                 headers={"User-Agent": "Mozilla/5.0 (" + UA + ")", "Accept-Language": "en"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        found = re.search(r'"category":("[^"]+")', r.read().decode("utf-8", "replace"))
+    return json.loads(found.group(1)) if found else ""  # a JSON string: "Science \u0026 Technology"
+
+
 def youtube_cards(cookies):
-    """The signed-in YouTube home feed; [cookies] are yt-dlp's cookie options."""
+    """The signed-in YouTube home feed, one video per category; [cookies] are yt-dlp's cookie options."""
     run = subprocess.run(
         ["yt-dlp", *cookies, "--flat-playlist", "-J", "--playlist-end", "30", "--no-warnings", ":ytrec"],
         capture_output=True, text=True, timeout=300,
     )
     if run.returncode != 0:
         raise RuntimeError(run.stderr.strip().splitlines()[-1] if run.stderr.strip() else f"yt-dlp exit {run.returncode}")
-    cards = []
+    cards, categories = [], set()
     for e in json.loads(run.stdout).get("entries") or []:
         if not e:
             continue
@@ -278,11 +287,16 @@ def youtube_cards(cookies):
         show = None if mix else show_of(title)
         if show and not allowed(title, about("anime", show), about("series", show)):
             continue
+        # One of each category, so five music videos don't fill the shelf. Unknown ones pass.
+        category = cached(f"category|{video}", lambda: video_category(video)) or ""
+        if category and category in categories:
+            continue
         image = thumbnail(video)
         if not image:
             continue
         kind = "Mix" if mix else ("Live" if e.get("live_status") == "is_live" or not e.get("duration")
                                   else duration_text(e.get("duration")))
+        categories.add(category)
         cards.append({"title": title[:120], "meta": " · ".join(p for p in ("YouTube", who, kind) if p)[:180],
                       "image": image})
         if len(cards) == MAX_ITEMS:
@@ -777,6 +791,9 @@ def main():
             if kept:
                 feed[pkg] = kept[:MAX_ITEMS]
 
+    # Expired entries would be looked up again anyway; dropping them keeps the file from growing.
+    today = dt.date.today()
+    cache = {k: v for k, v in cache.items() if (today - dt.date.fromisoformat(v["at"])).days < HIT_DAYS}
     cache_text = json.dumps(dict(sorted(cache.items())), ensure_ascii=False, indent=1) + "\n"
     if not CACHE_FILE.exists() or CACHE_FILE.read_text() != cache_text:
         write_atomically(CACHE_FILE, cache_text)

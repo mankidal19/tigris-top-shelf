@@ -87,7 +87,9 @@ to change it:
   first, then the most recent releases, then what is coming soonest. Batch drops read
   "S2 · 6 episodes". The service name is TVmaze's (`Netflix`, `Prime Video`, `Disney+`,
   `HBO Max`, `iQIYI`, …).
-- `{"youtube": "recommended"}`: the YouTube home feed, only with YouTube cookies (see above).
+- `{"youtube": "recommended"}`: the YouTube home feed, only with YouTube cookies (see above), one
+  video per YouTube category (Music, Gaming, Sports, …) so no category fills the shelf. A video's
+  category is read once from its watch page and remembered.
   Mixes show the picture of their first video.
 - `{"unifi": ["TV3", "beIN SPORTS 1", …], "skip": ["WOW SHOP"]}`: per channel (names as unifi TV
   shows them), the programme on now, or a live event starting within half an hour; live events
