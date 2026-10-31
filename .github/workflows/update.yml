@@ -1,0 +1,32 @@
+name: Update shelf
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # every 6 hours; TVmaze's schedule changes about daily
+  workflow_dispatch:
+  push:
+    paths: [build_shelf.py, config.json]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-shelf
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build shelf.json
+        run: python3 build_shelf.py
+      - name: Commit if it changed
+        run: |
+          if git diff --quiet -- shelf.json; then echo "No changes"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git add shelf.json
+          git commit -m "Update shelf.json"
+          git push
