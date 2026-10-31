@@ -49,9 +49,10 @@ Things to know:
 
 ## The feed
 
-A JSON object keyed by app package; each value is a list of cards, each with an optional `source`,
-the small heading Tigris shows over the title ("Top 10 in Malaysia", "On TV now"; set `"label"` on an
-app in `config.json` to change it). The list is (`max_cards` in `config.json`, 5 by default; Tigris takes up to 12):
+A JSON object keyed by app package. Each value is a list of at most `max_cards` cards (5 by default,
+set in `config.json`; Tigris takes up to 12). Each card may carry `source`, the small heading Tigris
+shows over the title ("Top 10 in Malaysia", "On TV now"); set `"label"` on an app in `config.json`
+to change it:
 
 ```json
 {
