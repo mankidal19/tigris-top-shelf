@@ -84,7 +84,12 @@
       }
     },
     "com.vuclip.viu.tv": {
-      "viu": "my"
+      "youtube_channel": "@ViuMalaysia",
+      "service": "Viu",
+      "skip": [
+        "throwback",
+        "#shorts"
+      ]
     }
   }
 }

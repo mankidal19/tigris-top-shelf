@@ -7,7 +7,7 @@ Tigris shows that app's cards as a full-width slideshow.
 | App | Package | Source |
 |---|---|---|
 | Netflix | `com.netflix.ninja` | Netflix's official Top 10 shows in Malaysia (random 5 each run), topped up with new episodes |
-| Viu | `com.vuclip.viu.tv` | Viu's own Top 10 in Malaysia (random 5 each run), from its home page |
+| Viu | `com.vuclip.viu.tv` | New episodes and upcoming shows from Viu Malaysia's YouTube channel |
 | Prime Video | `com.amazon.amazonvideo.livingroom` | New and upcoming episodes, from TVmaze |
 | YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations (needs the `YT_COOKIES` secret) |
 | unifi TV | `com.tm.unifitv.tv` | What's on now on your channels, from unifi TV's programme guide |
@@ -93,9 +93,15 @@ to change it:
   shows them), the programme on now, or a live event starting within half an hour; live events
   first, then the channels in the order listed. Titles containing a `skip` text are passed over.
   `"per_channel": 3` also shows each channel's next programmes, alternating channels.
+- `{"youtube_channel": "@ViuMalaysia", "service": "Viu", "skip": ["#shorts"]}`: one card per show
+  among the channel's latest uploads, newest first, named from the video titles and marked "New
+  episode" or "Coming soon"; through yt-dlp (one request a run). Titles containing a `skip` text are
+  passed over.
 - `{"viu": "my"}`: the "Top 10" row of Viu's home page for that country (`"row"` picks another,
   e.g. "New Release"), drawn at random each run, with Viu's 1920×1080 covers and air times where
-  Viu gives them. The page carries its rows as JSON, so it is one ordinary page fetch.
+  Viu gives them. The page carries its rows as JSON, so it is one ordinary page fetch. Viu only
+  serves the page to Malaysian connections, so this works from a computer in Malaysia but not on
+  GitHub's servers; the feed uses the YouTube channel instead.
 - `{"rtmklik": {"max_specials": 2, "channels": ["Sukan+"], "guide": {"unifi": ["TV1", "TV2"]}}}`:
   RTMKlik's special live channels (Saluran Khas, e.g. MotoGP or election coverage) with RTM's own
   banners, then a card for each channel named (RTMKlik publishes no schedule, so these say only
