@@ -83,8 +83,20 @@ A JSON object keyed by app package; each value is a list of cards (`max_cards` i
 - `{"unifi": ["TV3", "beIN SPORTS 1", …], "skip": ["WOW SHOP"]}`: per channel (names as unifi TV
   shows them), the programme on now, or a live event starting within half an hour; live events
   first, then the channels in the order listed. Titles containing a `skip` text are passed over.
-  The guide has no programme pictures, so cards show the channel's logo. It is the guide unifi TV's
-  web player reads, without a login; not a documented API, so it may change.
+  It is the guide unifi TV's web player reads, without a login; not a documented API, so it may change.
+  The guide has no programme pictures, so `"images"` says where each channel's come from, with the
+  channel's logo as the fallback:
+  - `sports`: [TheSportsDB](https://www.thesportsdb.com) (free public key): the match's own
+    picture when the title names one ("Villarreal vs Espanyol") within ten days, else the league's
+    fan art (LaLiga, Premier League, Champions/Europa League, F1, MotoGP, A-League, …);
+  - `anime`: [AniList](https://anilist.co)'s banner;
+  - `series`: TVmaze's wide art;
+  - `youtube`: the thumbnail of a YouTube video whose title contains the programme's whole name
+    (good for TV3/TV9 shows, whose clips the channels upload); needs the YouTube cookies.
+
+  A picture is only used when the names agree, so a miss shows the logo rather than the wrong show.
+  Lookups are remembered in `image_cache.json` (found pictures for 30 days, misses for 3), so each
+  programme is looked up once rather than every hour.
 - Pictures are wide (1280×720 or larger) wherever the source has them; the shelf crops posters
   badly.
 - An app whose source fails keeps its previous cards, so a hiccup doesn't empty the shelf.

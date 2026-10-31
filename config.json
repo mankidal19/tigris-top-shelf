@@ -28,7 +28,27 @@
       "skip": [
         "WOW SHOP",
         "Catch New Football Season"
-      ]
+      ],
+      "images": {
+        "sports": [
+          "SPOTV",
+          "SPOTV2",
+          "beIN SPORTS 1",
+          "beIN SPORTS 2",
+          "beIN SPORTS 3",
+          "beIN SPORTS 4"
+        ],
+        "anime": [
+          "Animax"
+        ],
+        "series": [
+          "tvN HD"
+        ],
+        "youtube": [
+          "TV3",
+          "TV9"
+        ]
+      }
     }
   }
 }

@@ -10,7 +10,10 @@ that app's tile is focused in the first row. Sources (config.json):
   {"youtube": "recommended"} the signed-in YouTube home feed, through yt-dlp; only with
                             --youtube-cookies (a browser) or --youtube-cookie-file
   {"unifi": [channels]}     what's on now (or next) on these unifi TV channels, from the same
-                            public programme guide unifi TV's web player reads; live events first
+                            public programme guide unifi TV's web player reads; live events first.
+                            "images" says where each channel's programme pictures come from
+                            (sports: TheSportsDB, anime: AniList, series: TVmaze, youtube: a
+                            YouTube search); the channel logo stays the fallback
 
 The shelf is a full-width slideshow, so wide pictures are preferred everywhere. An app whose
 source fails keeps the cards it had in the previous output. Standard library plus yt-dlp.
@@ -20,6 +23,7 @@ import datetime as dt
 import json
 import os
 import pathlib
+import re
 import subprocess
 import sys
 import tempfile
@@ -232,7 +236,125 @@ def clock(t):
     return t.strftime("%I:%M %p").lstrip("0")
 
 
-def unifi_cards(source):
+# ---- programme pictures ---------------------------------------------------------------------
+
+SPORTSDB = "https://www.thesportsdb.com/api/v1/json/123"  # the free public key; rate-limited
+LEAGUES = {  # words in a title -> TheSportsDB league, whose fan art stands in when there's no match picture
+    "laliga": 4335, "la liga": 4335, "premier league": 4328, "champions league": 4480, "europa league": 4481,
+    "formula 1": 4370, "motogp": 4407, "ligue 1": 4334, "serie a": 4332, "bundesliga": 4331,
+    "a-league": 4356, "alm": 4356,
+}
+CACHE_FILE = ROOT / "image_cache.json"
+HIT_DAYS, MISS_DAYS = 30, 3
+cache = {}
+
+
+def norm(text):
+    return " ".join(re.sub(r"[^a-z0-9]+", " ", (text or "").lower()).split())
+
+
+def cached(key, find):
+    """[find]'s answer for [key], remembered: pictures for a month, misses for a few days."""
+    hit = cache.get(key)
+    today = dt.date.today()
+    if hit and (today - dt.date.fromisoformat(hit["at"])).days < (HIT_DAYS if hit["url"] else MISS_DAYS):
+        return hit["url"]
+    try:
+        url = find()
+    except Exception as e:
+        log(f"picture lookup failed for {key!r}: {e}")
+        return hit["url"] if hit else None
+    cache[key] = {"url": url, "at": today.isoformat()}
+    time.sleep(0.6)
+    return url
+
+
+def same_team(ours, theirs):
+    a, b = norm(ours), norm(theirs)
+    return bool(a and b) and (a == b or a in b or b in a)
+
+
+def sports_picture(title):
+    """The match's own thumbnail when the title names one ("X vs Y"), else the league's fan art."""
+    for part in title.split(" - "):
+        teams = re.split(r"\s+vs\.?\s+", part, flags=re.I)
+        if len(teams) != 2:
+            continue
+        home, away = (t.strip(" .") for t in teams)
+        query = urllib.parse.quote(f"{home}_vs_{away}".replace(" ", "_"))
+        events = http_json(f"{SPORTSDB}/searchevents.php?e={query}").get("event") or []
+        today = dt.date.today()
+        for e in sorted(events, key=lambda e: abs((dt.date.fromisoformat(e.get("dateEvent") or "1970-01-01") - today).days)):
+            near = abs((dt.date.fromisoformat(e.get("dateEvent") or "1970-01-01") - today).days) <= 10
+            if near and e.get("strThumb") and same_team(home, e.get("strHomeTeam")) and same_team(away, e.get("strAwayTeam")):
+                return e["strThumb"]
+    words = f" {norm(title)} "
+    for name, league in LEAGUES.items():
+        if f" {norm(name)} " in words:
+            info = (http_json(f"{SPORTSDB}/lookupleague.php?id={league}").get("leagues") or [{}])[0]
+            return info.get("strFanart1") or info.get("strFanart2") or info.get("strBanner")
+    return None
+
+
+def anime_picture(title):
+    """AniList's wide banner, when one of the show's names is the title."""
+    body = json.dumps({"query": "query($q:String){Media(search:$q,type:ANIME){title{romaji english native} synonyms bannerImage}}",
+                       "variables": {"q": title}}).encode()
+    req = urllib.request.Request("https://graphql.anilist.co", data=body,
+                                 headers={"Content-Type": "application/json", "User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        media = (json.load(r).get("data") or {}).get("Media") or {}
+    names = [n for n in (media.get("title") or {}).values() if n] + (media.get("synonyms") or [])
+    return media.get("bannerImage") if any(norm(n) == norm(title) for n in names) else None
+
+
+def series_picture(title):
+    """TVmaze's wide art for the show of that exact name."""
+    try:
+        show = tvmaze(f"/singlesearch/shows?q={urllib.parse.quote(title)}&embed=images")
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return None
+        raise
+    if norm(show.get("name")) != norm(title):
+        return None
+    images = show.get("_embedded", {}).get("images") or []
+    for i in sorted(images, key=lambda i: (i.get("type") != "background", not i.get("main"))):
+        o = i.get("resolutions", {}).get("original") or {}
+        w, h = o.get("width") or 0, o.get("height") or 0
+        if o.get("url") and w >= 960 and h and 1.3 <= w / h <= 2.4:
+            return o["url"]
+    return None
+
+
+def youtube_picture(title, channel, cookies):
+    """The thumbnail of a YouTube video whose title contains the programme's whole name."""
+    if not cookies:
+        return None
+    run = subprocess.run(["yt-dlp", *cookies, "--flat-playlist", "-J", "--no-warnings", f"ytsearch5:{title} {channel}"],
+                         capture_output=True, text=True, timeout=180)
+    if run.returncode != 0:
+        raise RuntimeError(run.stderr.strip().splitlines()[-1] if run.stderr.strip() else "yt-dlp failed")
+    want = norm(re.sub(r"\b(19|20)\d\d\b", "", title))  # "SUMBANG SUARA 2022": the year rarely appears
+    for e in json.loads(run.stdout).get("entries") or []:
+        if e and len(e.get("id") or "") == 11 and want and want in norm(e.get("title")):
+            return thumbnail(e["id"])
+    return None
+
+
+def programme_picture(kind, title, channel, cookies):
+    if kind == "sports":
+        return cached(f"sports|{norm(title)}", lambda: sports_picture(title))
+    if kind == "anime":
+        return cached(f"anime|{norm(title)}", lambda: anime_picture(title))
+    if kind == "series":
+        return cached(f"series|{norm(title)}", lambda: series_picture(title))
+    if kind == "youtube" and cookies:
+        return cached(f"youtube|{norm(channel)}|{norm(title)}", lambda: youtube_picture(title, channel, cookies))
+    return None
+
+
+def unifi_cards(source, cookies=None):
     """Per channel, the programme on now (skipping filler), or a live event starting within half an
     hour; live events first, then the channels in the order given."""
     tz = zoneinfo.ZoneInfo(source.get("timezone", "Asia/Kuala_Lumpur"))
@@ -262,8 +384,12 @@ def unifi_cards(source):
         title = title.removeprefix("(L)").strip()
         when = (f"Now until {clock(end.astimezone(tz))}" if start <= now
                 else f"{clock(start.astimezone(tz))} – {clock(end.astimezone(tz))}")
-        meta = " · ".join(p for p in (english(channel.get("lon")), "Live" if is_live else None, when) if p)
-        card = {"title": title[:120], "meta": meta[:180], "image": UNIFI_IMAGE.format(id=channel["cid"])}
+        name = english(channel.get("lon"))
+        meta = " · ".join(p for p in (name, "Live" if is_live else None, when) if p)
+        kind = next((k for k, names in source.get("images", {}).items()
+                     if wanted.strip().lower() in (n.lower() for n in names)), None)
+        image = (programme_picture(kind, title, name, cookies) if kind else None) or UNIFI_IMAGE.format(id=channel["cid"])
+        card = {"title": title[:120], "meta": meta[:180], "image": image}
         (live if is_live else rest).append(card)
     return (live + rest)[:MAX_ITEMS]
 
@@ -300,6 +426,11 @@ def main():
     except (OSError, ValueError):
         previous = {}
 
+    global cache
+    try:
+        cache = json.loads(CACHE_FILE.read_text())
+    except (OSError, ValueError):
+        cache = {}
     feed, schedule = {}, None
     for pkg, source in cfg["apps"].items():
         try:
@@ -308,7 +439,7 @@ def main():
                     schedule = tvmaze_schedule(cfg.get("days_back", 7), cfg.get("days_ahead", 7))
                 cards = tvmaze_cards(source["tvmaze"], schedule)
             elif "unifi" in source:
-                cards = unifi_cards(source)
+                cards = unifi_cards(source, cookies)
             elif "youtube" in source:
                 if not cookies:
                     log(f"{pkg}: skipped (no YouTube cookies given)")
@@ -326,6 +457,9 @@ def main():
             if previous.get(pkg):
                 feed[pkg] = previous[pkg][:MAX_ITEMS]
 
+    cache_text = json.dumps(dict(sorted(cache.items())), ensure_ascii=False, indent=1) + "\n"
+    if not CACHE_FILE.exists() or CACHE_FILE.read_text() != cache_text:
+        write_atomically(CACHE_FILE, cache_text)
     text = json.dumps(feed, ensure_ascii=False, indent=2) + "\n"
     if args.out.exists() and args.out.read_text() == text:
         log("unchanged")
