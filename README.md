@@ -130,8 +130,9 @@ to change it:
   the card's title and details and, where the source has them, its genres and description: TVmaze's
   genres and summary (Netflix, Prime Video, and tvN/AXN/K Plus on unifi TV), AniList's genres and
   tags such as "Boys' Love" or "LGBTQ+ Themes" (Animax), the unifi TV guide's own genres and
-  descriptions, and Viu's and RTMKlik's synopses. YouTube cards only have a title and channel to go
-  on. Previous cards kept after a failure are checked again too.
+  descriptions, and Viu's and RTMKlik's synopses. A YouTube video that is a show's trailer or
+  episode ("Show Name | Official Trailer | Crunchyroll") is also checked against that show's AniList
+  and TVmaze genres and tags; other YouTube videos only have their title and channel to go on. Previous cards kept after a failure are checked again too.
 
 Run it by hand with `python3 build_shelf.py` (no YouTube),
 `python3 build_shelf.py --youtube-cookies chrome:Default` (YouTube from a browser) or

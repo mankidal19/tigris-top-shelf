@@ -236,6 +236,23 @@ def duration_text(seconds):
     return f"{minutes} min" if minutes < 60 else f"{minutes // 60} h {minutes % 60} min"
 
 
+TRAILER_WORDS = re.compile(r"\b(official|final|main|teaser|trailer|clip|opening|ending|pv|preview|full episode|"
+                           r"episod penuh|episode|episod|ep|season|s\d+|\d+)\b", re.I)
+
+
+def show_of(video_title):
+    """The show a trailer or episode is from, for the genre lookups: "The Guy She Was Interested In
+    Wasn't a Guy at All | Official Trailer | Crunchyroll" -> "The Guy She Was Interested In Wasn't a
+    Guy at All". None when the title doesn't name one."""
+    parts = [p.strip() for p in re.split(r"\s+[|｜]\s+", video_title) if p.strip()]
+    if len(parts) < 2 and not TRAILER_WORDS.search(video_title):
+        return None  # an ordinary video, not a show's trailer or episode
+    name = re.sub(r"[\[(【][^\])】]*[\])】]", " ", parts[0] if parts else video_title)
+    name = re.split(r"\s+[-–:]\s+(?=.*\b(?:trailer|teaser|episode|episod|ep|season)\b)", name, flags=re.I)[0]
+    name = re.sub(r"[\s:–-]*\b(?:season|s)\s*\d+\s*$", "", " ".join(name.split()), flags=re.I).strip(" -:#")
+    return name if len(norm(name)) >= 3 else None
+
+
 def youtube_cards(cookies):
     """The signed-in YouTube home feed; [cookies] are yt-dlp's cookie options."""
     run = subprocess.run(
@@ -256,6 +273,10 @@ def youtube_cards(cookies):
             continue
         who = e.get("channel") or e.get("uploader")
         if not allowed(title, who, e.get("description")):
+            continue
+        # A trailer or episode of a show: that show's genres and tags (AniList, TVmaze) too.
+        show = None if mix else show_of(title)
+        if show and not allowed(title, about("anime", show), about("series", show)):
             continue
         image = thumbnail(video)
         if not image:
@@ -437,8 +458,13 @@ def anime_about(title):
                                 "genres tags{name} description}}", "variables": {"q": title}}).encode()
     req = urllib.request.Request("https://graphql.anilist.co", data=body,
                                  headers={"Content-Type": "application/json", "User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        media = (json.load(r).get("data") or {}).get("Media") or {}
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            media = (json.load(r).get("data") or {}).get("Media") or {}
+    except urllib.error.HTTPError as e:
+        if e.code == 404:  # AniList's answer when nothing matches
+            return ""
+        raise
     names = [n for n in (media.get("title") or {}).values() if n] + (media.get("synonyms") or [])
     if not any(norm(n) == norm(title) for n in names):
         return ""
@@ -557,7 +583,7 @@ def playlist_cards(source, cookies):
         # "#ViuandiQIYI", "#ViuEventHighlights": hashtag playlists are collections, not shows.
         if not name or name.startswith("#") or any(s in name.lower() for s in skip) or norm(name) in seen:
             continue
-        if not allowed(name):
+        if not allowed(name, about("series", name)):
             continue
         videos = []
         for e in yt_dlp_json(f"https://www.youtube.com/playlist?list={p['id']}", cookies).get("entries") or []:
