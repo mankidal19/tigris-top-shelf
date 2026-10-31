@@ -12,6 +12,9 @@ that app's tile is focused in the first row. Sources (config.json):
                             every run; new Netflix episodes (as "tvmaze") fill any free places
   {"youtube": "recommended"} the signed-in YouTube home feed, through yt-dlp; only with
                             --youtube-cookies (a browser) or --youtube-cookie-file
+  {"rtmklik": {...}}        RTMKlik: its special live channels (Saluran Khas), chosen channel cards
+                            (RTMKlik publishes no schedule) and, from the unifi TV guide, what's on
+                            TV1/TV2 now
   {"unifi": [channels]}     what's on now (or next) on these unifi TV channels, from the same
                             public programme guide unifi TV's web player reads; live events first.
                             "images" says where each channel's programme pictures come from
@@ -444,6 +447,46 @@ def unifi_cards(source, cookies=None):
     return [card for _, card in sorted(live, key=lambda c: c[0]) + sorted(rest, key=lambda c: c[0])][:MAX_ITEMS]
 
 
+# ---- RTMKlik --------------------------------------------------------------------------------
+
+# The content API and image server RTMKlik's TV app reads (rtmklik.rtm.gov.my itself refuses scripts).
+RTM_CONTENT = "https://rtm.glueapi.io/v3/content?idSchemas={schema}&sort=dateAvailability&idApp=5"
+RTM_IMAGE = "https://rtm-images.glueapi.io/1280x720/{path}"
+RTM_SPECIALS, RTM_CHANNELS = 2012, 2001
+
+
+def rtm_items(schema):
+    return http_json(RTM_CONTENT.format(schema=schema)).get("data") or []
+
+
+def rtm_image(item):
+    images = (item.get("data") or {}).get("images") or {}
+    path = next(((images.get(k) or {}).get("path") for k in ("title", "thumbnail", "watermark") if (images.get(k) or {}).get("path")), None)
+    return RTM_IMAGE.format(path=path) if path else None
+
+
+def rtmklik_cards(source, cookies):
+    """Saluran Khas first (live events), then the channel cards asked for, then TV1/TV2 now."""
+    cards = []
+    for item in rtm_items(RTM_SPECIALS)[:source.get("max_specials", 2)]:
+        if rtm_image(item):
+            cards.append({"title": (item.get("title") or "").strip()[:120], "meta": "RTMKlik · Saluran Khas · Live",
+                          "image": rtm_image(item)})
+    if source.get("channels"):
+        channels = {(i.get("title") or "").strip().lower(): i for i in rtm_items(RTM_CHANNELS)}
+        for name in source["channels"]:
+            item = channels.get(name.strip().lower())
+            if not item or not rtm_image(item):
+                log(f"rtmklik: no channel called {name!r}")
+                continue
+            about = ((item.get("data") or {}).get("description") or "").strip()
+            cards.append({"title": item["title"].strip()[:120], "meta": " · ".join(p for p in ("RTMKlik · Live", about) if p)[:180],
+                          "image": rtm_image(item)})
+    if source.get("guide"):
+        cards += unifi_cards(source["guide"], cookies)
+    return cards[:MAX_ITEMS]
+
+
 # ---- main -----------------------------------------------------------------------------------
 
 def write_atomically(path, text):
@@ -497,6 +540,8 @@ def main():
                 if schedule is None:
                     schedule = tvmaze_schedule(cfg.get("days_back", 7), cfg.get("days_ahead", 7))
                 cards = [dict(c, source=source.get("label", f"New on {source['tvmaze']}")) for c in tvmaze_cards(source["tvmaze"], schedule)]
+            elif "rtmklik" in source:
+                cards = [dict(c, source=source.get("label", "On RTMKlik")) for c in rtmklik_cards(source["rtmklik"], cookies)]
             elif "unifi" in source:
                 cards = [dict(c, source=source.get("label", "On TV now")) for c in unifi_cards(source, cookies)]
             elif "youtube" in source:
