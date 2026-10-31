@@ -400,14 +400,28 @@ def programme_picture(kind, title, channel, cookies):
 
 def unifi_cards(source, cookies=None):
     """Per channel, the programme on now (skipping filler), or a live event starting within half an
-    hour; live events first, then the channels in the order given."""
+    hour, and with "per_channel" the ones after it; live events first, then the channels in the
+    order given."""
     tz = zoneinfo.ZoneInfo(source.get("timezone", "Asia/Kuala_Lumpur"))
     skip = [s.lower() for s in source.get("skip", [])]
     now = dt.datetime.now(dt.timezone.utc)
     guide = unifi_guide(now.replace(minute=0, second=0, microsecond=0), now + dt.timedelta(hours=4))
     by_name = {english(c.get("lon")).strip().lower(): c for c in guide}
     live, rest = [], []
-    for wanted in source["unifi"]:
+
+    def add_card(channel, wanted, start, end, title, order):
+        is_live = title.startswith("(L)")
+        title = title.removeprefix("(L)").strip()
+        when = (f"Now until {clock(end.astimezone(tz))}" if start <= now
+                else f"{clock(start.astimezone(tz))} – {clock(end.astimezone(tz))}")
+        name = english(channel.get("lon"))
+        meta = " · ".join(p for p in (name, "Live" if is_live else None, when) if p)
+        kind = next((k for k, names in source.get("images", {}).items()
+                     if wanted.strip().lower() in (n.lower() for n in names)), None)
+        image = (programme_picture(kind, title, name, cookies) if kind else None) or UNIFI_IMAGE.format(id=channel["cid"])
+        (live if is_live else rest).append((order, {"title": title[:120], "meta": meta[:180], "image": image}))
+
+    for index, wanted in enumerate(source["unifi"]):
         channel = by_name.get(wanted.strip().lower())
         if not channel:
             log(f"unifi: no channel called {wanted!r}")
@@ -421,21 +435,13 @@ def unifi_cards(source, cookies=None):
             options.append((start, end, title))
         if not options:
             continue
-        # The show on now, unless a live event starts within half an hour.
         soon_live = [o for o in options if o[2].startswith("(L)") and o[0] - now <= dt.timedelta(minutes=30)]
-        start, end, title = soon_live[0] if soon_live else options[0]
-        is_live = title.startswith("(L)")
-        title = title.removeprefix("(L)").strip()
-        when = (f"Now until {clock(end.astimezone(tz))}" if start <= now
-                else f"{clock(start.astimezone(tz))} – {clock(end.astimezone(tz))}")
-        name = english(channel.get("lon"))
-        meta = " · ".join(p for p in (name, "Live" if is_live else None, when) if p)
-        kind = next((k for k, names in source.get("images", {}).items()
-                     if wanted.strip().lower() in (n.lower() for n in names)), None)
-        image = (programme_picture(kind, title, name, cookies) if kind else None) or UNIFI_IMAGE.format(id=channel["cid"])
-        card = {"title": title[:120], "meta": meta[:180], "image": image}
-        (live if is_live else rest).append(card)
-    return (live + rest)[:MAX_ITEMS]
+        first = soon_live[0] if soon_live else options[0]
+        later = [o for o in options if o[0] > first[0]][:source.get("per_channel", 1) - 1]
+        for step, (start, end, title) in enumerate([first] + later):
+            add_card(channel, wanted, start, end, title, (step, index))
+    # Live first; then each channel's show on now, then each one's next, and so on.
+    return [card for _, card in sorted(live, key=lambda c: c[0]) + sorted(rest, key=lambda c: c[0])][:MAX_ITEMS]
 
 
 # ---- main -----------------------------------------------------------------------------------

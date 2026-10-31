@@ -10,6 +10,7 @@ Tigris shows that app's cards as a full-width slideshow.
 | Prime Video | `com.amazon.amazonvideo.livingroom` | New and upcoming episodes, from TVmaze |
 | YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations (needs the `YT_COOKIES` secret) |
 | unifi TV | `com.tm.unifitv.tv` | What's on now on your channels, from unifi TV's programme guide |
+| RTMKlik | `my.gov.rtm.tv` | What's on now and next on TV1 and TV2, from the same guide |
 
 ## How it runs
 
@@ -90,6 +91,8 @@ to change it:
 - `{"unifi": ["TV3", "beIN SPORTS 1", …], "skip": ["WOW SHOP"]}`: per channel (names as unifi TV
   shows them), the programme on now, or a live event starting within half an hour; live events
   first, then the channels in the order listed. Titles containing a `skip` text are passed over.
+  `"per_channel": 3` also shows each channel's next programmes, alternating channels (for an app
+  with few channels, like RTMKlik's TV1 and TV2).
   It is the guide unifi TV's web player reads, without a login; not a documented API, so it may change.
   The guide has no programme pictures, so `"images"` says where each channel's come from, with the
   channel's logo as the fallback:

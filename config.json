@@ -53,6 +53,20 @@
           "TV9"
         ]
       }
+    },
+    "my.gov.rtm.tv": {
+      "unifi": [
+        "TV1",
+        "TV2"
+      ],
+      "per_channel": 3,
+      "label": "On RTM now",
+      "images": {
+        "youtube": [
+          "TV1",
+          "TV2"
+        ]
+      }
     }
   }
 }
