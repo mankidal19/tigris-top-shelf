@@ -660,7 +660,10 @@ def unifi_cards(source, cookies=None):
         if not allowed(title, about(kind, title)):
             return
         image = (programme_picture(kind, title, name, cookies) if kind else None) or UNIFI_IMAGE.format(id=channel["cid"])
-        (live if is_live else rest).append((order, {"title": title[:120], "meta": meta[:180], "image": image}))
+        card = {"title": title[:120], "meta": meta[:180], "image": image}
+        if start > now:  # a live event about to start, or with "per_channel" one coming later
+            card["source"] = "Starting soon" if is_live else "Coming up"
+        (live if is_live else rest).append((order, card))
 
     for index, wanted in enumerate(source["unifi"]):
         channel = by_name.get(wanted.strip().lower())
@@ -682,7 +685,12 @@ def unifi_cards(source, cookies=None):
         if not options:
             continue
         soon_live = [o for o in options if o[2].startswith("(L)") and o[0] - now <= dt.timedelta(minutes=30)]
-        first = soon_live[0] if soon_live else options[0]
+        # Never a later programme as if it were on now: a channel with nothing on (an off-air gap,
+        # or what's on was skipped) has no card unless a live event starts within half an hour.
+        on_now = [o for o in options if o[0] <= now]
+        first = soon_live[0] if soon_live else on_now[0] if on_now else None
+        if not first:
+            continue
         later = [o for o in options if o[0] > first[0]][:source.get("per_channel", 1) - 1]
         for step, (start, end, title) in enumerate([first] + later):
             add_card(channel, wanted, start, end, title, (step, index))
@@ -923,9 +931,9 @@ def main():
                 cards = [dict(c, source=source.get("label", "Top 10 on Viu"))
                          for c in rotate(viu_cards(source["viu"], source.get("row", "Top 10")), before)]
             elif "rtmklik" in source:
-                cards = [dict(c, source=source.get("label", "On RTMKlik")) for c in rtmklik_cards(source["rtmklik"], cookies)]
+                cards = [dict({"source": source.get("label", "On RTMKlik")}, **c) for c in rtmklik_cards(source["rtmklik"], cookies)]
             elif "unifi" in source:
-                cards = [dict(c, source=source.get("label", "On TV now")) for c in unifi_cards(source, cookies)]
+                cards = [dict({"source": source.get("label", "On TV now")}, **c) for c in unifi_cards(source, cookies)]
             elif "youtube" in source:
                 if not cookies:
                     log(f"{pkg}: skipped (no YouTube cookies given)")
