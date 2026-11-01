@@ -1,15 +1,15 @@
 {
   "com.netflix.ninja": [
     {
-      "title": "Where the Mask Ends",
-      "meta": "Netflix · #7 in TV · New this week",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/596/1491800.jpg",
-      "source": "Top 10 in Malaysia"
-    },
-    {
       "title": "Firefly Wedding",
       "meta": "Netflix · #6 in TV · New this week",
       "image": "https://static.tvmaze.com/uploads/images/original_untouched/619/1549010.jpg",
+      "source": "Top 10 in Malaysia"
+    },
+    {
+      "title": "Where the Mask Ends",
+      "meta": "Netflix · #7 in TV · New this week",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/596/1491800.jpg",
       "source": "Top 10 in Malaysia"
     },
     {
@@ -65,33 +65,33 @@
   ],
   "com.google.android.youtube.tv": [
     {
-      "title": "NMIXX (엔믹스) - Birthday Wish (긴 소원) | Show! MusicCore | MBC261031방송",
-      "meta": "YouTube · MBCkpop · 4 min",
-      "image": "https://i.ytimg.com/vi/_sa9WO3mCOA/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "Digimon Alysion- Official New Evolution Trailer",
-      "meta": "YouTube · IGN · 1 min",
-      "image": "https://i.ytimg.com/vi/d7Jv6p2g8tg/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "MASHLE: MAGIC AND MUSCLES The Tri-Magicathlon Divine Visionary Final Exam Arc | Official Trailer",
-      "meta": "YouTube · Crunchyroll · 1 min",
-      "image": "https://i.ytimg.com/vi/RBZQCHzX2wY/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "[COMEBACK] RIIZE ライズ 라이즈 - Insomnia [Music Bank] | KBS WORLD TV 261030",
-      "meta": "YouTube · KBS WORLD TV · 4 min",
-      "image": "https://i.ytimg.com/vi/UGsVvDU7StQ/hq720.jpg",
+      "title": "BESTie (베스티) - Love Options (연애의 조건) | Show! MusicCore | MBC261031방송",
+      "meta": "YouTube · MBCkpop · 3 min",
+      "image": "https://i.ytimg.com/vi/o6KvKuSviA0/hq720.jpg",
       "source": "Recommended for you"
     },
     {
       "title": "Apple Made a MacBook for ME",
       "meta": "YouTube · Linus Tech Tips · 11 min",
       "image": "https://i.ytimg.com/vi/7JOW7TTOGfI/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "[4K] BABYMONSTER “DESERVE” Band LIVE [it's Live] K-POP live music show",
+      "meta": "YouTube · it's Live · 5 min",
+      "image": "https://i.ytimg.com/vi/ATQn2UhDPVw/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "We're going to be talking about the Milwaukee Brewers team for a LONG time | Brewer Territory",
+      "meta": "YouTube · Brewer Territory: A Milwaukee Brewers Show · 40 min",
+      "image": "https://i.ytimg.com/vi/DAlKVcnR4XA/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "Danielle Marsh - Stay (Live)",
+      "meta": "YouTube · Danielle Marsh · 2 min",
+      "image": "https://i.ytimg.com/vi/av_ipdDnD2Y/hq720.jpg",
       "source": "Recommended for you"
     }
   ],
@@ -109,14 +109,14 @@
       "source": "On TV now"
     },
     {
-      "title": "BULETIN 130 (2026/2027)",
-      "meta": "TV3 · Now until 2:00 PM",
+      "title": "WANITA HARI INI 2026 (SEPT - DEC 2026)",
+      "meta": "TV3 · Now until 3:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280",
       "source": "On TV now"
     },
     {
       "title": "CALON MERTUA (U) (MELALUI ALPINE)",
-      "meta": "TV9 · 2:00 PM – 3:30 PM",
+      "meta": "TV9 · Now until 3:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280",
       "source": "On TV now"
     },
