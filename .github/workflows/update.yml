@@ -59,11 +59,35 @@ jobs:
           else
             python3 build_shelf.py "${only[@]}"
           fi
+      - name: Tell the owner when YouTube breaks or recovers
+        # A Telegram message on a change only: the first run that finds YouTube signed out (or
+        # failing), and the first that works again. Needs the TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID
+        # secrets; without them this step does nothing.
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          [ -f health.json ] || exit 0
+          before=$(git show HEAD:health.json 2>/dev/null | python3 -c 'import json,sys; print(json.load(sys.stdin)["youtube"]["ok"])' 2>/dev/null || echo True)
+          read -r now detail < <(python3 -c 'import json; y=json.load(open("health.json"))["youtube"]; print(y["ok"], ("signed out" if y.get("signed_out") else y.get("detail", "")))')
+          [ "$before" = "$now" ] && exit 0
+          if [ "$now" = True ]; then
+            text="✅ Tigris Top Shelf: YouTube recommendations are updating again."
+          elif [ "$detail" = "signed out" ]; then
+            text="⚠️ Tigris Top Shelf: YouTube stopped updating. YouTube sees the YT_COOKIES cookies as signed out; copy fresh ones from Safari (README: YT_COOKIES). The TV keeps the last cards meanwhile."
+          else
+            text="⚠️ Tigris Top Shelf: YouTube stopped updating ($detail). The TV keeps the last cards meanwhile."
+          fi
+          echo "$text"
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then echo "No Telegram secrets; not sent"; exit 0; fi
+          curl -sS -o /dev/null -w "Telegram: HTTP %{http_code}\n" "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${text}" \
+            --data-urlencode "disable_web_page_preview=true" || true
       - name: Commit if it changed
         run: |
-          if git diff --quiet -- shelf.json image_cache.json && [ -z "$(git status --porcelain -- image_cache.json)" ]; then echo "No changes"; exit 0; fi
+          if git diff --quiet -- shelf.json image_cache.json health.json && [ -z "$(git status --porcelain -- image_cache.json health.json)" ]; then echo "No changes"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
-          git add shelf.json image_cache.json
+          git add shelf.json image_cache.json health.json
           git commit -m "Update shelf.json"
           git pull --rebase --quiet origin main && git push

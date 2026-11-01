@@ -70,6 +70,22 @@ With the time zone set to Asia/Kuala_Lumpur, three jobs cover the schedule above
 | Live TV, :47 | `{"ref":"main","inputs":{"only":"unifi,rtmklik"}}` | 47 | 6 to 23 |
 | Live TV, :17 | `{"ref":"main","inputs":{"only":"unifi,rtmklik"}}` | 17 | 7, 9, 11 … 23 |
 
+### A Telegram message when YouTube breaks
+
+Each run that asks YouTube records whether it worked in `health.json`. When that changes (the
+first run that finds YouTube signed out or failing, and the first that works again) the workflow
+sends a Telegram message. To receive them:
+
+1. In Telegram, talk to [@BotFather](https://t.me/BotFather), send `/newbot`, and keep the token it
+   gives you.
+2. Send your new bot any message, then open
+   `https://api.telegram.org/bot<token>/getUpdates` in a browser: your chat id is the number under
+   `"chat":{"id":…`.
+3. Add both as repository secrets (Settings → Secrets and variables → Actions):
+   `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`.
+
+Without them the step only writes the message to the run's log.
+
 ## Use it in Tigris
 
 1. Tigris settings → **Top Shelf** → **Custom source**: the feed URL above.

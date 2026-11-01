@@ -254,6 +254,8 @@ def show_of(video_title):
 
 
 YOUTUBE_COOKIE = ""  # a Cookie header from --youtube-cookie-file, for YouTube's own pages
+HEALTH_FILE = ROOT / "health.json"  # whether YouTube worked on its last run; the workflow alerts on a change
+youtube_note = ""  # what youtube.com said the last time the feed came back empty
 
 
 def cookie_header(path):
@@ -308,7 +310,9 @@ def youtube_cards(cookies):
         entries = yt_dlp_json(":ytrec", cookies, "--playlist-end", "30").get("entries") or []
         if entries:
             break
-        log("youtube: empty home feed" + ("; asking again" if attempt == 0 else "") + youtube_home_state())
+        global youtube_note
+        youtube_note = youtube_home_state()
+        log("youtube: empty home feed" + ("; asking again" if attempt == 0 else "") + youtube_note)
         if attempt == 0:
             time.sleep(20)
     cards, categories = [], set()
@@ -797,6 +801,7 @@ def main():
         cache = {}
     feed, schedule = {}, None
     only = {k.strip() for k in args.only.split(",") if k.strip()} if args.only else None
+    youtube_tried, youtube_health = False, None
     for pkg, source in cfg["apps"].items():
         # The frequent run refreshes what's on TV now; everything else stays as the full run left it.
         if only is not None and not only & set(source):
@@ -830,6 +835,7 @@ def main():
                 if not cookies:
                     log(f"{pkg}: skipped (no YouTube cookies given)")
                     continue
+                youtube_tried = True
                 cards = [dict(c, source=source.get("label", "Recommended for you")) for c in youtube_cards(cookies)]
             else:
                 log(f"{pkg}: unknown source {source}")
@@ -837,12 +843,22 @@ def main():
             if not cards:
                 raise RuntimeError("no cards")
             feed[pkg] = cards
+            if "youtube" in source:
+                youtube_health = {"ok": True}
             log(f"{pkg}: {len(cards)} cards")
         except Exception as e:  # keep what the TV already had
             log(f"{pkg}: failed ({e}); keeping its previous cards")
+            if "youtube" in source:
+                signed_out = "logged_in=false" in youtube_note
+                youtube_health = {"ok": False, "signed_out": signed_out, "detail": f"{e}{youtube_note}"}
             kept = [c for c in previous.get(pkg) or [] if allowed(c.get("title"), c.get("meta"))]
             if kept:
                 feed[pkg] = kept[:MAX_ITEMS]
+
+    # YouTube's state for the workflow, which tells the owner (Telegram) when it changes. Runs that
+    # didn't ask YouTube leave the last state alone.
+    if youtube_tried and youtube_health is not None:
+        write_atomically(HEALTH_FILE, json.dumps({"youtube": youtube_health}, indent=1) + "\n")
 
     # Expired entries would be looked up again anyway; dropping them keeps the file from growing.
     today = dt.date.today()
