@@ -638,9 +638,9 @@ def programme_picture(kind, title, channel, cookies):
 
 
 def unifi_cards(source, cookies=None):
-    """Per channel, the programme on now (skipping filler), or a live event starting within half an
-    hour, and with "per_channel" the ones after it; live events first, then the channels in the
-    order given."""
+    """Per channel, the programme on now (skipping filler), or a live event starting within
+    "live_soon_hours" (3), marked "Live soon", and with "per_channel" the ones after it; live events
+    on now first, then those about to start, then the channels in the order given."""
     tz = zoneinfo.ZoneInfo(source.get("timezone", "Asia/Kuala_Lumpur"))
     skip = [s.lower() for s in source.get("skip", [])]
     now = dt.datetime.now(dt.timezone.utc)
@@ -662,7 +662,7 @@ def unifi_cards(source, cookies=None):
         image = (programme_picture(kind, title, name, cookies) if kind else None) or UNIFI_IMAGE.format(id=channel["cid"])
         card = {"title": title[:120], "meta": meta[:180], "image": image}
         if start > now:  # a live event about to start, or with "per_channel" one coming later
-            card["source"] = "Starting soon" if is_live else "Coming up"
+            card["source"] = "Live soon" if is_live else "Coming up"
         (live if is_live else rest).append((order, card))
 
     for index, wanted in enumerate(source["unifi"]):
@@ -684,16 +684,16 @@ def unifi_cards(source, cookies=None):
             options.append((start, end, title))
         if not options:
             continue
-        soon_live = [o for o in options if o[2].startswith("(L)") and o[0] - now <= dt.timedelta(minutes=30)]
+        soon_live = [o for o in options if o[2].startswith("(L)") and o[0] - now <= dt.timedelta(hours=source.get("live_soon_hours", 3))]
         # Never a later programme as if it were on now: a channel with nothing on (an off-air gap,
-        # or what's on was skipped) has no card unless a live event starts within half an hour.
+        # or what's on was skipped) has no card unless a live event starts within a few hours.
         on_now = [o for o in options if o[0] <= now]
         first = soon_live[0] if soon_live else on_now[0] if on_now else None
         if not first:
             continue
         later = [o for o in options if o[0] > first[0]][:source.get("per_channel", 1) - 1]
         for step, (start, end, title) in enumerate([first] + later):
-            add_card(channel, wanted, start, end, title, (step, index))
+            add_card(channel, wanted, start, end, title, (step, start > now, index))
     # Live first; then each channel's show on now, then each one's next, and so on.
     return [card for _, card in sorted(live, key=lambda c: c[0]) + sorted(rest, key=lambda c: c[0])][:MAX_ITEMS]
 

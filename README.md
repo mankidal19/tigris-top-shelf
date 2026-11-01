@@ -143,8 +143,9 @@ to change it:
   words (zikir, al-ma'thurat, selawat, …), chosen at random, in a random place among the
   recommendations, and marked "Watched before"; when the history has none, last run's stays.
 - `{"unifi": ["TV3", "beIN SPORTS 1", …], "skip": ["WOW SHOP"]}`: per channel (names as unifi TV
-  shows them), the programme on now, or a live event starting within half an hour; live events
-  first, then the channels in the order listed. Titles containing a `skip` text are passed over.
+  shows them), the programme on now, or a live event starting within 3 hours
+  (`"live_soon_hours"`), marked "Live soon"; live events on now first, then those about to
+  start, then the channels in the order listed. Titles containing a `skip` text are passed over.
   `"per_channel": 3` also shows each channel's next programmes, alternating channels.
 - `{"youtube_playlists": "@ViuMalaysia", "playlists": 3, "service": "Viu", "skip": [...]}`: the
   channel's most recently updated playlists (YouTube's "Last video added" order), one per show,
