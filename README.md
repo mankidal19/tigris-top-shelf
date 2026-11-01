@@ -6,10 +6,10 @@ Tigris shows that app's cards as a full-width slideshow.
 
 | App | Package | Source |
 |---|---|---|
-| Netflix | `com.netflix.ninja` | Netflix's official Top 10 shows in Malaysia (random 5 each run), topped up with new episodes |
+| Netflix | `com.netflix.ninja` | Netflix's official Top 10 shows in Malaysia (5 different ones each run), topped up with new episodes |
 | Viu | `com.vuclip.viu.tv` | The newest episodes and teasers of Viu Malaysia's 3 most recently updated show playlists on YouTube |
 | Prime Video | `com.amazon.amazonvideo.livingroom` | New and upcoming episodes, from TVmaze |
-| YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations (needs the `YT_COOKIES` secret) |
+| YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations from the last 7 days, plus one Islamic video (zikir, al-ma'thurat, …) from your watch history (needs the `YT_COOKIES` secret) |
 | unifi TV | `com.tm.unifitv.tv` | What's on now on your channels, from unifi TV's programme guide |
 | RTMKlik | `my.gov.rtm.tv` | RTMKlik's special live channels (Saluran Khas), Sukan+, and what's on TV1 and TV2 now |
 
@@ -125,24 +125,31 @@ to change it:
 ```
 
 - `{"netflix_top10": "MY"}`: Netflix's official weekly Top 10 shows for that country
-  ([top10.netflix.com](https://top10.netflix.com)), drawn at random each run so the shelf rotates.
-  Only shows TVmaze has wide art for take part (TVmaze has no films, so films are left out);
-  new Netflix episodes fill any free places. Netflix's own data has no pictures.
+  ([top10.netflix.com](https://top10.netflix.com)), drawn at random. Only shows TVmaze has wide
+  art for take part (TVmaze has no films, so films are left out); new Netflix episodes add to
+  the choice when fewer than 5 shows are left that weren't on the previous shelf. Netflix's own data has no pictures.
 - `{"tvmaze": "<service>"}`: one card per show with an episode out in the window, ordered today
   first, then the most recent releases, then what is coming soonest. Batch drops read
   "S2 · 6 episodes". The service name is TVmaze's (`Netflix`, `Prime Video`, `Disney+`,
-  `HBO Max`, `iQIYI`, …).
+  `HBO Max`, `iQIYI`, …). When fewer than 5 shows in the window weren't on the previous shelf,
+  shows released before it (`"older_days_back"`, back to 21 days ago) join after them.
 - `{"youtube": "recommended"}`: the YouTube home feed, only with YouTube cookies (see above), one
   video per YouTube category (Music, Gaming, Sports, …) so no category fills the shelf. A video's
   category is read once from its watch page and remembered.
-  Mixes show the picture of their first video.
+  Mixes show the picture of their first video. `"max_age_days": 7` keeps only videos uploaded in
+  the last 7 days (YouTube's own "3 days ago", read with yt-dlp's `approximate_date`), which leaves
+  out Mixes and undated videos. `"islamic": [words]` makes one card a video from the account's
+  watch history (`:ythistory`, one more yt-dlp request) whose title or channel holds one of the
+  words (zikir, al-ma'thurat, selawat, …), chosen at random, in a random place among the
+  recommendations, and marked "Watched before"; when the history has none, last run's stays.
 - `{"unifi": ["TV3", "beIN SPORTS 1", …], "skip": ["WOW SHOP"]}`: per channel (names as unifi TV
   shows them), the programme on now, or a live event starting within half an hour; live events
   first, then the channels in the order listed. Titles containing a `skip` text are passed over.
   `"per_channel": 3` also shows each channel's next programmes, alternating channels.
 - `{"youtube_playlists": "@ViuMalaysia", "playlists": 3, "service": "Viu", "skip": [...]}`: the
   channel's most recently updated playlists (YouTube's "Last video added" order), one per show,
-  and the newest two videos of each (highest episode number), taking turns between the shows.
+  and two of the newest videos of each (highest episode number), taking turns between the shows.
+  Each run takes two of a show's 4 newest (`"depth"`) that weren't on the previous shelf.
   Hashtag playlists ("#ViuEventHighlights") and those containing a `skip` text ("Viu Shorts") are
   passed over. Through yt-dlp: one request for the list and one per playlist each run.
 - `{"viu": "my"}`: the "Top 10" row of Viu's home page for that country (`"row"` picks another,
@@ -171,6 +178,11 @@ to change it:
   programme is looked up once rather than on every run.
 - Pictures are wide (1280×720 or larger) wherever the source has them; the shelf crops posters
   badly.
+- The streaming apps (Netflix, Prime Video, YouTube, Viu) don't show the same cards twice in a
+  row while their source has others: each picks from more than 5 (TVmaze's 10 nearest releases,
+  the whole Top 10, YouTube's 30 recommendations, each Viu show's 4 newest videos) and takes
+  last run's cards only to fill up. The live-TV apps (unifi TV, RTMKlik) always show what's on.
+  The half-hourly live-TV runs leave the streaming apps alone, so they change every 2 hours.
 - An app whose source fails keeps its previous cards, so a hiccup doesn't empty the shelf.
 - `"never"`: words and phrases that keep a card off every shelf, grouped as `horror` and `lgbtq`
   (any group name works). They are matched as whole words, ignoring case and punctuation, against

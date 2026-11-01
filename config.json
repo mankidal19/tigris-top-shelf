@@ -19,7 +19,13 @@
       "tvmaze": "Prime Video"
     },
     "com.google.android.youtube.tv": {
-      "youtube": "recommended"
+      "youtube": "recommended",
+      "max_age_days": 7,
+      "islamic": ["mathurat", "ma'thurat", "matsurat", "zikir", "dzikir", "zikr", "dhikr", "zikrullah", "wirid",
+                  "selawat", "solawat", "salawat", "sholawat", "shalawat", "doa", "quran", "al-quran", "surah",
+                  "yasin", "tilawah", "murottal", "murattal", "tazkirah", "ceramah", "ustaz", "ustazah",
+                  "azan", "adhan", "istighfar", "ruqyah", "asmaul husna", "tahlil", "munajat", "qasidah",
+                  "bacaan pagi", "bacaan petang", "hadis", "hadith"]
     },
     "com.tm.unifitv.tv": {
       "unifi": [

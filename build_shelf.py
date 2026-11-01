@@ -8,14 +8,15 @@ that app's tile is focused in the first row. Sources (config.json):
   {"tvmaze": "<service>"}   new and upcoming episodes on a streaming service, from TVmaze's
                             schedule; no account needed
   {"netflix_top10": "MY"}   a random handful of Netflix's official weekly Top 10 shows for a
-                            country (top10.netflix.com) that TVmaze has pictures for, a new draw
-                            every run; new Netflix episodes (as "tvmaze") fill any free places
+                            country (top10.netflix.com) that TVmaze has pictures for; new Netflix
+                            episodes (as "tvmaze") add to the choice when too few are left
   {"youtube": "recommended"} the signed-in YouTube home feed, through yt-dlp; only with
-                            --youtube-cookies (a browser) or --youtube-cookie-file
+                            --youtube-cookies (a browser) or --youtube-cookie-file; "max_age_days"
+                            keeps recent uploads only, "islamic" adds one video from the watch
+                            history matching those words
   {"youtube_playlists": "@X"} the newest videos of a channel's most recently updated show
                             playlists, e.g. Viu Malaysia's dramas; through yt-dlp
-  {"viu": "my"}             a random handful of the Top 10 on Viu's home page for that country, a
-                            new draw every run
+  {"viu": "my"}             a random handful of the Top 10 on Viu's home page for that country
   {"rtmklik": {...}}        RTMKlik: its special live channels (Saluran Khas), chosen channel cards
                             (RTMKlik publishes no schedule) and, from the unifi TV guide, what's on
                             TV1/TV2 now
@@ -27,6 +28,9 @@ that app's tile is focused in the first row. Sources (config.json):
 
 "never" in config.json lists words and phrases (horror, LGBTQ themes) that keep a card off the shelf
 when they appear in its title, details, genres or description, wherever a source gives those.
+
+The streaming apps (everything but unifi TV and RTMKlik) don't repeat their previous cards while
+their source has others: each picks from more than it shows and puts last run's cards last.
 
 The shelf is a full-width slideshow, so wide pictures are preferred everywhere. An app whose
 source fails keeps the cards it had in the previous output. Standard library plus yt-dlp.
@@ -63,6 +67,21 @@ def allowed(*texts):
     if hit:
         log(f"left out {texts[0]!r} ({hit!r})")
     return hit is None
+
+
+def shown(card, before):
+    """Whether [card] was on the previous shelf [before]: the same picture, which tells apart a
+    show's episodes (Viu) and videos, and stays the same for a show between runs."""
+    return any(card.get("image") == b.get("image") for b in before or [])
+
+
+def rotate(pool, before):
+    """MAX_ITEMS cards of [pool] for the streaming apps, those not on the previous shelf [before]
+    first, so each run brings different ones while the pool lasts; the previous ones only fill up.
+    The chosen keep the pool's order. Live TV (unifi TV, RTMKlik) doesn't rotate."""
+    chosen = [c for c in pool if not shown(c, before)][:MAX_ITEMS]
+    chosen += [c for c in pool if shown(c, before)][:MAX_ITEMS - len(chosen)]
+    return [c for c in pool if any(c is x for x in chosen)]
 
 
 def plain(html):
@@ -139,8 +158,10 @@ def episode_meta(service, episode, count, day, today):
     return " · ".join(parts)
 
 
-def tvmaze_cards(service, schedule):
-    """One card per show: today first, then the latest releases, then the soonest coming."""
+def tvmaze_cards(service, schedule, limit=None):
+    """One card per show, at most [limit] (MAX_ITEMS): today first, then the latest releases, then
+    the soonest coming."""
+    limit = limit or MAX_ITEMS
     today = dt.date.today()
     newest, drops = {}, {}
     for day, show, ep in schedule:
@@ -166,9 +187,32 @@ def tvmaze_cards(service, schedule):
         card = {"title": show["name"][:120], "meta": episode_meta(service, ep, drops[show["id"], day], day, today)[:180],
                 "image": image}
         (wide if is_wide else posters).append(card)
-        if len(wide) == MAX_ITEMS:
+        if len(wide) == limit:
             break
-    return (wide + (posters if len(wide) < MIN_WIDE else []))[:MAX_ITEMS]
+    return (wide + (posters if len(wide) < MIN_WIDE else []))[:limit]
+
+
+SCHEDULES = {}  # (days_back, days_ahead): tvmaze_schedule(), shared by the apps
+
+
+def schedule(days_back, days_ahead):
+    if (days_back, days_ahead) not in SCHEDULES:
+        SCHEDULES[days_back, days_ahead] = tvmaze_schedule(days_back, days_ahead)
+    return SCHEDULES[days_back, days_ahead]
+
+
+def tvmaze_pool(service, cfg, before, cards=()):
+    """[cards] and up to twice MAX_ITEMS of [service]'s other shows in the window, for rotate().
+    While fewer than MAX_ITEMS of them weren't on the previous shelf [before], the shows released
+    before the window ("older_days_back", 21 days ago) join after them."""
+    back, ahead = cfg.get("days_back", 7), cfg.get("days_ahead", 7)
+    pool = list(cards)
+    for days in ((back, ahead), (cfg.get("older_days_back", 21), -back - 1)):
+        if sum(not shown(c, before) for c in pool) >= MAX_ITEMS:
+            break
+        titles = {norm(c["title"]) for c in pool}
+        pool += [c for c in tvmaze_cards(service, schedule(*days), 2 * MAX_ITEMS) if norm(c["title"]) not in titles]
+    return pool
 
 
 # ---- Netflix Top 10 -------------------------------------------------------------------------
@@ -195,8 +239,8 @@ def netflix_top10(country):
 
 
 def netflix_top10_cards(country, label):
-    """MAX_ITEMS of the country's Top 10 shows, drawn at random so the shelf rotates. Only shows
-    TVmaze has wide art for take part (TVmaze has no films)."""
+    """The country's Top 10 shows in a random order, for rotate(). Only shows TVmaze has wide art
+    for take part (TVmaze has no films)."""
     pool = []
     for row in netflix_top10(country):
         if row["category"] != "TV":
@@ -210,7 +254,7 @@ def netflix_top10_cards(country, label):
         new = row.get("cumulative_weeks_in_top_10") == "1"
         meta = " · ".join(p for p in ("Netflix", f"#{row['weekly_rank']} in TV", "New this week" if new else None) if p)
         pool.append({"title": title[:120], "meta": meta[:180], "image": image, "source": label})
-    return random.sample(pool, min(MAX_ITEMS, len(pool)))
+    return random.sample(pool, len(pool))
 
 
 # ---- YouTube --------------------------------------------------------------------------------
@@ -302,12 +346,26 @@ def youtube_home_state():
             f" gl={field('GL')}, empty_nudge={'Try searching to get started' in page})")
 
 
-def youtube_cards(cookies):
-    """The signed-in YouTube home feed, one video per category; [cookies] are yt-dlp's cookie options."""
+def video_of(entry):
+    """The video id of a home feed entry; a Mix is a playlist "RD" + the id of the video it starts with."""
+    raw = (entry or {}).get("id") or ""
+    return raw[2:] if raw.startswith("RD") and len(raw) == 13 else raw
+
+
+def on_shelf(video, before):
+    return any(f"/vi/{video}/" in (b.get("image") or "") for b in before or [])
+
+
+def youtube_cards(cookies, before=None, max_age_days=None, count=None):
+    """[count] (MAX_ITEMS) videos of the signed-in YouTube home feed, one per category; [cookies] are
+    yt-dlp's cookie options. With [max_age_days], only videos uploaded that recently (YouTube's own
+    "3 days ago"), so Mixes and undated videos are left out. Videos that were on the previous shelf
+    [before] only come in when too few others are left."""
     # YouTube now and then sends a signed-in home feed with nothing in it ("Try searching to get
     # started"); a second ask a little later usually has the recommendations.
     for attempt in range(2):
-        entries = yt_dlp_json(":ytrec", cookies, "--playlist-end", "30").get("entries") or []
+        entries = yt_dlp_json(":ytrec", cookies, "--playlist-end", "30",
+                              "--extractor-args", "youtubetab:approximate_date").get("entries") or []
         if entries:
             break
         global youtube_note
@@ -315,15 +373,18 @@ def youtube_cards(cookies):
         log("youtube: empty home feed" + ("; asking again" if attempt == 0 else "") + youtube_note)
         if attempt == 0:
             time.sleep(20)
+    if not entries:
+        raise RuntimeError("empty home feed")
+    oldest = time.time() - max_age_days * 86400 if max_age_days else None
+    entries = sorted((e for e in entries if e), key=lambda e: on_shelf(video_of(e), before))  # stable
     cards, categories = [], set()
     for e in entries:
-        if not e:
-            continue
         raw, title = e.get("id") or "", (e.get("title") or "").strip()
-        # A Mix is a playlist "RD" + the id of the video it starts with.
-        mix = raw.startswith("RD") and len(raw) == 13
-        video = raw[2:] if mix else raw
+        video = video_of(e)
+        mix = video != raw
         if len(video) != 11 or not title:
+            continue
+        if oldest and (mix or not e.get("timestamp") or e["timestamp"] < oldest):
             continue
         who = e.get("channel") or e.get("uploader")
         if not allowed(title, who, e.get("description")):
@@ -344,9 +405,33 @@ def youtube_cards(cookies):
         categories.add(category)
         cards.append({"title": title[:120], "meta": " · ".join(p for p in ("YouTube", who, kind) if p)[:180],
                       "image": image})
-        if len(cards) == MAX_ITEMS:
+        if len(cards) == (count or MAX_ITEMS):
             break
     return cards
+
+
+def youtube_history_card(cookies, words, before=None):
+    """A video from the signed-in watch history whose title or channel holds one of [words] (e.g.
+    zikir, al-ma'thurat), at random, one that wasn't on the previous shelf [before] if there is
+    one; None when the history has none. One yt-dlp request."""
+    entries = yt_dlp_json(":ythistory", cookies, "--playlist-end", "50").get("entries") or []
+    wanted = sorted({norm(w) for w in words} - {""})
+    found = {}
+    for e in entries:
+        video, title = video_of(e), ((e or {}).get("title") or "").strip()
+        who = e.get("channel") or e.get("uploader") if e else None
+        text = f" {norm(title + ' ' + (who or ''))} "
+        if len(video) == 11 and title and video not in found and any(f" {w} " in text for w in wanted) \
+                and allowed(title, who, e.get("description")):
+            found[video] = (title, who, e)
+    pool = random.sample(list(found), len(found))
+    for video in sorted(pool, key=lambda v: on_shelf(v, before)):
+        image = thumbnail(video)
+        if image:
+            title, who, e = found[video]
+            meta = " · ".join(p for p in ("YouTube", who, duration_text(e.get("duration"))) if p)
+            return {"title": title[:120], "meta": meta[:180], "image": image}
+    return None
 
 
 # ---- unifi TV -------------------------------------------------------------------------------
@@ -627,21 +712,31 @@ def video_label(title):
     return "Coming soon" if TEASER.search(title) else None
 
 
-def playlist_cards(source, cookies):
-    """The channel's most recently updated show playlists ("playlists", 3 by default) and the newest
-    two videos of each, taking turns between the shows. One yt-dlp request for the list, one per
-    playlist."""
+def playlist_cards(source, cookies, before=None):
+    """"playlists" (3) of the channel's most recently updated show playlists and two of the newest
+    videos of each, taking turns between the shows. Shows and videos that weren't on the previous
+    shelf [before] come first: the shows from the 6 most recently updated, the videos from each
+    show's newest "depth" (4). One yt-dlp request for the list, one per playlist."""
     channel = source["youtube_playlists"].lstrip("/")
     # sort=lad: by the last video added, the channel's own "Last video added" order.
     listing = yt_dlp_json(f"https://www.youtube.com/{channel}/playlists?view=1&sort=lad", cookies, "--playlist-end", "12")
     skip = [s.lower() for s in source.get("skip", [])]
     service = source.get("service", "")
-    shows, seen = [], set()
+    candidates, seen = [], set()
     for p in listing.get("entries") or []:
         name = " ".join(((p or {}).get("title") or "").split())
         # "#ViuandiQIYI", "#ViuEventHighlights": hashtag playlists are collections, not shows.
         if not name or name.startswith("#") or any(s in name.lower() for s in skip) or norm(name) in seen:
             continue
+        seen.add(norm(name))
+        candidates.append((p, name))
+    # Of the twice as many most recently updated shows, those not on the previous shelf first, so
+    # the shows take turns without asking yt-dlp for more playlists.
+    on_shelf = {norm(b.get("title")) for b in before or []}
+    candidates = sorted(candidates[:2 * source.get("playlists", 3)], key=lambda c: norm(c[1]) in on_shelf) \
+        + candidates[2 * source.get("playlists", 3):]
+    shows = []
+    for p, name in candidates:
         if not allowed(name, about("series", name)):
             continue
         videos = []
@@ -655,8 +750,9 @@ def playlist_cards(source, cookies):
             found = EPISODE.search(e["title"])
             return int(found.group(1)) if found else -1
         newest = sorted(videos, key=episode, reverse=True) if any(episode(e) >= 0 for e in videos) else videos
+        recent = newest[:source.get("depth", 4)]
         cards = []
-        for e in newest:
+        for e in sorted(recent, key=lambda e: on_shelf(e["id"], before)) + newest[len(recent):]:
             image = thumbnail(e["id"])
             if image:
                 meta = " · ".join(x for x in (service, video_label(e["title"])) if x)
@@ -664,7 +760,6 @@ def playlist_cards(source, cookies):
             if len(cards) == 2:
                 break
         if cards:
-            seen.add(norm(name))
             shows.append(cards)
         if len(shows) == source.get("playlists", 3):
             break
@@ -678,8 +773,8 @@ VIU_HOME = "https://www.viu.com/ott/{country}/en"
 
 
 def viu_cards(country, row="Top 10"):
-    """MAX_ITEMS of the shows in a row of Viu's home page (its "Top 10" by default), drawn at random
-    so the shelf rotates. The page carries its rows as JSON (__NEXT_DATA__), so one fetch does."""
+    """The shows in a row of Viu's home page (its "Top 10" by default) in a random order, for
+    rotate(). The page carries its rows as JSON (__NEXT_DATA__), so one fetch does."""
     req = urllib.request.Request(VIU_HOME.format(country=country), headers={"User-Agent": "Mozilla/5.0 (" + UA + ")"})
     with urllib.request.urlopen(req, timeout=60) as r:
         page = r.read().decode("utf-8", "replace")
@@ -709,7 +804,7 @@ def viu_cards(country, row="Top 10"):
         when = airs.get(norm(name), "").replace(" | ", " ")
         meta = " · ".join(p for p in ("Viu", f"#{rank} in {row}", show.get("series_category_name"), when) if p)
         pool.append({"title": name[:120], "meta": meta[:180], "image": image})
-    return random.sample(pool, min(MAX_ITEMS, len(pool)))
+    return random.sample(pool, len(pool))
 
 
 # ---- RTMKlik --------------------------------------------------------------------------------
@@ -799,7 +894,7 @@ def main():
         cache = json.loads(CACHE_FILE.read_text())
     except (OSError, ValueError):
         cache = {}
-    feed, schedule = {}, None
+    feed = {}
     only = {k.strip() for k in args.only.split(",") if k.strip()} if args.only else None
     youtube_tried, youtube_health = False, None
     for pkg, source in cfg["apps"].items():
@@ -808,25 +903,25 @@ def main():
             if previous.get(pkg):
                 feed[pkg] = previous[pkg]
             continue
+        # The streaming apps choose against what they showed last time, so each run differs from the
+        # last (rotate()); live TV shows what's on, however often that repeats.
+        before = previous.get(pkg) or []
         try:
             if "netflix_top10" in source:
                 code = source["netflix_top10"]
-                cards = netflix_top10_cards(code, source.get("label", f"Top 10 in {COUNTRIES.get(code, code)}"))
-                if len(cards) < MAX_ITEMS:  # fill up with new episodes
-                    if schedule is None:
-                        schedule = tvmaze_schedule(cfg.get("days_back", 7), cfg.get("days_ahead", 7))
-                    seen = {norm(c["title"]) for c in cards}
-                    cards += [dict(c, source="New on Netflix") for c in tvmaze_cards("Netflix", schedule)
-                              if norm(c["title"]) not in seen][:MAX_ITEMS - len(cards)]
+                top10 = netflix_top10_cards(code, source.get("label", f"Top 10 in {COUNTRIES.get(code, code)}"))
+                # New Netflix episodes add to the choice when too few of the Top 10 are new to the shelf.
+                cards = [c if "source" in c else dict(c, source="New on Netflix")
+                         for c in rotate(tvmaze_pool("Netflix", cfg, before, top10), before)]
             elif "tvmaze" in source:
-                if schedule is None:
-                    schedule = tvmaze_schedule(cfg.get("days_back", 7), cfg.get("days_ahead", 7))
-                cards = [dict(c, source=source.get("label", f"New on {source['tvmaze']}")) for c in tvmaze_cards(source["tvmaze"], schedule)]
+                cards = [dict(c, source=source.get("label", f"New on {source['tvmaze']}"))
+                         for c in rotate(tvmaze_pool(source["tvmaze"], cfg, before), before)]
             elif "youtube_playlists" in source:
                 cards = [dict(c, source=source.get("label", f"New on {source.get('service', 'YouTube')}"))
-                         for c in playlist_cards(source, cookies)]
+                         for c in playlist_cards(source, cookies, before)]
             elif "viu" in source:
-                cards = [dict(c, source=source.get("label", "Top 10 on Viu")) for c in viu_cards(source["viu"], source.get("row", "Top 10"))]
+                cards = [dict(c, source=source.get("label", "Top 10 on Viu"))
+                         for c in rotate(viu_cards(source["viu"], source.get("row", "Top 10")), before)]
             elif "rtmklik" in source:
                 cards = [dict(c, source=source.get("label", "On RTMKlik")) for c in rtmklik_cards(source["rtmklik"], cookies)]
             elif "unifi" in source:
@@ -836,7 +931,23 @@ def main():
                     log(f"{pkg}: skipped (no YouTube cookies given)")
                     continue
                 youtube_tried = True
-                cards = [dict(c, source=source.get("label", "Recommended for you")) for c in youtube_cards(cookies)]
+                # With "islamic", one card is a video from the watch history matching those words, in
+                # a random place among the recommendations; without one there, last run's stays.
+                words = source.get("islamic")
+                cards = [dict(c, source=source.get("label", "Recommended for you"))
+                         for c in youtube_cards(cookies, before, source.get("max_age_days"), MAX_ITEMS - bool(words))]
+                if words:
+                    try:
+                        pick = youtube_history_card(cookies, words, before)
+                    except Exception as e:
+                        log(f"{pkg}: watch history failed ({e})")
+                        pick = None
+                    pick = (dict(pick, source=source.get("islamic_label", "Watched before")) if pick else
+                            next((c for c in before if c.get("source") == source.get("islamic_label", "Watched before")
+                                  and allowed(c.get("title"), c.get("meta"))), None))
+                    cards = [c for c in cards if not pick or c["image"] != pick["image"]]
+                    if pick:
+                        cards.insert(random.randint(0, len(cards)), pick)
             else:
                 log(f"{pkg}: unknown source {source}")
                 continue
