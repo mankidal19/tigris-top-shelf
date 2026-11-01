@@ -740,8 +740,8 @@ def playlist_cards(source, cookies, before=None):
         candidates.append((p, name))
     # Of the twice as many most recently updated shows, those not on the previous shelf first, so
     # the shows take turns without asking yt-dlp for more playlists.
-    on_shelf = {norm(b.get("title")) for b in before or []}
-    candidates = sorted(candidates[:2 * source.get("playlists", 3)], key=lambda c: norm(c[1]) in on_shelf) \
+    shelf_shows = {norm(b.get("title")) for b in before or []}
+    candidates = sorted(candidates[:2 * source.get("playlists", 3)], key=lambda c: norm(c[1]) in shelf_shows) \
         + candidates[2 * source.get("playlists", 3):]
     shows = []
     for p, name in candidates:
