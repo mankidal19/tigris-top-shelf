@@ -1,5 +1,6 @@
 {
  "youtube": {
-  "ok": true
+  "ok": false,
+  "detail": "test: set by hand to check the Telegram message"
  }
 }
