@@ -44,6 +44,32 @@ Things to know:
   sometimes blocks GitHub's servers ("confirm you're not a bot"). Either way the YouTube cards
   stop changing (the last ones stay); refresh the secret as above.
 
+### On time: start it from cron-job.org
+
+GitHub runs scheduled workflows late, or skips them, when it is busy, so the half-hourly refresh
+can lag hours. A free timer at [cron-job.org](https://cron-job.org) can start the workflow on time
+instead; the schedule above stays as a fallback. Each job is a web request:
+
+- **URL** `https://api.github.com/repos/mankidal19/tigris-top-shelf/actions/workflows/update.yml/dispatches`
+- **Method** POST
+- **Headers**
+  - `Accept: application/vnd.github+json`
+  - `Authorization: Bearer <token>`: a fine-grained token for this repository only, with
+    **Actions: Read and write**
+  - `X-GitHub-Api-Version: 2022-11-28`
+  - `Content-Type: application/json`
+- **Body** `{"ref":"main"}` rebuilds everything; `{"ref":"main","inputs":{"only":"unifi,rtmklik"}}`
+  only the live-TV apps.
+- **Answer** 204 No Content when it worked.
+
+With the time zone set to Asia/Kuala_Lumpur, three jobs cover the schedule above:
+
+| Job | Body | Minute | Hours |
+|---|---|---|---|
+| Everything | `{"ref":"main"}` | 17 | 6, 8, 10 … 22 |
+| Live TV, :47 | `{"ref":"main","inputs":{"only":"unifi,rtmklik"}}` | 47 | 6 to 23 |
+| Live TV, :17 | `{"ref":"main","inputs":{"only":"unifi,rtmklik"}}` | 17 | 7, 9, 11 … 23 |
+
 ## Use it in Tigris
 
 1. Tigris settings → **Top Shelf** → **Custom source**: the feed URL above.
