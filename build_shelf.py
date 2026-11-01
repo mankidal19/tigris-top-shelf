@@ -720,14 +720,55 @@ def video_label(title):
     return "Coming soon" if TEASER.search(title) else None
 
 
+# Playlists of several shows rather than one: "Cdrama Recommendation", "Thai Drama [True Visions]",
+# "Drama Korea", "Best of 2025", "OST", ...
+COLLECTION = re.compile(
+    r"\b(recommendations?|recommended|rekomendasi|cadangan|compilations?|highlights?|best of|collections?|"
+    r"playlists?|ost|soundtracks?|behind the scenes|bts|interviews?|reactions?|moments|picks|must watch|"
+    r"top \d+)\b"
+    r"|^(k|c|j|thai|korean|chinese|japanese|malay|melayu|indonesian|indo|filipino|asian|taiwanese|"
+    r"hong kong|hk|anime)\s*-?\s*(dramas?|series|movies?|films?|variety|shows?)\b"
+    r"|^(dramas?|drama|series|movies?|films?|filem|variety)\s+(korea|korean|cina|chinese|thai|melayu|malay|"
+    r"jepun|japanese|indonesia|asia)\b", re.I)
+
+
+def show_names(name):
+    """"The Hidden Hand [Dia Perempuan Sialan]" -> the whole name, "The Hidden Hand" and
+    "Dia Perempuan Sialan", squashed ("thehiddenhand") as Viu's hashtags write them."""
+    parts = [name] + re.split(r"\s*[\[\](){}|/]\s*", name)
+    out = []
+    for part in parts:
+        words = norm(part).split()
+        if words and words[0] == "the":
+            words = words[1:]
+        if len("".join(words)) >= 4:
+            out.append(words)
+    return out
+
+
+def about_show(name, video_title):
+    """Whether a video's title names the playlist's show, as "#BayanganDendam : EPISOD 3" names
+    "Bayangan Dendam": the name squashed, or each of its words, in any order ("One Kind of A
+    Romance" for "#OneOfAKindRomance")."""
+    title = norm(video_title).replace(" ", "")
+    def names(words):
+        long = [w for w in words if len(w) >= 3]
+        return "".join(words) in title or (long and all(w in title for w in long))
+    return any(names(words) for words in show_names(name))
+
+
 def playlist_cards(source, cookies, before=None):
-    """"playlists" (3) of the channel's most recently updated show playlists and two of the newest
-    videos of each, taking turns between the shows. Shows and videos that weren't on the previous
-    shelf [before] come first: the shows from the 6 most recently updated, the videos from each
-    show's newest "depth" (4). One yt-dlp request for the list, one per playlist."""
+    """One card each for "playlists" (MAX_ITEMS) of the channel's most recently updated show
+    playlists: one of the show's newest videos, so no show is on the shelf twice. Shows and videos
+    that weren't on the previous shelf [before] come first: the shows from the twice as many most
+    recently updated, the video from each show's newest "depth" (4). Playlists of several shows
+    (COLLECTION names, or most of whose videos don't name the playlist) are passed over. One yt-dlp
+    request for the list, one per playlist."""
     channel = source["youtube_playlists"].lstrip("/")
+    wanted = source.get("playlists", MAX_ITEMS)
     # sort=lad: by the last video added, the channel's own "Last video added" order.
-    listing = yt_dlp_json(f"https://www.youtube.com/{channel}/playlists?view=1&sort=lad", cookies, "--playlist-end", "12")
+    listing = yt_dlp_json(f"https://www.youtube.com/{channel}/playlists?view=1&sort=lad", cookies,
+                          "--playlist-end", str(4 * wanted))
     skip = [s.lower() for s in source.get("skip", [])]
     service = source.get("service", "")
     candidates, seen = [], set()
@@ -737,13 +778,15 @@ def playlist_cards(source, cookies, before=None):
         if not name or name.startswith("#") or any(s in name.lower() for s in skip) or norm(name) in seen:
             continue
         seen.add(norm(name))
+        if COLLECTION.search(name):
+            log(f"{service or channel}: {name!r} is a collection, not a show")
+            continue
         candidates.append((p, name))
     # Of the twice as many most recently updated shows, those not on the previous shelf first, so
-    # the shows take turns without asking yt-dlp for more playlists.
+    # the shows take turns.
     shelf_shows = {norm(b.get("title")) for b in before or []}
-    candidates = sorted(candidates[:2 * source.get("playlists", 3)], key=lambda c: norm(c[1]) in shelf_shows) \
-        + candidates[2 * source.get("playlists", 3):]
-    shows = []
+    candidates = sorted(candidates[:2 * wanted], key=lambda c: norm(c[1]) in shelf_shows) + candidates[2 * wanted:]
+    cards = []
     for p, name in candidates:
         if not allowed(name, about("series", name)):
             continue
@@ -753,26 +796,26 @@ def playlist_cards(source, cookies, before=None):
             if len((e or {}).get("id") or "") == 11 and title and not any(s in title.lower() for s in skip) \
                     and allowed(name, title, e.get("description")):
                 videos.append(e)
+        # A show's videos name it; a playlist whose videos mostly name other things is a collection.
+        named = [e for e in videos if about_show(name, e["title"])]
+        if not named or len(named) * 2 < len(videos):
+            log(f"{service or channel}: {name!r} looks like a collection ({len(named)} of {len(videos)} videos name it)")
+            continue
         # Playlists run either way; the highest episode number is the newest, else the first video.
         def episode(e):
             found = EPISODE.search(e["title"])
             return int(found.group(1)) if found else -1
-        newest = sorted(videos, key=episode, reverse=True) if any(episode(e) >= 0 for e in videos) else videos
+        newest = sorted(named, key=episode, reverse=True) if any(episode(e) >= 0 for e in named) else named
         recent = newest[:source.get("depth", 4)]
-        cards = []
         for e in sorted(recent, key=lambda e: on_shelf(e["id"], before)) + newest[len(recent):]:
             image = thumbnail(e["id"])
             if image:
                 meta = " · ".join(x for x in (service, video_label(e["title"])) if x)
                 cards.append({"title": name[:120], "meta": meta[:180], "image": image})
-            if len(cards) == 2:
                 break
-        if cards:
-            shows.append(cards)
-        if len(shows) == source.get("playlists", 3):
+        if len(cards) == min(wanted, MAX_ITEMS):
             break
-    # Each show's newest first, then each one's second.
-    return [c for step in range(2) for cards in shows for c in cards[step:step + 1]][:MAX_ITEMS]
+    return cards
 
 
 # ---- Viu ------------------------------------------------------------------------------------

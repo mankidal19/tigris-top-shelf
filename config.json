@@ -91,7 +91,6 @@
     },
     "com.vuclip.viu.tv": {
       "youtube_playlists": "@ViuMalaysia",
-      "playlists": 3,
       "service": "Viu",
       "skip": [
         "viu shorts",

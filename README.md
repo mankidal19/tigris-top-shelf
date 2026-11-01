@@ -7,7 +7,7 @@ Tigris shows that app's cards as a full-width slideshow.
 | App | Package | Source |
 |---|---|---|
 | Netflix | `com.netflix.ninja` | Netflix's official Top 10 shows in Malaysia (5 different ones each run), topped up with new episodes |
-| Viu | `com.vuclip.viu.tv` | The newest episodes and teasers of Viu Malaysia's 3 most recently updated show playlists on YouTube |
+| Viu | `com.vuclip.viu.tv` | The newest episode or teaser of each of Viu Malaysia's 5 most recently updated shows on YouTube, one card per show |
 | Prime Video | `com.amazon.amazonvideo.livingroom` | New and upcoming episodes, from TVmaze |
 | YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations from the last 7 days, plus one Islamic video (zikir, al-ma'thurat, …) from your watch history (needs the `YT_COOKIES` secret) |
 | unifi TV | `com.tm.unifitv.tv` | What's on now on your channels, from unifi TV's programme guide |
@@ -147,12 +147,15 @@ to change it:
   (`"live_soon_hours"`), marked "Live soon"; live events on now first, then those about to
   start, then the channels in the order listed. Titles containing a `skip` text are passed over.
   `"per_channel": 3` also shows each channel's next programmes, alternating channels.
-- `{"youtube_playlists": "@ViuMalaysia", "playlists": 3, "service": "Viu", "skip": [...]}`: the
-  channel's most recently updated playlists (YouTube's "Last video added" order), one per show,
-  and two of the newest videos of each (highest episode number), taking turns between the shows.
-  Each run takes two of a show's 4 newest (`"depth"`) that weren't on the previous shelf.
-  Hashtag playlists ("#ViuEventHighlights") and those containing a `skip` text ("Viu Shorts") are
-  passed over. Through yt-dlp: one request for the list and one per playlist each run.
+- `{"youtube_playlists": "@ViuMalaysia", "service": "Viu", "skip": [...]}`: the channel's most
+  recently updated playlists (YouTube's "Last video added" order), one card per show (`"playlists"`,
+  default 5), so a show with several new episodes is still on the shelf once. Each card is one of
+  the show's 4 newest videos (`"depth"`, highest episode number first) that wasn't on the previous
+  shelf, and shows that weren't on it come first. Playlists of several shows are passed over:
+  hashtag ones ("#ViuEventHighlights"), genre and collection names ("Cdrama Recommendation",
+  "Thai Drama [True Visions]", "Best of …", "OST"), those whose videos mostly don't name the
+  playlist, and those containing a `skip` text ("Viu Shorts"). Through yt-dlp: one request for the
+  list and one per playlist each run.
 - `{"viu": "my"}`: the "Top 10" row of Viu's home page for that country (`"row"` picks another,
   e.g. "New Release"), drawn at random each run, with Viu's 1920×1080 covers and air times where
   Viu gives them. The page carries its rows as JSON, so it is one ordinary page fetch. Viu only
@@ -181,7 +184,7 @@ to change it:
   badly.
 - The streaming apps (Netflix, Prime Video, YouTube, Viu) don't show the same cards twice in a
   row while their source has others: each picks from more than 5 (TVmaze's 10 nearest releases,
-  the whole Top 10, YouTube's 30 recommendations, each Viu show's 4 newest videos) and takes
+  the whole Top 10, YouTube's 30 recommendations, each Viu show's 4 newest videos, from its 10 latest shows) and takes
   last run's cards only to fill up. The live-TV apps (unifi TV, RTMKlik) always show what's on.
   The half-hourly live-TV runs leave the streaming apps alone, so they change every 2 hours.
 - An app whose source fails keeps its previous cards, so a hiccup doesn't empty the shelf.
