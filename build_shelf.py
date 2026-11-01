@@ -280,6 +280,26 @@ def video_category(video_id):
     return json.loads(found.group(1))  # a JSON string: "Science \u0026 Technology"
 
 
+def youtube_home_state():
+    """What youtube.com itself says when the feed is empty: signed in or not, which account and
+    channel, which country YouTube places the request in, and whether it is the empty "Try
+    searching" page. For the log only."""
+    if not YOUTUBE_COOKIE:
+        return ""
+    try:
+        req = urllib.request.Request("https://www.youtube.com/", headers={
+            "User-Agent": "Mozilla/5.0 (" + UA + ")", "Accept-Language": "en", "Cookie": YOUTUBE_COOKIE})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            page = r.read().decode("utf-8", "replace")
+    except Exception as e:
+        return f" (home page: {e})"
+    def field(name):
+        found = re.search(r'"%s":("?[^,"}]*"?)' % name, page)
+        return found.group(1).strip('"') if found else "?"
+    return (f" (home page: logged_in={field('LOGGED_IN')}, channel={'yes' if field('DELEGATED_SESSION_ID') != '?' else 'no'},"
+            f" gl={field('GL')}, empty_nudge={'Try searching to get started' in page})")
+
+
 def youtube_cards(cookies):
     """The signed-in YouTube home feed, one video per category; [cookies] are yt-dlp's cookie options."""
     # YouTube now and then sends a signed-in home feed with nothing in it ("Try searching to get
@@ -288,7 +308,7 @@ def youtube_cards(cookies):
         entries = yt_dlp_json(":ytrec", cookies, "--playlist-end", "30").get("entries") or []
         if entries:
             break
-        log("youtube: empty home feed" + ("; asking again" if attempt == 0 else ""))
+        log("youtube: empty home feed" + ("; asking again" if attempt == 0 else "") + youtube_home_state())
         if attempt == 0:
             time.sleep(20)
     cards, categories = [], set()
