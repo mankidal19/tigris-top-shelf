@@ -534,8 +534,30 @@ CHECK_PICTURES = False  # whether the app being built has "check_pictures"; see 
 picture_key_missing_told = False
 
 
+class _KeepPost(urllib.request.HTTPRedirectHandler):
+    """Follows a redirect with the same POST and body; urllib's own turns a POST into an empty GET."""
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return urllib.request.Request(newurl, data=req.data, method=req.get_method(),
+                                      headers=dict(req.header_items()))
+
+
+def post_json(url, body, headers):
+    """POSTs [body] as JSON, following redirects as POSTs, and reads the JSON answer; an answer
+    that isn't JSON is reported with its status and start."""
+    req = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST",
+                                 headers={**headers, "Content-Type": "application/json"})
+    with urllib.request.build_opener(_KeepPost).open(req, timeout=60) as r:
+        text = r.read().decode("utf-8", "replace")
+        try:
+            return json.loads(text)
+        except ValueError:
+            raise RuntimeError(f"HTTP {r.status} {r.headers.get('content-type')} from {r.url}: {text[:200]!r}")
+
+
 def picture_verdict(image):
     """Asks the vision model whether [image] (a URL) shows any of NEVER_PICTURES: True when it does."""
+    # Some picture addresses carry non-ASCII letters, which urllib won't send as they are.
+    image = urllib.parse.quote(image, safe=":/?&=%#,;+@!$'()*~[]")
     req = urllib.request.Request(image, headers={"User-Agent": "Mozilla/5.0 (" + UA + ")"})
     with urllib.request.urlopen(req, timeout=30) as r:
         data, kind = r.read(), (r.headers.get_content_type() or "image/jpeg")
@@ -555,13 +577,11 @@ def picture_verdict(image):
                                                 "detail": "low"}},
         ]}],
     }
-    req = urllib.request.Request(PICTURE_API, data=json.dumps(body).encode(), method="POST", headers={
-        "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Content-Type": "application/json",
-        "Accept": "application/json"})
+    headers = {"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Accept": "application/vnd.github+json",
+               "X-GitHub-Api-Version": "2022-11-28"}
     for attempt in range(3):
         try:
-            with urllib.request.urlopen(req, timeout=60) as r:
-                reply = json.load(r)
+            reply = post_json(PICTURE_API, body, headers)
             break
         except urllib.error.HTTPError as e:
             # 429: the free limit (per minute, or for the day); a later run asks again.
@@ -991,7 +1011,7 @@ def wide_picture(media):
     copies = [(v.get("width") or 0, v.get("height") or 0, v.get("source_url")) for v in (details.get("sizes") or {}).values()]
     copies.append((details.get("width") or 0, details.get("height") or 0, media.get("source_url")))
     wide = [c for c in copies if c[2] and c[0] >= 1000 and c[0] > c[1] * 1.5]
-    return max(wide)[2] if wide else None
+    return urllib.parse.quote(max(wide)[2], safe=":/?&=%#,;+@!$'()*~[]") if wide else None
 
 
 def viuscene_latest(days, skip_names):
@@ -1020,7 +1040,9 @@ def viuscene_latest(days, skip_names):
         # A show is known by any of its names: "Embers Of The Heart (Cinta Dalam Sekam)" is the
         # trending "Cinta Dalam Sekam".
         names = {"".join(words) for words in show_names(show)}
-        if not show or re.match(r"\d+\s", show) or names & seen or not image:
+        squashed = norm(show).replace(" ", "")
+        if not show or re.match(r"\d+\s", show) or names & seen or not image \
+                or any(squashed.startswith(n) for n in seen if len(n) >= 6):
             continue
         if not allowed(show, title, excerpt, " ".join(terms), about("series", show)):
             continue
