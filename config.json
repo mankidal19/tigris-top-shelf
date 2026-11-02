@@ -9,8 +9,15 @@
     "lgbtq": ["lgbt", "lgbtq", "lgbtqia", "gay", "gays", "lesbian", "lesbians", "bisexual", "transgender",
               "transsexual", "trans woman", "trans man", "queer", "homosexual", "same sex", "drag queen",
               "drag race", "boys love", "bl series", "yaoi", "yuri", "shounen ai", "shoujo ai", "girls love",
-              "lgbtq themes", "pride month"]
+              "lgbtq themes", "pride month"],
+    "kissing": ["kiss", "kisses", "kissing", "kissed", "kiss scene", "first kiss", "cium", "ciuman", "bercium",
+                "berciuman", "mencium", "dicium", "kucup", "kucupan", "berkucup", "mengucup", "dikucup"]
   },
+  "never_pictures": [
+    "people kissing, on the lips, cheek, neck or forehead, in a romantic way",
+    "an almost-kiss: two faces very close together, leaning in, lips nearly touching, or eyes closed about to kiss",
+    "a couple in an intimate embrace in bed or lying together"
+  ],
   "apps": {
     "com.netflix.ninja": {
       "netflix_top10": "MY"
@@ -92,6 +99,7 @@
     "com.vuclip.viu.tv": {
       "youtube_playlists": "@ViuMalaysia",
       "service": "Viu",
+      "check_pictures": true,
       "skip": [
         "viu shorts",
         "episod penuh",

@@ -7,7 +7,7 @@ Tigris shows that app's cards as a full-width slideshow.
 | App | Package | Source |
 |---|---|---|
 | Netflix | `com.netflix.ninja` | Netflix's official Top 10 shows in Malaysia (5 different ones each run), topped up with new episodes |
-| Viu | `com.vuclip.viu.tv` | The newest episode or teaser of each of Viu Malaysia's 5 most recently updated shows on YouTube, one card per show |
+| Viu | `com.vuclip.viu.tv` | The newest episode or teaser of each of Viu Malaysia's 5 most recently updated shows on YouTube, one card per show, with no kissing (or nearly kissing) in the picture |
 | Prime Video | `com.amazon.amazonvideo.livingroom` | New and upcoming episodes, from TVmaze |
 | YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations from the last 7 days, plus one Islamic video (zikir, al-ma'thurat, …) from your watch history (needs the `YT_COOKIES` secret) |
 | unifi TV | `com.tm.unifitv.tv` | What's on now on your channels, from unifi TV's programme guide |
@@ -25,7 +25,9 @@ Run workflow). Point Tigris at:
 https://raw.githubusercontent.com/mankidal19/tigris-top-shelf/main/shelf.json
 ```
 
-Netflix and Prime Video need nothing. YouTube needs the repo secret **`YT_COOKIES`**: the
+Netflix and Prime Video need nothing. Checking pictures for kissing (Viu) needs the repo secret
+**`ANTHROPIC_API_KEY`** (see `"never_pictures"` below); without it pictures are not checked.
+YouTube needs the repo secret **`YT_COOKIES`**: the
 `youtube.com` cookies of a signed-in browser, in Netscape `cookies.txt` format. The workflow writes
 it to a private temp file for the run only. Without the secret, YouTube is left out.
 
@@ -176,6 +178,19 @@ to change it:
   descriptions, and Viu's and RTMKlik's synopses. A YouTube video that is a show's trailer or
   episode ("Show Name | Official Trailer | Crunchyroll") is also checked against that show's AniList
   and TVmaze genres and tags; other YouTube videos only have their title and channel to go on. Previous cards kept after a failure are checked again too.
+  The `kissing` group (kiss, ciuman, cium, kucup, …) leaves out videos whose title says so.
+- `"never_pictures"`: what a card's *picture* must not show, in plain words (now: a romantic kiss,
+  an almost-kiss with faces close and lips nearly touching, a couple in bed). Words can't see a
+  thumbnail, so an app with `"check_pictures": true` (Viu) has each new picture looked at by Claude
+  (`"picture_model"`, `claude-haiku-5-5` by default), told to say yes when in doubt. A flagged
+  picture is passed over: the Viu show uses its next newest video instead, and other apps take
+  their next card. Each picture is asked about once and the answer remembered in `image_cache.json`
+  for a month, so a run only pays for new pictures (a few cents a day for Viu). A picture that
+  can't be checked (API down) isn't used that run, so the shelf keeps its previous, checked cards.
+  Needs the repo secret `ANTHROPIC_API_KEY` (an API key from
+  [console.anthropic.com](https://console.anthropic.com)); without it, pictures are not checked
+  and the run says so in its log. Add `"check_pictures": true` to another app in `config.json` to
+  check its pictures too.
 
 Run it by hand with `python3 build_shelf.py` (no YouTube),
 `python3 build_shelf.py --youtube-cookies chrome:Default` (YouTube from a browser) or
