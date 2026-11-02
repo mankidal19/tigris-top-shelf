@@ -594,13 +594,17 @@ def picture_verdict(image):
     return answer.startswith("YES")
 
 
-def picture_ok(image, title=None):
+picture_failures = 0  # checks in a row that failed; after 3 the service is taken as down for the run
+
+
+def picture_ok(image, title=None, unknown=False):
     """False when the app being built checks its pictures (CHECK_PICTURES) and [image] shows one of
     NEVER_PICTURES (a kiss, or nearly one). Each picture is asked about once and the answer
-    remembered (image_cache.json, a month). A picture that can't be checked is not used this run,
-    so a failing check leaves the app its previous cards rather than unchecked ones. Without
-    GITHUB_TOKEN (a run outside GitHub Actions) nothing is checked."""
-    global picture_key_missing_told
+    remembered (image_cache.json, a month). A picture that can't be checked gets [unknown]: False
+    for new cards, so they wait for a run that can check them, True for the cards already on the TV,
+    so the shelf isn't emptied while the service is down. After 3 failures in a row the run stops
+    asking. Without GITHUB_TOKEN (a run outside GitHub Actions) nothing is checked."""
+    global picture_key_missing_told, picture_failures
     if not CHECK_PICTURES or not NEVER_PICTURES or not image:
         return True
     if not os.environ.get("GITHUB_TOKEN"):
@@ -612,12 +616,17 @@ def picture_ok(image, title=None):
     hit = cache.get(key)
     if hit and (dt.date.today() - dt.date.fromisoformat(hit["at"])).days < HIT_DAYS:
         bad = hit.get("verdict") == "never"
+    elif picture_failures >= 3:
+        return unknown
     else:
         try:
             bad = picture_verdict(image)
+            picture_failures = 0
         except Exception as e:
-            log(f"picture check failed for {title or image!r}: {e}")
-            return False
+            picture_failures += 1
+            log(f"picture check failed for {title or image!r}: {e}" +
+                ("; not asking again this run" if picture_failures >= 3 else ""))
+            return unknown
         cache[key] = {"url": "", "verdict": "never" if bad else "ok", "at": dt.date.today().isoformat()}
     if bad:
         log(f"left out the picture of {title or image!r} (never_pictures)")
@@ -1239,7 +1248,7 @@ def main():
                 signed_out = "logged_in=false" in youtube_note
                 youtube_health = {"ok": False, "signed_out": signed_out, "detail": f"{e}{youtube_note}"}
             kept = [c for c in previous.get(pkg) or []
-                    if allowed(c.get("title"), c.get("meta")) and picture_ok(c.get("image"), c.get("title"))]
+                    if allowed(c.get("title"), c.get("meta")) and picture_ok(c.get("image"), c.get("title"), unknown=True)]
             if kept:
                 feed[pkg] = kept[:MAX_ITEMS]
 
