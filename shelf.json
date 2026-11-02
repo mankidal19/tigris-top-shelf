@@ -98,33 +98,33 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "BUKAN PUTERI LINDUNGAN BULAN",
-      "meta": "TV3 · Now until 9:00 AM",
-      "image": "https://i.ytimg.com/vi/harXI8sIbA8/hqdefault.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "TANYALAH USTAZ JULY – DEC 2026",
-      "meta": "TV9 · Now until 8:30 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
       "title": "Europe Outside Your Tent: Romantic Italy",
       "meta": "tvN HD · Now until 9:25 AM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "MY LOVE STORY WITH YAMADA-KUN AT LV999",
-      "meta": "Animax · Now until 8:40 AM",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/154965-9AwJG3nVokqG.jpg"
+      "title": "2026 PYCL, Philippines S2 - Rd 1 Dentacare Pearly Whites vs Thrifty Drivers",
+      "meta": "SPOTV · Now until 10:00 AM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "2026 PYCL, Philippines S2 - Rd 1 Konjac Zero Phoenix Force vs Cartivo Movers",
-      "meta": "SPOTV · Now until 8:30 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+      "title": "2026 Longines Global Champions Tour, Rabat - Global Champions League Round 1",
+      "meta": "SPOTV2 · Now until 10:00 AM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "LaLiga - Real Betis vs Malaga",
+      "meta": "beIN SPORTS 1 · Now until 10:50 AM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "Women's Super League - London City Lionesses vs Man City",
+      "meta": "beIN SPORTS 2 · Now until 10:10 AM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/B6AE264E-3B1A-4E37-B9A2-43D912FC89D7/0-16x9.jpg?width=1280"
     }
   ],
   "my.gov.rtm.tv": [
@@ -154,9 +154,9 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Kenyalang Borneo SR.3",
-      "meta": "TV2 · Now until 8:30 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/907F5B90-0688-4EC2-ABEF-A69F7C842287/0-16x9.jpg?width=1280"
+      "title": "Dunia Kiara",
+      "meta": "TV2 · Now until 10:00 AM",
+      "image": "https://i.ytimg.com/vi/npx87TtHKtU/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
