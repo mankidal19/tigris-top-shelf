@@ -1,0 +1,36 @@
+name: GitHub Models probe (temporary)
+
+on:
+  push:
+    paths: [.github/workflows/models-probe.yml]
+
+permissions:
+  contents: read
+  models: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ask GitHub Models a tiny question
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          body='{"model":"openai/gpt-4o-mini","max_tokens":5,"messages":[{"role":"user","content":"Say OK"}]}'
+          for url in https://models.github.ai/inference/chat/completions \
+                     https://models.github.ai/orgs/mankidal19/inference/chat/completions \
+                     https://models.inference.ai.azure.com/chat/completions; do
+            echo "=================== $url"
+            curl -sS -i -X POST "$url" -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" -H "Content-Type: application/json" -d "$body" | head -c 1500; echo
+          done
+          echo "=================== catalog"
+          curl -sS -i https://models.github.ai/catalog/models -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" \
+            | head -c 600; echo
+          curl -sS https://models.github.ai/catalog/models -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" \
+            | python3 -c 'import json,sys
+          try:
+              d=json.load(sys.stdin)
+              for m in d: print(m.get("id"), m.get("supported_input_modalities"), m.get("rate_limit_tier"))
+          except Exception as e: print("catalog not JSON:", e)'
