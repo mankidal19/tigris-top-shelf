@@ -22,6 +22,7 @@ on:
 
 permissions:
   contents: write
+  models: read   # GitHub Models, for the picture check
 
 concurrency:
   group: update-shelf
@@ -38,7 +39,7 @@ jobs:
       - name: Build shelf.json
         env:
           YT_COOKIES: ${{ secrets.YT_COOKIES }}   # youtube.com cookies (Netscape cookies.txt); optional
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # checks pictures ("never_pictures"); optional
+          GITHUB_TOKEN: ${{ github.token }}   # GitHub Models, free, checks pictures ("never_pictures")
           SCHEDULE: ${{ github.event.schedule }}
           ONLY: ${{ inputs.only }}
         run: |

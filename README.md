@@ -25,9 +25,8 @@ Run workflow). Point Tigris at:
 https://raw.githubusercontent.com/mankidal19/tigris-top-shelf/main/shelf.json
 ```
 
-Netflix and Prime Video need nothing. Checking pictures for kissing (Viu) needs the repo secret
-**`ANTHROPIC_API_KEY`** (see `"never_pictures"` below); without it pictures are not checked.
-YouTube needs the repo secret **`YT_COOKIES`**: the
+Netflix and Prime Video need nothing, nor does checking pictures for kissing (Viu; see
+`"never_pictures"` below). YouTube needs the repo secret **`YT_COOKIES`**: the
 `youtube.com` cookies of a signed-in browser, in Netscape `cookies.txt` format. The workflow writes
 it to a private temp file for the run only. Without the secret, YouTube is left out.
 
@@ -181,23 +180,18 @@ to change it:
   The `kissing` group (kiss, ciuman, cium, kucup, …) leaves out videos whose title says so.
 - `"never_pictures"`: what a card's *picture* must not show, in plain words (now: a romantic kiss,
   an almost-kiss with faces close and lips nearly touching, a couple in bed). Words can't see a
-  thumbnail, so an app with `"check_pictures": true` (Viu) has each new picture looked at by Claude
-  (`"picture_model"`, `claude-haiku-5-5` by default), told to say yes when in doubt. A flagged
-  picture is passed over: the Viu show uses its next newest video instead, and other apps take
-  their next card. Each picture is asked about once and the answer remembered in `image_cache.json`
-  for a month, so a run only pays for new pictures (a few cents a day for Viu). A picture that
-  can't be checked (API down) isn't used that run, so the shelf keeps its previous, checked cards.
-  Needs the repo secret `ANTHROPIC_API_KEY` (an API key from
-  [console.anthropic.com](https://console.anthropic.com)); without it, pictures are not checked
-  and the run says so in its log. Add `"check_pictures": true` to another app in `config.json` to
-  check its pictures too.
-
-Run it by hand with `python3 build_shelf.py` (no YouTube),
-`python3 build_shelf.py --youtube-cookies chrome:Default` (YouTube from a browser) or
-`--youtube-cookie-file yt.txt`.
-
-## Notes
-
+  thumbnail, so an app with `"check_pictures": true` (Viu) has each new picture looked at by a
+  vision model on [GitHub Models](https://docs.github.com/en/github-models) (`"picture_model"`,
+  `openai/gpt-4o-mini` by default), told to say yes when in doubt. It is free for GitHub accounts,
+  within a daily limit, and the workflow signs in with its own `GITHUB_TOKEN` (permission
+  `models: read`), so there is no key to set up. A flagged picture is passed over: the Viu show
+  uses its next newest video instead, and other apps take their next card. Each picture is asked
+  about once and the answer remembered in `image_cache.json` for a month, so a run only asks about
+  new pictures, well within the limit. A picture that can't be checked (limit reached, service
+  down) isn't used that run, so the shelf keeps its previous, checked cards. Run by hand, set
+  `GITHUB_TOKEN` to a [personal access token](https://github.com/settings/personal-access-tokens)
+  with the "Models" permission, or pictures are not checked. Add `"check_pictures": true` to
+  another app in `config.json` to check its pictures too.
 - TVmaze's data is licensed [CC BY-SA 4.0](https://www.tvmaze.com/api#licensing); this feed passes
   it on under the same terms. Images are linked, not copied.
 - yt-dlp reads YouTube as your browser would, which YouTube's terms don't cover; it is for your own

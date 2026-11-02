@@ -29,7 +29,8 @@ that app's tile is focused in the first row. Sources (config.json):
 "never" in config.json lists words and phrases (horror, LGBTQ themes, kissing) that keep a card off
 the shelf when they appear in its title, details, genres or description, wherever a source gives those.
 "never_pictures" describes what a card's picture must not show (a kiss, or nearly one); an app with
-"check_pictures" has each new picture looked at by Claude (needs ANTHROPIC_API_KEY), once per picture.
+"check_pictures" has each new picture looked at by a vision model on GitHub Models (free; the
+workflow's own GITHUB_TOKEN), once per picture.
 
 The streaming apps (everything but unifi TV and RTMKlik) don't repeat their previous cards while
 their source has others: each picks from more than it shows and puts last run's cards last.
@@ -520,15 +521,17 @@ def cached(key, find):
 
 # ---- what a picture shows (config.json "never_pictures") -------------------------------------
 
-ANTHROPIC_API = "https://api.anthropic.com/v1/messages"
-PICTURE_MODEL = "claude-haiku-5-5"  # config.json "picture_model" changes it
+# GitHub Models: free for GitHub accounts, within a daily limit, with the workflow's own GITHUB_TOKEN
+# (permission "models: read"). OpenAI-style chat completions.
+PICTURE_API = "https://models.github.ai/inference/chat/completions"
+PICTURE_MODEL = "openai/gpt-4o-mini"  # config.json "picture_model" changes it
 NEVER_PICTURES = []  # config.json "never_pictures": what a picture must not show
 CHECK_PICTURES = False  # whether the app being built has "check_pictures"; see picture_ok()
 picture_key_missing_told = False
 
 
 def picture_verdict(image):
-    """Asks Claude whether [image] (a URL) shows any of NEVER_PICTURES: True when it does."""
+    """Asks the vision model whether [image] (a URL) shows any of NEVER_PICTURES: True when it does."""
     req = urllib.request.Request(image, headers={"User-Agent": "Mozilla/5.0 (" + UA + ")"})
     with urllib.request.urlopen(req, timeout=30) as r:
         data, kind = r.read(), (r.headers.get_content_type() or "image/jpeg")
@@ -538,26 +541,30 @@ def picture_verdict(image):
     body = {
         "model": PICTURE_MODEL,
         "max_tokens": 5,
+        "temperature": 0,
         "messages": [{"role": "user", "content": [
-            {"type": "image", "source": {"type": "base64", "media_type": kind,
-                                         "data": base64.b64encode(data).decode()}},
             {"type": "text", "text": "This is the preview picture of a TV show or video for a family TV's home "
                                      "screen. Does it show any of these?\n" + rules +
                                      "\nWhen in doubt, answer YES. Answer with one word: YES or NO."},
+            # "low" detail (512 px) is enough to see a kiss, and keeps each request small.
+            {"type": "image_url", "image_url": {"url": f"data:{kind};base64,{base64.b64encode(data).decode()}",
+                                                "detail": "low"}},
         ]}],
     }
-    req = urllib.request.Request(ANTHROPIC_API, data=json.dumps(body).encode(), method="POST", headers={
-        "x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01",
-        "content-type": "application/json"})
+    req = urllib.request.Request(PICTURE_API, data=json.dumps(body).encode(), method="POST", headers={
+        "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Content-Type": "application/json",
+        "Accept": "application/json"})
     for attempt in range(3):
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
-                answer = "".join(b.get("text", "") for b in json.load(r).get("content") or []).strip().upper()
+                reply = json.load(r)
             break
         except urllib.error.HTTPError as e:
-            if e.code not in (429, 500, 502, 503, 529) or attempt == 2:
-                raise
-            time.sleep(5 * (attempt + 1))
+            # 429: the free limit (per minute, or for the day); a later run asks again.
+            if e.code not in (429, 500, 502, 503) or attempt == 2:
+                raise RuntimeError(f"HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}")
+            time.sleep(min(int(e.headers.get("retry-after") or 0), 60) or 10 * (attempt + 1))
+    answer = (((reply.get("choices") or [{}])[0].get("message") or {}).get("content") or "").strip().upper()
     if not answer.startswith(("YES", "NO")):
         raise RuntimeError(f"unexpected answer {answer!r}")
     return answer.startswith("YES")
@@ -568,13 +575,13 @@ def picture_ok(image, title=None):
     NEVER_PICTURES (a kiss, or nearly one). Each picture is asked about once and the answer
     remembered (image_cache.json, a month). A picture that can't be checked is not used this run,
     so a failing check leaves the app its previous cards rather than unchecked ones. Without
-    ANTHROPIC_API_KEY nothing is checked."""
+    GITHUB_TOKEN (a run outside GitHub Actions) nothing is checked."""
     global picture_key_missing_told
     if not CHECK_PICTURES or not NEVER_PICTURES or not image:
         return True
-    if not os.environ.get("ANTHROPIC_API_KEY"):
+    if not os.environ.get("GITHUB_TOKEN"):
         if not picture_key_missing_told:
-            log("pictures not checked: no ANTHROPIC_API_KEY")
+            log("pictures not checked: no GITHUB_TOKEN")
             picture_key_missing_told = True
         return True
     key = f"picture|{image}"
