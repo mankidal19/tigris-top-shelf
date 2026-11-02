@@ -1,130 +1,130 @@
 {
   "com.netflix.ninja": [
     {
-      "title": "Akka",
-      "meta": "Netflix · S1 · 5 episodes · Out Fri 30 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/648/1622416.jpg",
+      "title": "Where the Mask Ends",
+      "meta": "Netflix · #7 in TV · New this week",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/596/1491800.jpg",
+      "source": "Top 10 in Malaysia"
+    },
+    {
+      "title": "Firefly Wedding",
+      "meta": "Netflix · #6 in TV · New this week",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/619/1549010.jpg",
+      "source": "Top 10 in Malaysia"
+    },
+    {
+      "title": "Steel Ball Run: JoJo's Bizarre Adventure",
+      "meta": "Netflix · S2 E7 · Out Fri 30 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/618/1546750.jpg",
       "source": "New on Netflix"
     },
     {
-      "title": "Love Village",
-      "meta": "Netflix · S3 · 4 episodes · Out Tue 27 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/459/1148808.jpg",
+      "title": "The Adam Ray Show",
+      "meta": "Netflix · S1 E23 · Out Fri 30 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/632/1580086.jpg",
       "source": "New on Netflix"
     },
     {
-      "title": "The One About Matthew Perry",
-      "meta": "Netflix · S1 · 3 episodes · Out Tue 27 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1619456.jpg",
-      "source": "New on Netflix"
-    },
-    {
-      "title": "Midnight Diner: Tokyo Stories",
-      "meta": "Netflix · S3 E3 · Coming Wed 4 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/219/549746.jpg",
-      "source": "New on Netflix"
-    },
-    {
-      "title": "Black Doves",
-      "meta": "Netflix · S2 · 6 episodes · Coming Thu 5 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/539/1348673.jpg",
+      "title": "How to Ruin Diwali: Meet the Parents",
+      "meta": "Netflix · S1 · 3 episodes · Out Fri 30 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1619461.jpg",
       "source": "New on Netflix"
     }
   ],
   "com.amazon.amazonvideo.livingroom": [
     {
-      "title": "Judy Justice",
-      "meta": "Prime Video · S4 E120 · Out Fri 23 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/443/1109363.jpg",
+      "title": "Last One Laughing: Halloween",
+      "meta": "Prime Video · S1 E4 · Out Fri 30 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1618814.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "LOL: Chi ride è fuori",
-      "meta": "Prime Video · Out Fri 23 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/301/754105.jpg",
+      "title": "Rinnan",
+      "meta": "Prime Video · S1 · 4 episodes · Out Fri 30 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/648/1622450.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "Le Charles",
-      "meta": "Prime Video · S1 · 6 episodes · Out Fri 23 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/648/1620923.jpg",
+      "title": "The Traitors Telugu",
+      "meta": "Prime Video · S1 E10 · Coming Thu 5 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/644/1612250.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "Chaar Yaar",
-      "meta": "Prime Video · S1 · 8 episodes · Out Thu 22 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1618390.jpg",
+      "title": "The Assassin",
+      "meta": "Prime Video · S2 · 6 episodes · Coming Fri 6 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/579/1448166.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "The Terminal List",
-      "meta": "Prime Video · S2 · 8 episodes · Out Wed 21 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/415/1037501.jpg",
+      "title": "A Tale of the Secret Saint",
+      "meta": "Prime Video · S1 E7 · Coming Sat 7 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602819.jpg",
       "source": "New on Prime Video"
     }
   ],
   "com.google.android.youtube.tv": [
     {
-      "title": "BOYNEXTDOOR - Fly Away Official M/V",
-      "meta": "YouTube · GENIE MUSIC · 2 min",
-      "image": "https://i.ytimg.com/vi/3BP9aEtEUtQ/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "Checking In",
-      "meta": "YouTube · Selena Gomez · 4 min",
-      "image": "https://i.ytimg.com/vi/MT1zNNLLKKw/hqdefault.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "Worst Japanese Translator",
-      "meta": "YouTube · Real Real Japan · 3 min",
-      "image": "https://i.ytimg.com/vi/V191YJqDipg/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "The Most Insane Catches in MLB 2026",
-      "meta": "YouTube · God Baseball  · 11 min",
-      "image": "https://i.ytimg.com/vi/gBQtBo4WBXs/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "Murottal Pagi Pembuka Rezeki | Surah Al Waqiah,Yasin,Ar Rahman,Al Mulk | Relaxing Morning Quran",
-      "meta": "YouTube · 1 h 11 min",
-      "image": "https://i.ytimg.com/vi/YmgBd2hlgPY/hq720.jpg",
+      "title": "AL-MA'THURAT • Zikir Pagi | المأثورات • أذكار الصباح | Bacaan oleh Ustaz Hj. Hazamin INTEAM",
+      "meta": "YouTube · 50 min",
+      "image": "https://i.ytimg.com/vi/lBMmZr108k0/hq720.jpg",
       "source": "Watched before"
+    },
+    {
+      "title": "i-dle MINNIE “Blind Eyes Red + Cherry Sky + HER + to the moon :) + Queencard” 261031 TPE",
+      "meta": "YouTube · VZ FANCAM · 21 min",
+      "image": "https://i.ytimg.com/vi/TtrDHQHWYHU/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "GIRLSET Mean Girls Special Halloween Video",
+      "meta": "YouTube · GIRLSET · 5 min",
+      "image": "https://i.ytimg.com/vi/eVHHc4_bqM0/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "Dzikir Petang Al-Ma'tsurat sesuai sunnah Rasulullah SAW. Pembuka pintu rezeki - Alaa Aqel",
+      "meta": "YouTube · Sabiq Elfathan 8 · 55 min",
+      "image": "https://i.ytimg.com/vi/3bDpM3pg53Q/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "SPIDER-MAN: BRAND NEW DAY - The Letter",
+      "meta": "YouTube · Spider-Man · 5 min",
+      "image": "https://i.ytimg.com/vi/1YsMIHeOoPo/hq720.jpg",
+      "source": "Recommended for you"
     }
   ],
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "MAJALAH 3 (2026/2027)",
-      "meta": "TV3 · Now until 10:00 PM",
-      "image": "https://i.ytimg.com/vi/WRyqvrvzDY4/hq720.jpg"
+      "title": "SEPENUH HATI RINDU",
+      "meta": "TV3 · Now until 11:00 PM",
+      "image": "https://i.ytimg.com/vi/Wed6OQMrLuI/hq720.jpg"
     },
     {
       "source": "On TV now",
-      "title": "DOKTOR IDAMAN",
-      "meta": "TV9 · Now until 10:30 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
+      "title": "MY SWEET MOBSTER",
+      "meta": "TV9 · Now until 11:30 PM",
+      "image": "https://i.ytimg.com/vi/tFUsHJGTqaw/hqdefault.jpg"
     },
     {
       "source": "On TV now",
-      "title": "The Judge Returns",
-      "meta": "tvN HD · Now until 10:35 PM",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/607/1519721.jpg"
+      "title": "3 Meals A Day : Light",
+      "meta": "tvN HD · Now until 12:15 AM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "BLACK CLOVER",
-      "meta": "Animax · Now until 9:40 PM",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/97940-1URQdQ4U1a0b.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "2026 LET: Wistron Ladies Open - Day 4",
-      "meta": "SPOTV · Now until 10:00 PM",
+      "title": "2026 WSL Inside Pro Surfing - WSL1309 Fiji Pro",
+      "meta": "SPOTV · Now until 11:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "2026 MotoGP Rd 19 Petronas Grand Prix of Malaysia - Race",
+      "meta": "SPOTV2 · Now until 11:00 PM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -148,9 +148,9 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Bicara Naratif 2026",
-      "meta": "TV1 · Now until 10:00 PM",
-      "image": "https://i.ytimg.com/vi/Zn8V2KstIE4/hq720.jpg"
+      "title": "Isteri Untuk Diiktiraf (Ulangan)",
+      "meta": "TV1 · Now until 11:30 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
@@ -161,33 +161,33 @@
   ],
   "com.vuclip.viu.tv": [
     {
-      "title": "The Hidden Hand (Dia Perempuan Sialan)",
-      "meta": "Viu · #1 trending in Malaysia",
-      "image": "https://prod-images.viu.com/4112872894/70072b138b2c583b98355e629c9f9fe44ca476f3?im=Resize,width=1280",
+      "title": "Cinta Dalam Sekam",
+      "meta": "Viu · #6 trending in Malaysia",
+      "image": "https://prod-images.viu.com/2786942835/da20c8298983929301a80cccc8fc57aa29f326df?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Bayangan Dendam",
-      "meta": "Viu · #2 trending in Malaysia",
-      "image": "https://prod-images.viu.com/2187216814/2d2dd8da5a6cf351940dbbb8bed3464df83d0d17?im=Resize,width=1280",
+      "title": "Seadanya Kita",
+      "meta": "Viu · #7 trending in Malaysia",
+      "image": "https://prod-images.viu.com/2527637183/deb85e2e177f30142420afa5c6f5356402f292b8?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Abang Imam Minah Skuter",
-      "meta": "Viu · #3 trending in Malaysia",
-      "image": "https://prod-images.viu.com/2206944558/4577d4a7bf78e18641458f2f62e45c6738b52b92?im=Resize,width=1280",
+      "title": "Quite the Girl 好一个乖乖女",
+      "meta": "Viu · #8 trending in Malaysia",
+      "image": "https://prod-images.viu.com/3134128703/21b43001f42d50960af1812368c0d548090bb9d7?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Running Man (2026)",
-      "meta": "Viu · #4 trending in Malaysia",
-      "image": "https://prod-images.viu.com/617743966/78ea26f138eae0e1eb0dfd72d07efad90216f581?im=Resize,width=1280",
+      "title": "Oh! My Guard",
+      "meta": "Viu · #9 trending in Malaysia",
+      "image": "https://prod-images.viu.com/1872234859/b0fc0fc13a8269ff3cda597a6e3ce0e61a2f0247?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Satu, Dua... Dia?",
-      "meta": "Viu · #5 trending in Malaysia",
-      "image": "https://prod-images.viu.com/1335697735/f0382db00f9d504bebf24070053eb32a7466d87c?im=Resize,width=1280",
+      "title": "Dream To You",
+      "meta": "Viu · #10 trending in Malaysia",
+      "image": "https://prod-images.viu.com/2545869715/40f63dc9522cd7f57e5a76864b6964c923d9d40d?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     }
   ]
