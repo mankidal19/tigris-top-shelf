@@ -63,6 +63,7 @@ jobs:
         # A Telegram message on a change only: the first run that finds YouTube signed out (or
         # failing), and the first that works again. Needs the TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID
         # secrets; without them this step does nothing.
+        if: github.ref == 'refs/heads/main'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -84,6 +85,8 @@ jobs:
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${text}" \
             --data-urlencode "disable_web_page_preview=true" || true
       - name: Commit if it changed
+        # Only main publishes the feed; a push to another branch just tries the build.
+        if: github.ref == 'refs/heads/main'
         run: |
           if git diff --quiet -- shelf.json image_cache.json health.json && [ -z "$(git status --porcelain -- image_cache.json health.json)" ]; then echo "No changes"; exit 0; fi
           git config user.name "github-actions[bot]"

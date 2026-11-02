@@ -7,7 +7,7 @@ Tigris shows that app's cards as a full-width slideshow.
 | App | Package | Source |
 |---|---|---|
 | Netflix | `com.netflix.ninja` | Netflix's official Top 10 shows in Malaysia (5 different ones each run), topped up with new episodes |
-| Viu | `com.vuclip.viu.tv` | The newest episode or teaser of each of Viu Malaysia's 5 most recently updated shows on YouTube, one card per show |
+| Viu | `com.vuclip.viu.tv` | Viu's Top 10 trending shows in Malaysia (5 different ones each run) with Viu's own covers, from Viu Scene. When Viu Scene fails, the newest episodes of Viu Malaysia's shows on YouTube |
 | Prime Video | `com.amazon.amazonvideo.livingroom` | New and upcoming episodes, from TVmaze |
 | YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations from the last 7 days, plus one Islamic video (zikir, al-ma'thurat, …) from your watch history (needs the `YT_COOKIES` secret) |
 | unifi TV | `com.tm.unifitv.tv` | What's on now on your channels, from unifi TV's programme guide |
@@ -136,11 +136,21 @@ to change it:
   "Thai Drama [True Visions]", "Best of …", "OST"), those whose videos mostly don't name the
   playlist, and those containing a `skip` text ("Viu Shorts"). Through yt-dlp: one request for the
   list and one per playlist each run.
+- `{"viuscene": "malaysia"}`: Viu's own [Top 10 trending shows](https://www.viu.com/ott/viuscene/trending/malaysia/)
+  for that country (`malaysia`, `singapore`, `indonesia`, …, as in the page's address), from
+  Viu Scene, Viu's own site, with Viu's 1920×1080 covers (asked for at 1280×720). Unlike Viu's home
+  page (below), Viu Scene serves any country, so it works from GitHub's servers. Shows from Viu
+  Scene's [latest articles](https://www.viu.com/ott/viuscene/latest/) of the last 60 days
+  (`"latest_days"`; `"latest": false` leaves them out), with the article's wide picture, come after
+  the trending ones, so they only fill up; the articles are written for all of Viu's countries, so
+  their shows aren't all on Viu Malaysia. One page fetch and one API request (Viu Scene's WordPress
+  API) per run. With `"youtube_playlists"` beside it, the YouTube playlists (below) stand in
+  when Viu Scene fails.
 - `{"viu": "my"}`: the "Top 10" row of Viu's home page for that country (`"row"` picks another,
   e.g. "New Release"), drawn at random each run, with Viu's 1920×1080 covers and air times where
   Viu gives them. The page carries its rows as JSON, so it is one ordinary page fetch. Viu only
   serves the page to Malaysian connections, so this works from a computer in Malaysia but not on
-  GitHub's servers; the feed uses the YouTube channel instead.
+  GitHub's servers; the feed uses Viu Scene instead.
 - `{"rtmklik": {"max_specials": 2, "channels": ["Sukan+"], "guide": {"unifi": ["TV1", "TV2"]}}}`:
   RTMKlik's special live channels (Saluran Khas, e.g. MotoGP or election coverage) with RTM's own
   banners, then a card for each channel named (RTMKlik publishes no schedule, so these say only
@@ -164,7 +174,7 @@ to change it:
   badly.
 - The streaming apps (Netflix, Prime Video, YouTube, Viu) don't show the same cards twice in a
   row while their source has others: each picks from more than 5 (TVmaze's 10 nearest releases,
-  the whole Top 10, YouTube's 30 recommendations, each Viu show's 4 newest videos, from its 10 latest shows) and takes
+  the whole Top 10, YouTube's 30 recommendations, Viu's 10 trending shows) and takes
   last run's cards only to fill up. The live-TV apps (unifi TV, RTMKlik) always show what's on.
   The half-hourly live-TV runs leave the streaming apps alone, so they change every 2 hours.
 - An app whose source fails keeps its previous cards, so a hiccup doesn't empty the shelf.
@@ -176,13 +186,7 @@ to change it:
   descriptions, and Viu's and RTMKlik's synopses. A YouTube video that is a show's trailer or
   episode ("Show Name | Official Trailer | Crunchyroll") is also checked against that show's AniList
   and TVmaze genres and tags; other YouTube videos only have their title and channel to go on. Previous cards kept after a failure are checked again too.
-
-Run it by hand with `python3 build_shelf.py` (no YouTube),
-`python3 build_shelf.py --youtube-cookies chrome:Default` (YouTube from a browser) or
-`--youtube-cookie-file yt.txt`.
-
-## Notes
-
+  The `kissing` group (kiss, ciuman, cium, kucup, …) leaves out videos whose title says so.
 - TVmaze's data is licensed [CC BY-SA 4.0](https://www.tvmaze.com/api#licensing); this feed passes
   it on under the same terms. Images are linked, not copied.
 - yt-dlp reads YouTube as your browser would, which YouTube's terms don't cover; it is for your own

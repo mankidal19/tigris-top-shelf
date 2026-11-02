@@ -9,7 +9,9 @@
     "lgbtq": ["lgbt", "lgbtq", "lgbtqia", "gay", "gays", "lesbian", "lesbians", "bisexual", "transgender",
               "transsexual", "trans woman", "trans man", "queer", "homosexual", "same sex", "drag queen",
               "drag race", "boys love", "bl series", "yaoi", "yuri", "shounen ai", "shoujo ai", "girls love",
-              "lgbtq themes", "pride month"]
+              "lgbtq themes", "pride month"],
+    "kissing": ["kiss", "kisses", "kissing", "kissed", "kiss scene", "first kiss", "cium", "ciuman", "bercium",
+                "berciuman", "mencium", "dicium", "kucup", "kucupan", "berkucup", "mengucup", "dikucup"]
   },
   "apps": {
     "com.netflix.ninja": {
@@ -90,6 +92,7 @@
       }
     },
     "com.vuclip.viu.tv": {
+      "viuscene": "malaysia",
       "youtube_playlists": "@ViuMalaysia",
       "service": "Viu",
       "skip": [
