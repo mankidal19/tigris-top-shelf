@@ -97,6 +97,7 @@
       }
     },
     "com.vuclip.viu.tv": {
+      "viuscene": "malaysia",
       "youtube_playlists": "@ViuMalaysia",
       "service": "Viu",
       "check_pictures": true,

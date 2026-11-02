@@ -17,6 +17,9 @@ that app's tile is focused in the first row. Sources (config.json):
   {"youtube_playlists": "@X"} the newest videos of a channel's most recently updated show
                             playlists, e.g. Viu Malaysia's dramas; through yt-dlp
   {"viu": "my"}             a random handful of the Top 10 on Viu's home page for that country
+  {"viuscene": "malaysia"}  Viu's Top 10 trending shows in that country, from Viu Scene (Viu's own
+                            site, which unlike Viu's home page serves any country), with Viu's
+                            1920x1080 covers; shows from Viu Scene's latest articles fill up
   {"rtmklik": {...}}        RTMKlik: its special live channels (Saluran Khas), chosen channel cards
                             (RTMKlik publishes no schedule) and, from the unifi TV guide, what's on
                             TV1/TV2 now
@@ -41,6 +44,7 @@ source fails keeps the cards it had in the previous output. Standard library plu
 import argparse
 import base64
 import datetime as dt
+import html
 import json
 import os
 import pathlib
@@ -948,6 +952,99 @@ def viu_cards(country, row="Top 10"):
     return random.sample(pool, len(pool))
 
 
+# ---- Viu Scene (www.viu.com/ott/viuscene, Viu's own WordPress site) ----------------------------
+
+VIUSCENE = "https://www.viu.com/ott/viuscene"
+
+
+def viuscene_get(path):
+    req = urllib.request.Request(VIUSCENE + path, headers={"User-Agent": "Mozilla/5.0 (" + UA + ")"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return r.read().decode("utf-8", "replace")
+
+
+def viuscene_trending(region, country):
+    """Viu Scene's "Trending Now" list for [region] ("malaysia"): up to 10 shows, most watched
+    first, each with Viu's own 1920x1080 cover. Unlike Viu's home page, Viu Scene serves any
+    country, so this works from GitHub's servers."""
+    page = viuscene_get(f"/trending/{region}/")
+    cards = []
+    for rank, item in enumerate(page.split('<div class="top-10-item">')[1:], 1):
+        img = re.search(r'<img[^>]+src="([^"]+)"[^>]*alt="([^"]*)"', item)
+        if not img:
+            continue
+        name = " ".join(html.unescape(img.group(2)).split())
+        # The list asks for a 300px-wide copy; the image server resizes the 1920x1080 cover.
+        image = img.group(1).split("?")[0] + "?im=Resize,width=1280"
+        if not name or not image.startswith("https://") or not allowed(name, about("series", name)):
+            continue
+        cards.append({"title": name[:120], "meta": f"Viu · #{rank} trending in {country}", "image": image,
+                      "source": f"Trending in {country}"})
+    if not cards:
+        raise RuntimeError(f"no shows on Viu Scene's trending page for {region!r}")
+    return cards
+
+
+def wide_picture(media):
+    """The largest landscape copy of a WordPress featured image, or None."""
+    details = media.get("media_details") or {}
+    copies = [(v.get("width") or 0, v.get("height") or 0, v.get("source_url")) for v in (details.get("sizes") or {}).values()]
+    copies.append((details.get("width") or 0, details.get("height") or 0, media.get("source_url")))
+    wide = [c for c in copies if c[2] and c[0] >= 1000 and c[0] > c[1] * 1.5]
+    return max(wide)[2] if wide else None
+
+
+def viuscene_latest(days, skip_names):
+    """The shows of Viu Scene's latest articles (reviews, guides) from the last [days], one card each,
+    with the article's wide picture. The articles are for all of Viu's countries, so these only fill
+    up the trending shows. The show is the article title up to its colon ("Embers Of The Heart
+    (Cinta Dalam Sekam): A Malaysian Drama About ..."); list articles ("8 Must-Watch Dramas") are
+    left out."""
+    posts = json.loads(viuscene_get("/wp-json/wp/v2/posts?per_page=20&_embed=wp:featuredmedia,wp:term"))
+    since = dt.datetime.now() - dt.timedelta(days=days)
+    cards, seen = [], {"".join(words) for name in skip_names for words in show_names(name)}
+    for post in posts:
+        if dt.datetime.fromisoformat(post["date"]) < since:
+            continue
+        title = " ".join(html.unescape(plain(post.get("title", {}).get("rendered"))).split())
+        show = re.split(r"\s*[:\u2013\u2014|]\s*| - ", title)[0].strip()
+        # "New Drama Alert! 'Unexpectedly Yours (Seadanya Kita)' Brings Love ...": the quoted name.
+        quoted = re.search(r"[\u2018\u201c'\"](.{3,}?)[\u2019\u201d'\"](?:\s|$)", show)
+        show = quoted.group(1) if quoted else re.sub(r"^(New Drama Alert!|Uncovering|Behind the Scenes of)\s*",
+                                                     "", show, flags=re.I)
+        show = show.strip(" '\"\u2018\u2019\u201c\u201d")
+        emb = post.get("_embedded") or {}
+        terms = [t.get("name") or "" for group in emb.get("wp:term") or [] for t in group]
+        excerpt = html.unescape(plain(post.get("excerpt", {}).get("rendered")))
+        image = wide_picture((emb.get("wp:featuredmedia") or [{}])[0])
+        # A show is known by any of its names: "Embers Of The Heart (Cinta Dalam Sekam)" is the
+        # trending "Cinta Dalam Sekam".
+        names = {"".join(words) for words in show_names(show)}
+        if not show or re.match(r"\d+\s", show) or names & seen or not image:
+            continue
+        if not allowed(show, title, excerpt, " ".join(terms), about("series", show)):
+            continue
+        seen |= names
+        kind = next((t for t in terms if t not in ("Must Watch", "Review", "Series", "Behind The Scene",
+                                                   "Editor's List", "Uncategorized")), None)
+        meta = " · ".join(x for x in ("Viu", kind, "New on Viu Scene") if x)
+        cards.append({"title": show[:120], "meta": meta[:180], "image": image, "source": "New on Viu"})
+    return cards
+
+
+def viuscene_cards(source):
+    """Trending shows first (most watched first), then the latest articles' shows, for rotate()."""
+    region = source["viuscene"]
+    country = source.get("country", region.replace("-", " ").title())
+    cards = viuscene_trending(region, country)
+    if source.get("latest", True):
+        try:
+            cards += viuscene_latest(source.get("latest_days", 60), [c["title"] for c in cards])
+        except Exception as e:
+            log(f"Viu Scene: latest articles failed ({e})")
+    return cards
+
+
 # ---- RTMKlik --------------------------------------------------------------------------------
 
 # The content API and image server RTMKlik's TV app reads (rtmklik.rtm.gov.my itself refuses scripts).
@@ -1061,6 +1158,16 @@ def main():
             elif "tvmaze" in source:
                 cards = [dict(c, source=source.get("label", f"New on {source['tvmaze']}"))
                          for c in rotate(tvmaze_pool(source["tvmaze"], cfg, before), before)]
+            elif "viuscene" in source:
+                # Viu Scene, falling back on the YouTube playlists when it fails.
+                try:
+                    cards = rotate(viuscene_cards(source), before)
+                except Exception as e:
+                    if "youtube_playlists" not in source:
+                        raise
+                    log(f"{pkg}: Viu Scene failed ({e}); using the YouTube playlists")
+                    cards = [dict(c, source=source.get("label", f"New on {source.get('service', 'YouTube')}"))
+                             for c in playlist_cards(source, cookies, before)]
             elif "youtube_playlists" in source:
                 cards = [dict(c, source=source.get("label", f"New on {source.get('service', 'YouTube')}"))
                          for c in playlist_cards(source, cookies, before)]
