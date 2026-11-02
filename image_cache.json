@@ -1039,6 +1039,10 @@
   "url": null,
   "at": "2026-11-02"
  },
+ "sports|fip world cup day 1 match 4 l": {
+  "url": null,
+  "at": "2026-11-02"
+ },
  "sports|formula 1 main race formula 1 gran premio de la ciudad de mexico 2026": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg",
   "at": "2026-11-02"
@@ -1106,6 +1110,10 @@
  "sports|laliga 2 eibar vs almeria l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-10-31"
+ },
+ "sports|laliga 2 real oviedo vs las palmas l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
+  "at": "2026-11-02"
  },
  "sports|laliga 2 sabadell vs tenerife": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
@@ -1315,6 +1323,10 @@
   "url": "https://i.ytimg.com/vi/91zPpx_uCWM/hq720.jpg",
   "at": "2026-11-02"
  },
+ "youtube|tv1|berita tengah malam": {
+  "url": "https://i.ytimg.com/vi/_gtP3YcnKgE/hqdefault.jpg",
+  "at": "2026-11-02"
+ },
  "youtube|tv1|berita wilayah": {
   "url": "https://i.ytimg.com/vi/_HaZrfWdRJg/hq720.jpg",
   "at": "2026-11-01"
@@ -1438,6 +1450,10 @@
  "youtube|tv2|bukan yang pertama": {
   "url": "https://i.ytimg.com/vi/ZpK-Yc4oNIc/hq720.jpg",
   "at": "2026-11-01"
+ },
+ "youtube|tv2|dialog sesudah senja": {
+  "url": null,
+  "at": "2026-11-02"
  },
  "youtube|tv2|diva s secret": {
   "url": null,
@@ -1567,6 +1583,10 @@
   "url": "https://i.ytimg.com/vi/V7qAZ30rlxk/hq720.jpg",
   "at": "2026-11-01"
  },
+ "youtube|tv3|nightline 2026 2027": {
+  "url": "https://i.ytimg.com/vi/nETDpboX6U8/hq720.jpg",
+  "at": "2026-11-02"
+ },
  "youtube|tv3|obsesi": {
   "url": "https://i.ytimg.com/vi/pOkMyoNKn9U/hqdefault.jpg",
   "at": "2026-10-31"
@@ -1665,6 +1685,10 @@
  },
  "youtube|tv9|oddbods season 3": {
   "url": null,
+  "at": "2026-11-02"
+ },
+ "youtube|tv9|plan b": {
+  "url": "https://i.ytimg.com/vi/2Nlj7H6AsJs/hq720.jpg",
   "at": "2026-11-02"
  },
  "youtube|tv9|singh susu": {
