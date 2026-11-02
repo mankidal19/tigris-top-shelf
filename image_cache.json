@@ -1011,6 +1011,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-11-01"
  },
+ "sports|laliga getafe vs sevilla": {
+  "url": "https://r2.thesportsdb.com/images/media/event/thumb/9s6kvb1784904557.jpg",
+  "at": "2026-11-02"
+ },
  "sports|laliga getafe vs sevilla l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-11-01"
@@ -1162,6 +1166,10 @@
  "youtube|tv1|berita pagi": {
   "url": null,
   "at": "2026-11-01"
+ },
+ "youtube|tv1|berita tengah hari": {
+  "url": "https://i.ytimg.com/vi/91zPpx_uCWM/hq720.jpg",
+  "at": "2026-11-02"
  },
  "youtube|tv1|berita wilayah": {
   "url": "https://i.ytimg.com/vi/_HaZrfWdRJg/hq720.jpg",
@@ -1319,6 +1327,10 @@
   "url": "https://i.ytimg.com/vi/oJ10HMZ8btM/hqdefault.jpg",
   "at": "2026-11-01"
  },
+ "youtube|tv2|the write one": {
+  "url": null,
+  "at": "2026-11-02"
+ },
  "youtube|tv2|trilogi cinta": {
   "url": "https://i.ytimg.com/vi/K4y25pG4SPE/hqdefault.jpg",
   "at": "2026-11-01"
@@ -1402,6 +1414,10 @@
  "youtube|tv3|setelah ku dimiliki": {
   "url": "https://i.ytimg.com/vi/Uwzae4xucgc/hqdefault.jpg",
   "at": "2026-10-31"
+ },
+ "youtube|tv3|spanar jaya x": {
+  "url": "https://i.ytimg.com/vi/TjB3X3sniLs/hq720.jpg",
+  "at": "2026-11-02"
  },
  "youtube|tv3|supa strikas season 4 6": {
   "url": null,

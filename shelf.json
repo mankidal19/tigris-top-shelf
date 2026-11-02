@@ -98,33 +98,33 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "SURVIVING BEAUTY",
-      "meta": "TV3 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/E8e97PRkG1s/hqdefault.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "MY #QURANTIME 2.0",
-      "meta": "TV9 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/IoahZj2KBsU/hq720.jpg"
+      "title": "SPANAR JAYA X",
+      "meta": "TV3 · Now until 1:30 PM",
+      "image": "https://i.ytimg.com/vi/TjB3X3sniLs/hq720.jpg"
     },
     {
       "source": "On TV now",
       "title": "My Bias, My Boss",
-      "meta": "tvN HD · Now until 12:25 PM",
+      "meta": "tvN HD · Now until 1:45 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "MY LOVE STORY WITH YAMADA-KUN AT LV999",
-      "meta": "Animax · Now until 12:40 PM",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/154965-9AwJG3nVokqG.jpg"
     },
     {
       "source": "On TV now",
       "title": "Roshn Saudi League 26/27 - MD 12 Al Hilal vs Al Fateh",
       "meta": "SPOTV · Now until 2:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "2026 Longines Global Champions Tour, Rabat - CSI 5*",
+      "meta": "SPOTV2 · Now until 2:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "LaLiga - Getafe vs Sevilla",
+      "meta": "beIN SPORTS 1 · Now until 2:30 PM",
+      "image": "https://r2.thesportsdb.com/images/media/event/thumb/9s6kvb1784904557.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -148,15 +148,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Help! We Bought A Village (Ulangan)",
-      "meta": "TV1 · Now until 1:00 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
+      "title": "BERITA TENGAH HARI",
+      "meta": "TV1 · Now until 1:30 PM",
+      "image": "https://i.ytimg.com/vi/91zPpx_uCWM/hq720.jpg"
     },
     {
       "source": "On RTMKlik",
-      "title": "BERITA MANDARIN",
-      "meta": "TV2 · Now until 12:30 PM",
-      "image": "https://i.ytimg.com/vi/ZZ33zmS4E_M/hq720.jpg"
+      "title": "The Write One",
+      "meta": "TV2 · Now until 2:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/907F5B90-0688-4EC2-ABEF-A69F7C842287/0-16x9.jpg?width=1280"
     }
   ],
   "com.vuclip.viu.tv": [
