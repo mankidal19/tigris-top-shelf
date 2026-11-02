@@ -31,9 +31,6 @@ that app's tile is focused in the first row. Sources (config.json):
 
 "never" in config.json lists words and phrases (horror, LGBTQ themes, kissing) that keep a card off
 the shelf when they appear in its title, details, genres or description, wherever a source gives those.
-"never_pictures" describes what a card's picture must not show (a kiss, or nearly one); an app with
-"check_pictures" has each new picture looked at by a vision model on GitHub Models (free; the
-workflow's own GITHUB_TOKEN), once per picture.
 
 The streaming apps (everything but unifi TV and RTMKlik) don't repeat their previous cards while
 their source has others: each picks from more than it shows and puts last run's cards last.
@@ -42,7 +39,6 @@ The shelf is a full-width slideshow, so wide pictures are preferred everywhere. 
 source fails keeps the cards it had in the previous output. Standard library plus yt-dlp.
 """
 import argparse
-import base64
 import datetime as dt
 import html
 import json
@@ -86,14 +82,9 @@ def shown(card, before):
 def rotate(pool, before):
     """MAX_ITEMS cards of [pool] for the streaming apps, those not on the previous shelf [before]
     first, so each run brings different ones while the pool lasts; the previous ones only fill up.
-    Cards whose picture fails picture_ok() are passed over (only as many are looked at as needed).
     The chosen keep the pool's order. Live TV (unifi TV, RTMKlik) doesn't rotate."""
-    chosen = []
-    for c in [c for c in pool if not shown(c, before)] + [c for c in pool if shown(c, before)]:
-        if len(chosen) == MAX_ITEMS:
-            break
-        if picture_ok(c.get("image"), c.get("title")):
-            chosen.append(c)
+    chosen = [c for c in pool if not shown(c, before)][:MAX_ITEMS]
+    chosen += [c for c in pool if shown(c, before)][:MAX_ITEMS - len(chosen)]
     return [c for c in pool if any(c is x for x in chosen)]
 
 
@@ -523,116 +514,6 @@ def cached(key, find):
     return url
 
 
-# ---- what a picture shows (config.json "never_pictures") -------------------------------------
-
-# GitHub Models: free for GitHub accounts, within a daily limit, with the workflow's own GITHUB_TOKEN
-# (permission "models: read"). OpenAI-style chat completions.
-PICTURE_API = "https://models.github.ai/inference/chat/completions"
-PICTURE_MODEL = "openai/gpt-4o-mini"  # config.json "picture_model" changes it
-NEVER_PICTURES = []  # config.json "never_pictures": what a picture must not show
-CHECK_PICTURES = False  # whether the app being built has "check_pictures"; see picture_ok()
-picture_key_missing_told = False
-
-
-class _KeepPost(urllib.request.HTTPRedirectHandler):
-    """Follows a redirect with the same POST and body; urllib's own turns a POST into an empty GET."""
-    def redirect_request(self, req, fp, code, msg, headers, newurl):
-        return urllib.request.Request(newurl, data=req.data, method=req.get_method(),
-                                      headers=dict(req.header_items()))
-
-
-def post_json(url, body, headers):
-    """POSTs [body] as JSON, following redirects as POSTs, and reads the JSON answer; an answer
-    that isn't JSON is reported with its status and start."""
-    req = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST",
-                                 headers={**headers, "Content-Type": "application/json"})
-    with urllib.request.build_opener(_KeepPost).open(req, timeout=60) as r:
-        text = r.read().decode("utf-8", "replace")
-        try:
-            return json.loads(text)
-        except ValueError:
-            raise RuntimeError(f"HTTP {r.status} {r.headers.get('content-type')} from {r.url}: {text[:200]!r}")
-
-
-def picture_verdict(image):
-    """Asks the vision model whether [image] (a URL) shows any of NEVER_PICTURES: True when it does."""
-    # Some picture addresses carry non-ASCII letters, which urllib won't send as they are.
-    image = urllib.parse.quote(image, safe=":/?&=%#,;+@!$'()*~[]")
-    req = urllib.request.Request(image, headers={"User-Agent": "Mozilla/5.0 (" + UA + ")"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        data, kind = r.read(), (r.headers.get_content_type() or "image/jpeg")
-    if kind not in ("image/jpeg", "image/png", "image/gif", "image/webp"):
-        kind = "image/png" if data[:4] == b"\x89PNG" else "image/webp" if data[8:12] == b"WEBP" else "image/jpeg"
-    rules = "\n".join(f"- {r}" for r in NEVER_PICTURES)
-    body = {
-        "model": PICTURE_MODEL,
-        "max_tokens": 5,
-        "temperature": 0,
-        "messages": [{"role": "user", "content": [
-            {"type": "text", "text": "This is the preview picture of a TV show or video for a family TV's home "
-                                     "screen. Does it show any of these?\n" + rules +
-                                     "\nWhen in doubt, answer YES. Answer with one word: YES or NO."},
-            # "low" detail (512 px) is enough to see a kiss, and keeps each request small.
-            {"type": "image_url", "image_url": {"url": f"data:{kind};base64,{base64.b64encode(data).decode()}",
-                                                "detail": "low"}},
-        ]}],
-    }
-    headers = {"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Accept": "application/vnd.github+json",
-               "X-GitHub-Api-Version": "2022-11-28"}
-    for attempt in range(3):
-        try:
-            reply = post_json(PICTURE_API, body, headers)
-            break
-        except urllib.error.HTTPError as e:
-            # 429: the free limit (per minute, or for the day); a later run asks again.
-            if e.code not in (429, 500, 502, 503) or attempt == 2:
-                raise RuntimeError(f"HTTP {e.code}: {e.read()[:200].decode('utf-8', 'replace')}")
-            time.sleep(min(int(e.headers.get("retry-after") or 0), 60) or 10 * (attempt + 1))
-    answer = (((reply.get("choices") or [{}])[0].get("message") or {}).get("content") or "").strip().upper()
-    if not answer.startswith(("YES", "NO")):
-        raise RuntimeError(f"unexpected answer {answer!r}")
-    return answer.startswith("YES")
-
-
-picture_failures = 0  # checks in a row that failed; after 3 the service is taken as down for the run
-
-
-def picture_ok(image, title=None, unknown=False):
-    """False when the app being built checks its pictures (CHECK_PICTURES) and [image] shows one of
-    NEVER_PICTURES (a kiss, or nearly one). Each picture is asked about once and the answer
-    remembered (image_cache.json, a month). A picture that can't be checked gets [unknown]: False
-    for new cards, so they wait for a run that can check them, True for the cards already on the TV,
-    so the shelf isn't emptied while the service is down. After 3 failures in a row the run stops
-    asking. Without GITHUB_TOKEN (a run outside GitHub Actions) nothing is checked."""
-    global picture_key_missing_told, picture_failures
-    if not CHECK_PICTURES or not NEVER_PICTURES or not image:
-        return True
-    if not os.environ.get("GITHUB_TOKEN"):
-        if not picture_key_missing_told:
-            log("pictures not checked: no GITHUB_TOKEN")
-            picture_key_missing_told = True
-        return True
-    key = f"picture|{image}"
-    hit = cache.get(key)
-    if hit and (dt.date.today() - dt.date.fromisoformat(hit["at"])).days < HIT_DAYS:
-        bad = hit.get("verdict") == "never"
-    elif picture_failures >= 3:
-        return unknown
-    else:
-        try:
-            bad = picture_verdict(image)
-            picture_failures = 0
-        except Exception as e:
-            picture_failures += 1
-            log(f"picture check failed for {title or image!r}: {e}" +
-                ("; not asking again this run" if picture_failures >= 3 else ""))
-            return unknown
-        cache[key] = {"url": "", "verdict": "never" if bad else "ok", "at": dt.date.today().isoformat()}
-    if bad:
-        log(f"left out the picture of {title or image!r} (never_pictures)")
-    return not bad
-
-
 def same_team(ours, theirs):
     a, b = norm(ours), norm(theirs)
     return bool(a and b) and (a == b or a in b or b in a)
@@ -932,7 +813,7 @@ def playlist_cards(source, cookies, before=None):
         recent = newest[:source.get("depth", 4)]
         for e in sorted(recent, key=lambda e: on_shelf(e["id"], before)) + newest[len(recent):]:
             image = thumbnail(e["id"])
-            if image and picture_ok(image, f"{name}: {e['title']}"):
+            if image:
                 meta = " · ".join(x for x in (service, video_label(e["title"])) if x)
                 cards.append({"title": name[:120], "meta": meta[:180], "image": image})
                 break
@@ -1152,9 +1033,6 @@ def main():
     MIN_WIDE = min(MIN_WIDE, MAX_ITEMS)
     global NEVER
     NEVER = sorted({norm(w) for words in (cfg.get("never") or {}).values() for w in words} - {""})
-    global NEVER_PICTURES, PICTURE_MODEL, CHECK_PICTURES
-    NEVER_PICTURES = [r for r in cfg.get("never_pictures") or [] if r.strip()]
-    PICTURE_MODEL = cfg.get("picture_model", PICTURE_MODEL)
     try:
         previous = json.loads(args.out.read_text())
         previous = previous if isinstance(previous, dict) else {}
@@ -1178,7 +1056,6 @@ def main():
         # The streaming apps choose against what they showed last time, so each run differs from the
         # last (rotate()); live TV shows what's on, however often that repeats.
         before = previous.get(pkg) or []
-        CHECK_PICTURES = bool(source.get("check_pictures"))
         try:
             if "netflix_top10" in source:
                 code = source["netflix_top10"]
@@ -1234,8 +1111,6 @@ def main():
             else:
                 log(f"{pkg}: unknown source {source}")
                 continue
-            # The sources that don't choose through rotate() or playlist_cards() lose a flagged card.
-            cards = [c for c in cards if picture_ok(c.get("image"), c.get("title"))]
             if not cards:
                 raise RuntimeError("no cards")
             feed[pkg] = cards
@@ -1247,8 +1122,7 @@ def main():
             if "youtube" in source:
                 signed_out = "logged_in=false" in youtube_note
                 youtube_health = {"ok": False, "signed_out": signed_out, "detail": f"{e}{youtube_note}"}
-            kept = [c for c in previous.get(pkg) or []
-                    if allowed(c.get("title"), c.get("meta")) and picture_ok(c.get("image"), c.get("title"), unknown=True)]
+            kept = [c for c in previous.get(pkg) or [] if allowed(c.get("title"), c.get("meta"))]
             if kept:
                 feed[pkg] = kept[:MAX_ITEMS]
 

@@ -7,7 +7,7 @@ Tigris shows that app's cards as a full-width slideshow.
 | App | Package | Source |
 |---|---|---|
 | Netflix | `com.netflix.ninja` | Netflix's official Top 10 shows in Malaysia (5 different ones each run), topped up with new episodes |
-| Viu | `com.vuclip.viu.tv` | Viu's Top 10 trending shows in Malaysia (5 different ones each run) with Viu's own covers, from Viu Scene; no kissing (or nearly kissing) in the picture. When Viu Scene fails, the newest episodes of Viu Malaysia's shows on YouTube |
+| Viu | `com.vuclip.viu.tv` | Viu's Top 10 trending shows in Malaysia (5 different ones each run) with Viu's own covers, from Viu Scene. When Viu Scene fails, the newest episodes of Viu Malaysia's shows on YouTube |
 | Prime Video | `com.amazon.amazonvideo.livingroom` | New and upcoming episodes, from TVmaze |
 | YouTube | `com.google.android.youtube.tv` | Your own YouTube recommendations from the last 7 days, plus one Islamic video (zikir, al-ma'thurat, …) from your watch history (needs the `YT_COOKIES` secret) |
 | unifi TV | `com.tm.unifitv.tv` | What's on now on your channels, from unifi TV's programme guide |
@@ -25,8 +25,7 @@ Run workflow). Point Tigris at:
 https://raw.githubusercontent.com/mankidal19/tigris-top-shelf/main/shelf.json
 ```
 
-Netflix and Prime Video need nothing, nor does checking pictures for kissing (Viu; see
-`"never_pictures"` below). YouTube needs the repo secret **`YT_COOKIES`**: the
+Netflix and Prime Video need nothing. YouTube needs the repo secret **`YT_COOKIES`**: the
 `youtube.com` cookies of a signed-in browser, in Netscape `cookies.txt` format. The workflow writes
 it to a private temp file for the run only. Without the secret, YouTube is left out.
 
@@ -188,20 +187,6 @@ to change it:
   episode ("Show Name | Official Trailer | Crunchyroll") is also checked against that show's AniList
   and TVmaze genres and tags; other YouTube videos only have their title and channel to go on. Previous cards kept after a failure are checked again too.
   The `kissing` group (kiss, ciuman, cium, kucup, …) leaves out videos whose title says so.
-- `"never_pictures"`: what a card's *picture* must not show, in plain words (now: a romantic kiss,
-  an almost-kiss with faces close and lips nearly touching, a couple in bed). Words can't see a
-  thumbnail, so an app with `"check_pictures": true` (Viu) has each new picture looked at by a
-  vision model on [GitHub Models](https://docs.github.com/en/github-models) (`"picture_model"`,
-  `openai/gpt-4o-mini` by default), told to say yes when in doubt. It is free for GitHub accounts,
-  within a daily limit, and the workflow signs in with its own `GITHUB_TOKEN` (permission
-  `models: read`), so there is no key to set up. A flagged picture is passed over: the Viu show
-  uses its next newest video instead, and other apps take their next card. Each picture is asked
-  about once and the answer remembered in `image_cache.json` for a month, so a run only asks about
-  new pictures, well within the limit. A picture that can't be checked (limit reached, service
-  down) isn't used that run, so the shelf keeps its previous, checked cards. Run by hand, set
-  `GITHUB_TOKEN` to a [personal access token](https://github.com/settings/personal-access-tokens)
-  with the "Models" permission, or pictures are not checked. Add `"check_pictures": true` to
-  another app in `config.json` to check its pictures too.
 - TVmaze's data is licensed [CC BY-SA 4.0](https://www.tvmaze.com/api#licensing); this feed passes
   it on under the same terms. Images are linked, not copied.
 - yt-dlp reads YouTube as your browser would, which YouTube's terms don't cover; it is for your own
