@@ -98,33 +98,33 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "Lexus Melbourne Cup 2026 -",
-      "meta": "SPOTV2 · Live · Now until 12:30 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "SURVIVING BEAUTY",
-      "meta": "TV3 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/E8e97PRkG1s/hqdefault.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "MY #QURANTIME 2.0",
-      "meta": "TV9 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/IoahZj2KBsU/hq720.jpg"
+      "title": "SPANAR JAYA X",
+      "meta": "TV3 · Now until 1:30 PM",
+      "image": "https://i.ytimg.com/vi/TjB3X3sniLs/hq720.jpg"
     },
     {
       "source": "On TV now",
       "title": "The Judge Returns",
-      "meta": "tvN HD · Now until 12:35 PM",
+      "meta": "tvN HD · Now until 1:55 PM",
       "image": "https://static.tvmaze.com/uploads/images/original_untouched/607/1519721.jpg"
     },
     {
       "source": "On TV now",
-      "title": "FRUITS BASKET",
-      "meta": "Animax · Now until 12:40 PM",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/120-PautbsS8uEAe.jpg"
+      "title": "A-League Men 26/27 MW 3 - Newcastle Jets vs Wellington Phoenix",
+      "meta": "SPOTV · Now until 2:00 PM",
+      "image": "https://r2.thesportsdb.com/images/media/event/thumb/t21yb71700302239.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "MLB 2026 Postseason: World Series Game 1 - Milwaukee Brewers vs Tampa Bay Rays",
+      "meta": "SPOTV2 · Now until 3:45 PM",
+      "image": "https://www.thesportsdb.com/images/media/event/thumb/dgh4xp1792565718.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "LaLiga 2 - Eibar vs Almeria",
+      "meta": "beIN SPORTS 1 · Now until 2:40 PM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -148,15 +148,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Help! We Bought A Village (Ulangan)",
-      "meta": "TV1 · Now until 1:00 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
+      "title": "BERITA TENGAH HARI",
+      "meta": "TV1 · Now until 1:30 PM",
+      "image": "https://i.ytimg.com/vi/91zPpx_uCWM/hq720.jpg"
     },
     {
       "source": "On RTMKlik",
-      "title": "BERITA MANDARIN",
-      "meta": "TV2 · Now until 12:30 PM",
-      "image": "https://i.ytimg.com/vi/ZZ33zmS4E_M/hq720.jpg"
+      "title": "The Write One",
+      "meta": "TV2 · Now until 2:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/907F5B90-0688-4EC2-ABEF-A69F7C842287/0-16x9.jpg?width=1280"
     }
   ],
   "com.vuclip.viu.tv": [
