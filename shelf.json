@@ -97,34 +97,34 @@
   ],
   "com.tm.unifitv.tv": [
     {
-      "source": "Live soon",
+      "source": "On TV now",
       "title": "Lexus Melbourne Cup 2026 -",
-      "meta": "SPOTV2 · Live · 10:30 AM – 12:30 PM",
+      "meta": "SPOTV2 · Live · Now until 12:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "MALAYSIA HARI INI 2026/2027",
-      "meta": "TV3 · Now until 11:00 AM",
+      "title": "SUPA STRIKAS (SEASON 4 - 6)",
+      "meta": "TV3 · Now until 11:30 AM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "Sixth Sense: B-side",
-      "meta": "tvN HD · Now until 11:15 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
+      "title": "The Judge Returns",
+      "meta": "tvN HD · Now until 12:35 PM",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/607/1519721.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "BLACK CLOVER",
+      "meta": "Animax · Now until 11:40 AM",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/97940-1URQdQ4U1a0b.jpg"
     },
     {
       "source": "On TV now",
       "title": "Roshn Saudi League 26/27 - MD 12 Al Hilal vs Al Fateh",
       "meta": "SPOTV · Now until 12:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "LFCTV Highlights - Liverpool vs Chelsea - Carabao Cup",
-      "meta": "beIN SPORTS 1 · Now until 10:30 AM",
-      "image": "https://r2.thesportsdb.com/images/media/event/thumb/ldycyl1789805549.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -154,8 +154,8 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Bintang Pujaan - Rem",
-      "meta": "TV2 · Now until 11:00 AM",
+      "title": "Ammavin Parambariya Samayal",
+      "meta": "TV2 · Now until 11:30 AM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/907F5B90-0688-4EC2-ABEF-A69F7C842287/0-16x9.jpg?width=1280"
     }
   ],
