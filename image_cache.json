@@ -1551,6 +1551,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-10-31"
  },
+ "sports|laliga athletic bilbao vs real sociedad": {
+  "url": "https://r2.thesportsdb.com/images/media/event/thumb/z75dit1784904549.jpg",
+  "at": "2026-11-06"
+ },
  "sports|laliga barcelona vs alaves": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-11-01"
@@ -1803,6 +1807,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
   "at": "2026-11-03"
  },
+ "sports|uefa conference league atalanta vs kairat md3": {
+  "url": "https://r2.thesportsdb.com/images/media/event/thumb/1ettd61787937424.jpg",
+  "at": "2026-11-06"
+ },
  "sports|uefa conference league getafe vs brighton md3 l": {
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/gsn1951787937426.jpg",
   "at": "2026-11-05"
@@ -1993,7 +2001,7 @@
  },
  "youtube|tv1|eksplorasi halal ulangan": {
   "url": null,
-  "at": "2026-11-01"
+  "at": "2026-11-06"
  },
  "youtube|tv1|fikrah 2026": {
   "url": "https://i.ytimg.com/vi/DYDmj0zdozg/hq720.jpg",
@@ -2266,6 +2274,10 @@
  "youtube|tv3|bersamamu 2026 2027": {
   "url": "https://i.ytimg.com/vi/tP7iY1_Jacw/hq720.jpg",
   "at": "2026-11-01"
+ },
+ "youtube|tv3|beyblade x gen 4": {
+  "url": null,
+  "at": "2026-11-06"
  },
  "youtube|tv3|boss kid": {
   "url": "https://i.ytimg.com/vi/qnmgEDyqOOM/hq720.jpg",
