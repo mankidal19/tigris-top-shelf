@@ -97,10 +97,22 @@
   ],
   "com.tm.unifitv.tv": [
     {
+      "source": "Live soon",
+      "title": "2026 LET: Aramco China Championship - Day 2",
+      "meta": "SPOTV · Live · 1:30 PM – 5:30 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+    },
+    {
       "source": "On TV now",
       "title": "MALAYSIA HARI INI 2026/2027",
       "meta": "TV3 · Now until 11:00 AM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "NASI LEMAK KOPI O 2026/2027",
+      "meta": "TV9 · Now until 11:30 AM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
@@ -110,21 +122,9 @@
     },
     {
       "source": "On TV now",
-      "title": "The Open Official Film 2026",
-      "meta": "SPOTV · Now until 11:00 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
       "title": "WTT Champions Montpellier 2026 - Day 3 Session 2",
       "meta": "SPOTV2 · Now until 12:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "GT World Challenge Europe Highlights - Portimao, Portugal",
-      "meta": "beIN SPORTS 1 · Now until 10:30 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/A0C43E09-6105-4CD5-9F44-390B57BCA1A5/0-16x9.jpg?width=1280"
     }
   ],
   "my.gov.rtm.tv": [
@@ -145,12 +145,6 @@
       "title": "Sukan+",
       "meta": "RTMKlik · Live",
       "image": "https://rtm-images.glueapi.io/1280x720/live_channel/1920SUKAN_Logo_-01.jpg"
-    },
-    {
-      "source": "On RTMKlik",
-      "title": "Projek R (Ulangan)",
-      "meta": "TV1 · Now until 10:30 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
