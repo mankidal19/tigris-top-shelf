@@ -97,27 +97,21 @@
   ],
   "com.tm.unifitv.tv": [
     {
-      "source": "On TV now",
-      "title": "2026 The Asian Tournament, Iloilo - Game 6: Toronto JC Trans vs Hong Kong Vanta Black Dragon",
-      "meta": "SPOTV · Live · Now until 9:00 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "2026 MotoGP Rd 20 Qatar Airways Grand Prix of Qatar - Free Practice 1",
-      "meta": "SPOTV2 · Live · Now until 8:50 PM",
+      "source": "Live soon",
+      "title": "2026 MotoGP Rd 20 Qatar Airways Grand Prix of Qatar - Practice",
+      "meta": "SPOTV2 · Live · 10:10 PM – 1:30 AM",
       "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg"
     },
     {
       "source": "On TV now",
-      "title": "BULETIN UTAMA (2026/2027)",
-      "meta": "TV3 · Now until 9:00 PM",
-      "image": "https://i.ytimg.com/vi/eRxeGn1jpOQ/hq720.jpg"
+      "title": "RESET JALAN KEDUA",
+      "meta": "TV3 · Now until 10:00 PM",
+      "image": "https://i.ytimg.com/vi/swPRPVB_seQ/hq720.jpg"
     },
     {
       "source": "On TV now",
-      "title": "NASI LEMAK KOPI O 2026/2027",
-      "meta": "TV9 · Now until 8:40 PM",
+      "title": "MENTOR ( SS 3 ) - WEEKLY",
+      "meta": "TV9 · Now until 10:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
     },
     {
@@ -125,6 +119,12 @@
       "title": "The Judge Returns",
       "meta": "tvN HD · Now until 9:15 PM",
       "image": "https://static.tvmaze.com/uploads/images/original_untouched/607/1519721.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "RAGNA CRIMSON",
+      "meta": "Animax · Now until 9:10 PM",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/146493-V7hmee4h79hd.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -148,15 +148,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "BERITA PERDANA",
-      "meta": "TV1 · Now until 8:30 PM",
-      "image": "https://i.ytimg.com/vi/wADALEnEQMU/hq720.jpg"
+      "title": "Bicara Naratif 2026",
+      "meta": "TV1 · Now until 10:00 PM",
+      "image": "https://i.ytimg.com/vi/Zn8V2KstIE4/hq720.jpg"
     },
     {
       "source": "On RTMKlik",
-      "title": "Gotham II",
-      "meta": "TV2 · Now until 9:00 PM",
-      "image": "https://i.ytimg.com/vi/-oI23RLGxvM/hq720.jpg"
+      "title": "A League Of Their Own",
+      "meta": "TV2 · Now until 11:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/907F5B90-0688-4EC2-ABEF-A69F7C842287/0-16x9.jpg?width=1280"
     }
   ],
   "com.vuclip.viu.tv": [
