@@ -809,7 +809,7 @@
  },
  "about|series|sixth sense b side": {
   "url": "",
-  "at": "2026-11-03"
+  "at": "2026-11-06"
  },
  "about|series|spice of youth garam muda": {
   "url": "",
@@ -1125,7 +1125,7 @@
  },
  "series|sixth sense b side": {
   "url": null,
-  "at": "2026-11-03"
+  "at": "2026-11-06"
  },
  "series|spike": {
   "url": null,
@@ -1206,6 +1206,10 @@
  "sports|2026 fim ewc highlights rd 4 bol d or france": {
   "url": null,
   "at": "2026-10-31"
+ },
+ "sports|2026 gt world challenge asia shanghai race 1": {
+  "url": null,
+  "at": "2026-11-06"
  },
  "sports|2026 hong kong cyclothon highlights": {
   "url": null,
@@ -1363,6 +1367,10 @@
   "url": null,
   "at": "2026-10-31"
  },
+ "sports|bundesliga 2 dynamo dresden vs greuther furth l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
+  "at": "2026-11-06"
+ },
  "sports|bundesliga 2 st pauli vs nuremberg l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
   "at": "2026-11-01"
@@ -1498,6 +1506,10 @@
  "sports|fip world cup day 4 qf match 2 l": {
   "url": null,
   "at": "2026-11-05"
+ },
+ "sports|fip world cup day 5 sf men match 3 l": {
+  "url": null,
+  "at": "2026-11-06"
  },
  "sports|fip world cup day 5 sf women match 1 l": {
   "url": null,
@@ -1670,6 +1682,10 @@
  "sports|laliga show matchday 11": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-10-31"
+ },
+ "sports|laliga show matchday 12": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
+  "at": "2026-11-06"
  },
  "sports|laliga villarreal vs espanyol": {
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/srl98x1784904551.jpg",
@@ -1991,6 +2007,10 @@
   "url": null,
   "at": "2026-11-05"
  },
+ "sports|wtt champions frankfurt 2026 day 4 session 2": {
+  "url": null,
+  "at": "2026-11-06"
+ },
  "sports|wtt champions montpellier 2026 day 1 session 1": {
   "url": null,
   "at": "2026-11-02"
@@ -2069,7 +2089,7 @@
  },
  "youtube|tv1|dimensi legenda ulangan": {
   "url": null,
-  "at": "2026-11-01"
+  "at": "2026-11-06"
  },
  "youtube|tv1|eksplorasi halal ulangan": {
   "url": null,
@@ -2323,6 +2343,10 @@
   "url": "https://i.ytimg.com/vi/82HB2dDH6Zw/hq720.jpg",
   "at": "2026-11-02"
  },
+ "youtube|tv2|the red masala": {
+  "url": null,
+  "at": "2026-11-06"
+ },
  "youtube|tv2|the write one": {
   "url": null,
   "at": "2026-11-02"
@@ -2544,8 +2568,8 @@
   "at": "2026-11-01"
  },
  "youtube|tv9|doktor idaman": {
-  "url": null,
-  "at": "2026-11-02"
+  "url": "https://i.ytimg.com/vi/RoljtQ8fmWk/hqdefault.jpg",
+  "at": "2026-11-06"
  },
  "youtube|tv9|durja ningsun": {
   "url": "https://i.ytimg.com/vi/LImgMSIOkMA/hq720.jpg",
