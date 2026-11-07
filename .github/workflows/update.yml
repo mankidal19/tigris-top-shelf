@@ -32,8 +32,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
       - name: Install yt-dlp
+        # Unpinned on purpose: YouTube breaks old yt-dlp releases within days.
         run: python3 -m pip install --quiet --upgrade yt-dlp
       - name: Build shelf.json
         env:
