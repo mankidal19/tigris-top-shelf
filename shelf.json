@@ -1,97 +1,97 @@
 {
   "com.netflix.ninja": [
     {
-      "title": "Lupin",
-      "meta": "Netflix · #5 in TV · New this week",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/292/730986.jpg",
-      "source": "Top 10 in Malaysia"
-    },
-    {
-      "title": "Where the Mask Ends",
-      "meta": "Netflix · #4 in TV",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/596/1491800.jpg",
-      "source": "Top 10 in Malaysia"
-    },
-    {
-      "title": "Lupin",
-      "meta": "Netflix · #7 in TV · New this week",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/292/730986.jpg",
-      "source": "Top 10 in Malaysia"
-    },
-    {
-      "title": "Steel Ball Run: JoJo's Bizarre Adventure",
-      "meta": "Netflix · S2 E7 · Out Fri 6 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/618/1546750.jpg",
+      "title": "Black Doves",
+      "meta": "Netflix · S2 · 6 episodes · Out Thu 5 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/539/1348673.jpg",
       "source": "New on Netflix"
     },
     {
-      "title": "Love Is Blind",
-      "meta": "Netflix · S11 E13 · Coming Mon 9 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/239/599875.jpg",
+      "title": "Znieczulenie",
+      "meta": "Netflix · S1 · 8 episodes · Out Wed 4 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/649/1624480.jpg",
+      "source": "New on Netflix"
+    },
+    {
+      "title": "Taken: Natalee Holloway",
+      "meta": "Netflix · S1 · 3 episodes · Out Wed 4 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/649/1624434.jpg",
+      "source": "New on Netflix"
+    },
+    {
+      "title": "Bass X Machina",
+      "meta": "Netflix · S1 · 6 episodes · Out Tue 3 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/649/1623911.jpg",
+      "source": "New on Netflix"
+    },
+    {
+      "title": "WWE Monday Night RAW",
+      "meta": "Netflix · S33 E45 · Coming Mon 9 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/222/556828.jpg",
       "source": "New on Netflix"
     }
   ],
   "com.amazon.amazonvideo.livingroom": [
     {
-      "title": "The Assassin",
-      "meta": "Prime Video · S2 · 6 episodes · Out Fri 6 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/579/1448166.jpg",
+      "title": "The Greatest",
+      "meta": "Prime Video · S1 · 8 episodes · Out Wed 4 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/649/1624472.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "The Traitors Telugu",
-      "meta": "Prime Video · S1 E10 · Out Thu 5 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/644/1612250.jpg",
+      "title": "The Lord of the Rings: The Rings of Power",
+      "meta": "Prime Video · S3 · 4 episodes · Coming Wed 11 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/396/990035.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "A Tale of the Secret Saint",
-      "meta": "Prime Video · S1 E8 · Coming Sat 14 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602819.jpg",
+      "title": "Judy Justice",
+      "meta": "Prime Video · S4 E120 · Out Fri 23 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/443/1109363.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "Last One Laughing: Halloween",
-      "meta": "Prime Video · S1 E4 · Out Fri 30 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1618814.jpg",
+      "title": "LOL: Chi ride è fuori",
+      "meta": "Prime Video · Out Fri 23 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/301/754105.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "Rinnan",
-      "meta": "Prime Video · S1 · 4 episodes · Out Fri 30 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/648/1622450.jpg",
+      "title": "Le Charles",
+      "meta": "Prime Video · S1 · 6 episodes · Out Fri 23 Oct",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/648/1620923.jpg",
       "source": "New on Prime Video"
     }
   ],
   "com.google.android.youtube.tv": [
     {
-      "title": "AL-MA'THURAT AS-SUGHRA (Bacaan Pagi) oleh Ustaz Khairul Anuar Basri | المأثورات الصغرى",
-      "meta": "YouTube · 27 min",
-      "image": "https://i.ytimg.com/vi/mbiXJN5xii4/hq720.jpg",
+      "title": "JISOO (지수) - ADDICTED | Show! MusicCore | MBC261107방송",
+      "meta": "YouTube · MBCkpop · 3 min",
+      "image": "https://i.ytimg.com/vi/sEfYW7-T3gc/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "“Tesla Hater” Finally Tries Full Self Driving",
+      "meta": "YouTube · Linus Tech Tips · 33 min",
+      "image": "https://i.ytimg.com/vi/Ao9IQyaH0fk/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "[COMEBACK] UNCHILD アンチャイルド 언차일드 - TiNG TiNG [Music Bank] | KBS WORLD TV 261106",
+      "meta": "YouTube · KBS WORLD TV · 3 min",
+      "image": "https://i.ytimg.com/vi/8rzf5Tdyet0/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "AL-MA'THURAT • Zikir Pagi | المأثورات • أذكار الصباح | Bacaan oleh Ustaz Hj. Hazamin INTEAM",
+      "meta": "YouTube · 50 min",
+      "image": "https://i.ytimg.com/vi/lBMmZr108k0/hq720.jpg",
       "source": "Watched before"
     },
     {
-      "title": "#Jamminghot | Nabila Razali | Cukup Sampai Sini",
-      "meta": "YouTube · Hot TV · 3 min",
-      "image": "https://i.ytimg.com/vi/bflygVvCmd4/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "Eunha, SinB, Umji @ ROAD FC 079 - Full Performance - 261101",
-      "meta": "YouTube · megascorcher · 14 min",
-      "image": "https://i.ytimg.com/vi/mka0yUeMvqI/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "My F-You To Sam Altman",
-      "meta": "YouTube · Linus Tech Tips · 31 min",
-      "image": "https://i.ytimg.com/vi/vDmjw-c_R2k/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "The Recipe for Mediocre Men",
-      "meta": "YouTube · Lilly Singh · 4 min",
-      "image": "https://i.ytimg.com/vi/rBgHlgrpxRQ/hq720.jpg",
+      "title": "Sen.-elect Abdul El-Sayed joins Morning Joe for a wide-ranging interview",
+      "meta": "YouTube · MS NOW · 17 min",
+      "image": "https://i.ytimg.com/vi/Zv4jxetO8R4/hq720.jpg",
       "source": "Recommended for you"
     }
   ],
@@ -110,20 +110,20 @@
     },
     {
       "source": "On TV now",
-      "title": "RAVA TOSAI",
-      "meta": "TV3 · Now until 4:00 PM",
-      "image": "https://i.ytimg.com/vi/m1rh64aU6cM/hq720.jpg"
+      "title": "SURVIVAL OF THE BEAST",
+      "meta": "TV3 · Now until 5:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "ANAK ANGKAT",
-      "meta": "TV9 · Now until 3:30 PM",
-      "image": "https://i.ytimg.com/vi/nKWuqcmK4l8/hq720.jpg"
+      "title": "SALAM TAJ MAHAL",
+      "meta": "TV9 · Now until 5:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "3 Meals A Day : Light",
-      "meta": "tvN HD · Now until 3:55 PM",
+      "title": "GBRB: Joy Pops Laugh Pops",
+      "meta": "tvN HD · Now until 5:35 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
     }
   ],
@@ -148,46 +148,46 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Penyabong (Ulangan)",
-      "meta": "TV1 · Now until 3:00 PM",
+      "title": "Siaran Langsung : Perasmian Sambutan Bulan Keluarga Kebangsaan 2026",
+      "meta": "TV1 · Now until 5:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "Ghulam",
-      "meta": "TV2 · Now until 4:00 PM",
-      "image": "https://i.ytimg.com/vi/rygDOWwhWx8/hq720.jpg"
+      "title": "Youn's Kitchen",
+      "meta": "TV2 · Now until 5:00 PM",
+      "image": "https://i.ytimg.com/vi/gXTnimVMoF4/hqdefault.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
     {
-      "title": "The Rules",
-      "meta": "Viu · #5 trending in Malaysia",
-      "image": "https://prod-images.viu.com/1375146905/dd1e7f22031649f20cbcbbcee350d7e162f9091d?im=Resize,width=1280",
+      "title": "Bayangan Dendam",
+      "meta": "Viu · #1 trending in Malaysia",
+      "image": "https://prod-images.viu.com/2187216814/2d2dd8da5a6cf351940dbbb8bed3464df83d0d17?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Cinta Dalam Sekam",
-      "meta": "Viu · #7 trending in Malaysia",
-      "image": "https://prod-images.viu.com/2786942835/da20c8298983929301a80cccc8fc57aa29f326df?im=Resize,width=1280",
+      "title": "The Hidden Hand (Dia Perempuan Sialan)",
+      "meta": "Viu · #2 trending in Malaysia",
+      "image": "https://prod-images.viu.com/4112872894/70072b138b2c583b98355e629c9f9fe44ca476f3?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Seadanya Kita",
-      "meta": "Viu · #8 trending in Malaysia",
-      "image": "https://prod-images.viu.com/2527637183/deb85e2e177f30142420afa5c6f5356402f292b8?im=Resize,width=1280",
+      "title": "Abang Imam Minah Skuter",
+      "meta": "Viu · #3 trending in Malaysia",
+      "image": "https://prod-images.viu.com/2206944558/4577d4a7bf78e18641458f2f62e45c6738b52b92?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Quite the Girl 好一个乖乖女",
-      "meta": "Viu · #9 trending in Malaysia",
-      "image": "https://prod-images.viu.com/3134128703/21b43001f42d50960af1812368c0d548090bb9d7?im=Resize,width=1280",
+      "title": "Running Man (2026)",
+      "meta": "Viu · #4 trending in Malaysia",
+      "image": "https://prod-images.viu.com/617743966/78ea26f138eae0e1eb0dfd72d07efad90216f581?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Puteri Kelas Atas",
-      "meta": "Viu · #10 trending in Malaysia",
-      "image": "https://prod-images.viu.com/2547681225/aaf0016321e4bc514db8b7a55607f7d3aa20b164?im=Resize,width=1280",
+      "title": "Satu, Dua... Dia?",
+      "meta": "Viu · #6 trending in Malaysia",
+      "image": "https://prod-images.viu.com/1335697735/f0382db00f9d504bebf24070053eb32a7466d87c?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     }
   ]
