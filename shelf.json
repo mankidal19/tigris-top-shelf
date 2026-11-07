@@ -98,32 +98,32 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "2026 LET: Aramco China Championship - Day 3",
-      "meta": "SPOTV · Live · Now until 5:30 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "Live soon",
       "title": "2026 MotoGP Rd 20 Qatar Airways Grand Prix of Qatar - Free Practice 2/Qualifying",
-      "meta": "SPOTV2 · Live · 5:25 PM – 8:50 PM",
+      "meta": "SPOTV2 · Live · Now until 8:50 PM",
       "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg"
     },
     {
-      "source": "On TV now",
-      "title": "WOMEN TALK",
-      "meta": "TV3 · Now until 5:30 PM",
-      "image": "https://i.ytimg.com/vi/Cm7iDRktYbA/hq720.jpg"
+      "source": "Live soon",
+      "title": "A-League Men 26/27 MW 4 - Perth Glory vs Newcastle Jets",
+      "meta": "SPOTV · Live · 6:40 PM – 8:45 PM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/y7hb2f1547476364.jpg"
     },
     {
       "source": "On TV now",
-      "title": "FAY & TOM",
-      "meta": "TV9 · Now until 5:30 PM",
-      "image": "https://i.ytimg.com/vi/ZyypuwY4avQ/hqdefault.jpg"
+      "title": "PASCA KAU PERGI",
+      "meta": "TV3 · Now until 6:30 PM",
+      "image": "https://i.ytimg.com/vi/J26_cy3v3So/hqdefault.jpg"
     },
     {
       "source": "On TV now",
-      "title": "GBRB: Joy Pops Laugh Pops",
-      "meta": "tvN HD · Now until 5:35 PM",
+      "title": "BLIPPI WONDERS",
+      "meta": "TV9 · Now until 6:30 PM",
+      "image": "https://i.ytimg.com/vi/I4ttVbgda6s/hq720.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "Chansung's Cooking",
+      "meta": "tvN HD · Now until 6:35 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
     }
   ],
@@ -148,15 +148,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "BERITA WILAYAH",
-      "meta": "TV1 · Now until 6:00 PM",
-      "image": "https://i.ytimg.com/vi/_HaZrfWdRJg/hq720.jpg"
+      "title": "Iqra' 2026 (Ulangan)",
+      "meta": "TV1 · Now until 6:30 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "Enjoy Your Stay",
-      "meta": "TV2 · Now until 5:30 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/907F5B90-0688-4EC2-ABEF-A69F7C842287/0-16x9.jpg?width=1280"
+      "title": "Inspector Gadget",
+      "meta": "TV2 · Now until 6:30 PM",
+      "image": "https://i.ytimg.com/vi/q3UDI7GrhWU/hqdefault.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
