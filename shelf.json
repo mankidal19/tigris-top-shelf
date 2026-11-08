@@ -97,33 +97,33 @@
   ],
   "com.tm.unifitv.tv": [
     {
-      "source": "Live soon",
+      "source": "On TV now",
       "title": "WTT Champions Frankfurt 2026 - Day 6 Session 1",
-      "meta": "SPOTV · Live · 6:00 PM – 10:00 PM",
+      "meta": "SPOTV · Live · Now until 10:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
     },
     {
-      "source": "Live soon",
+      "source": "On TV now",
       "title": "2026 Idemitsu Moto4 Asia Cup, Rd 6 Qatar - Race 2",
-      "meta": "SPOTV2 · Live · 6:25 PM – 7:35 PM",
+      "meta": "SPOTV2 · Live · Now until 7:35 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "RINGKASAN PETANG (5 MIN) (2026/2027)",
-      "meta": "TV3 · Now until 5:35 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280"
+      "title": "BERSAMAMU 2026/2027",
+      "meta": "TV3 · Now until 7:00 PM",
+      "image": "https://i.ytimg.com/vi/tP7iY1_Jacw/hq720.jpg"
     },
     {
       "source": "On TV now",
-      "title": "ARMOR RANGERS SEASON 3",
-      "meta": "TV9 · Now until 6:00 PM",
-      "image": "https://i.ytimg.com/vi/Wf7xPynOy_Y/hq720.jpg"
+      "title": "SUPA STRIKAS (SEASON 4 - 6)",
+      "meta": "TV9 · Now until 7:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "World Dice Tour 4",
-      "meta": "tvN HD · Now until 6:05 PM",
+      "title": "Abra-ca Empty: The Weight We Share",
+      "meta": "tvN HD · Now until 7:35 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
     }
   ],
@@ -148,15 +148,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "BERITA WILAYAH",
-      "meta": "TV1 · Now until 6:00 PM",
-      "image": "https://i.ytimg.com/vi/_HaZrfWdRJg/hq720.jpg"
+      "title": "Promo / PSA / Kapsul",
+      "meta": "TV1 · Now until 6:45 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "Sembang Jarak Jauh",
-      "meta": "TV2 · Now until 6:00 PM",
-      "image": "https://i.ytimg.com/vi/7SPdetRsmHo/hq720.jpg"
+      "title": "BERITA MANDARIN",
+      "meta": "TV2 · Now until 7:00 PM",
+      "image": "https://i.ytimg.com/vi/ZZ33zmS4E_M/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [

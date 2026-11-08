@@ -1547,6 +1547,10 @@
   "url": null,
   "at": "2026-10-31"
  },
+ "sports|bein sports 2": {
+  "url": null,
+  "at": "2026-11-08"
+ },
  "sports|bundesliga 2 dynamo dresden vs greuther furth l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
   "at": "2026-11-06"
@@ -1610,6 +1614,10 @@
  "sports|bundesliga leverkusen vs stuttgart l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
   "at": "2026-10-31"
+ },
+ "sports|bundesliga mainz vs bayern": {
+  "url": "https://r2.thesportsdb.com/images/media/event/thumb/mzf3q51754041892.jpg",
+  "at": "2026-11-08"
  },
  "sports|bundesliga mainz vs bayern l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
@@ -3021,7 +3029,7 @@
  },
  "youtube|tv9|supa strikas season 4 6": {
   "url": null,
-  "at": "2026-10-31"
+  "at": "2026-11-08"
  },
  "youtube|tv9|tanyalah ustaz july dec 2026": {
   "url": null,
