@@ -98,15 +98,21 @@
   "com.tm.unifitv.tv": [
     {
       "source": "Live soon",
+      "title": "2026 LET: Aramco China Championship - Day 4",
+      "meta": "SPOTV · Live · 1:00 PM – 5:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "Live soon",
       "title": "A-League Men 26/27 MW 4 - Macarthur FC vs Brisbane Roar FC",
       "meta": "SPOTV2 · Live · 11:55 AM – 1:55 PM",
       "image": "https://r2.thesportsdb.com/images/media/league/fanart/y7hb2f1547476364.jpg"
     },
     {
       "source": "On TV now",
-      "title": "BULETIN PAGI (2026/2027)",
-      "meta": "TV3 · Now until 10:00 AM",
-      "image": "https://i.ytimg.com/vi/3l91Yo2n5fk/hq720.jpg"
+      "title": "BLIPPI WONDERS",
+      "meta": "TV3 · Now until 11:00 AM",
+      "image": "https://i.ytimg.com/vi/-hSLSYbfIVA/hq720.jpg"
     },
     {
       "source": "On TV now",
@@ -117,14 +123,8 @@
     {
       "source": "On TV now",
       "title": "FRUITS BASKET",
-      "meta": "Animax · Now until 10:10 AM",
+      "meta": "Animax · Now until 10:40 AM",
       "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/120-PautbsS8uEAe.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "2026 PYCL, Philippines S2 - Rd 1 Cebuana Lhuillier Gems vs Konjac Zero Phoenix Force",
-      "meta": "SPOTV · Now until 11:30 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
     }
   ],
   "my.gov.rtm.tv": [
@@ -148,15 +148,9 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "LIVE : SELAMAT PAGI MALAYSIA",
-      "meta": "TV1 · Now until 10:00 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On RTMKlik",
-      "title": "Tales Of The Teenage Mutant Ninja Turtles",
-      "meta": "TV2 · Now until 10:00 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/907F5B90-0688-4EC2-ABEF-A69F7C842287/0-16x9.jpg?width=1280"
+      "title": "Neram",
+      "meta": "TV2 · Now until 12:00 PM",
+      "image": "https://i.ytimg.com/vi/cf-kSsryQfg/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
