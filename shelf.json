@@ -98,9 +98,9 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "BULETIN PAGI (2026/2027)",
-      "meta": "TV3 · Now until 10:00 AM",
-      "image": "https://i.ytimg.com/vi/3l91Yo2n5fk/hq720.jpg"
+      "title": "MALAYSIA HARI INI 2026/2027",
+      "meta": "TV3 · Now until 11:00 AM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
@@ -110,14 +110,8 @@
     },
     {
       "source": "On TV now",
-      "title": "WITCH WATCH",
-      "meta": "Animax · Now until 10:10 AM",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/180367-Kpxveeh3Q3cm.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "2026 The Asian Tournament, Iloilo - Game 1: Hong Kong Vanta Black Dragon vs Macau Black Knights",
-      "meta": "SPOTV · Now until 10:30 AM",
+      "title": "2026 Supercars: Penrite Oil Sandown 500 - Race 33",
+      "meta": "SPOTV · Now until 12:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
     },
     {
@@ -125,6 +119,12 @@
       "title": "Horse Racing: Breeders' Cup 2026 - Day 2",
       "meta": "SPOTV2 · Now until 11:00 AM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "LaLiga 2 - Andorra vs Mallorca",
+      "meta": "beIN SPORTS 1 · Now until 11:30 AM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -148,15 +148,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "LIVE : SELAMAT PAGI MALAYSIA",
-      "meta": "TV1 · Now until 10:00 AM",
+      "title": "Etnisiti",
+      "meta": "TV1 · Now until 11:00 AM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "Dunia Kiara",
-      "meta": "TV2 · Now until 10:00 AM",
-      "image": "https://i.ytimg.com/vi/npx87TtHKtU/hq720.jpg"
+      "title": "Bintang Pujaan 2009",
+      "meta": "TV2 · Now until 11:00 AM",
+      "image": "https://i.ytimg.com/vi/SirFCgaPqwA/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
