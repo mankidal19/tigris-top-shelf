@@ -1045,7 +1045,7 @@
  },
  "about|series|walking through the village": {
   "url": "",
-  "at": "2026-11-01"
+  "at": "2026-11-09"
  },
  "about|series|we re going to be talking about the milwaukee brewers team for a long time": {
   "url": "",
@@ -1265,7 +1265,7 @@
  },
  "series|queen of masks": {
   "url": null,
-  "at": "2026-11-05"
+  "at": "2026-11-09"
  },
  "series|rainmaker the": {
   "url": null,
@@ -1317,7 +1317,7 @@
  },
  "series|walking through the village": {
   "url": null,
-  "at": "2026-11-01"
+  "at": "2026-11-09"
  },
  "series|weekly idol": {
   "url": "https://static.tvmaze.com/uploads/images/original_untouched/223/557543.jpg",
@@ -1535,6 +1535,10 @@
   "url": null,
   "at": "2026-11-09"
  },
+ "sports|2026 the asian tournament iloilo game 11 macau black knights vs toronto jc trans": {
+  "url": null,
+  "at": "2026-11-09"
+ },
  "sports|2026 the asian tournament iloilo game 6 toronto jc trans vs hong kong vanta black dragon": {
   "url": null,
   "at": "2026-11-06"
@@ -1670,6 +1674,10 @@
  "sports|bundesliga highlights matchday 8": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
   "at": "2026-11-02"
+ },
+ "sports|bundesliga hoffenheim vs schalke": {
+  "url": "https://r2.thesportsdb.com/images/media/event/thumb/whk8rt1655818074.jpg",
+  "at": "2026-11-09"
  },
  "sports|bundesliga leipzig vs augsburg": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
@@ -2042,6 +2050,10 @@
  "sports|lfc trending episode number 11": {
   "url": null,
   "at": "2026-11-07"
+ },
+ "sports|lfctv crystal palace vs liverpool": {
+  "url": "https://r2.thesportsdb.com/images/media/event/thumb/g26zu51784549360.jpg",
+  "at": "2026-11-09"
  },
  "sports|lfctv highlights liverpool vs chelsea carabao cup": {
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/ldycyl1789805549.jpg",
@@ -2747,6 +2759,10 @@
   "url": null,
   "at": "2026-11-01"
  },
+ "youtube|tv2|namma arangam deepavali": {
+  "url": null,
+  "at": "2026-11-09"
+ },
  "youtube|tv2|neram": {
   "url": "https://i.ytimg.com/vi/cf-kSsryQfg/hq720.jpg",
   "at": "2026-11-08"
@@ -3122,6 +3138,10 @@
  "youtube|tv9|oddbods season 3": {
   "url": null,
   "at": "2026-11-02"
+ },
+ "youtube|tv9|oddbods season 4": {
+  "url": "https://i.ytimg.com/vi/RZbNJlUatQY/hq720.jpg",
+  "at": "2026-11-09"
  },
  "youtube|tv9|plan b": {
   "url": "https://i.ytimg.com/vi/2Nlj7H6AsJs/hq720.jpg",
@@ -3683,6 +3703,10 @@
   "url": "Sports",
   "at": "2026-11-02"
  },
+ "ytcat|pe-rk1ekb4w": {
+  "url": "Music",
+  "at": "2026-11-09"
+ },
  "ytcat|q_ZXuIKnLJM": {
   "url": "People & Blogs",
   "at": "2026-11-06"
@@ -3762,6 +3786,14 @@
  "ytcat|wAOG15-h9tI": {
   "url": "Education",
   "at": "2026-11-05"
+ },
+ "ytcat|wG7pnZttup8": {
+  "url": "Music",
+  "at": "2026-11-09"
+ },
+ "ytcat|wWGfXha_DIk": {
+  "url": "People & Blogs",
+  "at": "2026-11-09"
  },
  "ytcat|x9QgOXX8aeI": {
   "url": "Comedy",
