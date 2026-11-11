@@ -2395,6 +2395,10 @@
   "url": null,
   "at": "2026-11-09"
  },
+ "sports|premier padel pretoria p1 day 5 qf match 1": {
+  "url": null,
+  "at": "2026-11-11"
+ },
  "sports|premier padel pretoria p1 day 5 qf match 6": {
   "url": null,
   "at": "2026-11-11"
@@ -3173,7 +3177,7 @@
  },
  "youtube|tv2|the red masala": {
   "url": null,
-  "at": "2026-11-06"
+  "at": "2026-11-11"
  },
  "youtube|tv2|the write one": {
   "url": null,
@@ -3558,6 +3562,10 @@
  "youtube|tv9|singh susu": {
   "url": null,
   "at": "2026-11-02"
+ },
+ "youtube|tv9|spa q": {
+  "url": "https://i.ytimg.com/vi/se9uYKhQzbc/hqdefault.jpg",
+  "at": "2026-11-11"
  },
  "youtube|tv9|supa strikas season 4 6": {
   "url": null,
