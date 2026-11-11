@@ -779,6 +779,10 @@
   "url": "Comedy Adventure Food",
   "at": "2026-10-31"
  },
+ "about|series|hide": {
+  "url": "Drama Thriller  In  Hide , a Jekyll &amp; Hyde tale by way of a conspiracy thriller, a disgraced journalist stumbles upon a story that could resurrect his career. But he quickly learns he's seen something he shouldn't have, and is now the target of unknown adversaries who will do anything to silence him. On the run as people around him go missing or die, a serious accident has an extraordinary side effect, and he realizes there are monsters in the world – and he may be one of them.",
+  "at": "2026-11-11"
+ },
  "about|series|honeydew jay b": {
   "url": "",
   "at": "2026-11-03"
@@ -1358,6 +1362,10 @@
  "series|gbrb joy pops laugh pops": {
   "url": null,
   "at": "2026-11-07"
+ },
+ "series|hide": {
+  "url": null,
+  "at": "2026-11-11"
  },
  "series|hotel del luna": {
   "url": "https://static.tvmaze.com/uploads/images/original_untouched/224/562315.jpg",
@@ -2167,6 +2175,10 @@
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/tkqnv01784904561.jpg",
   "at": "2026-11-02"
  },
+ "sports|laliga mini valencia vs real madrid": {
+  "url": "https://r2.thesportsdb.com/images/media/event/thumb/mdtvh61784904564.jpg",
+  "at": "2026-11-11"
+ },
  "sports|laliga racing de santander vs real madrid l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-11-01"
@@ -2607,6 +2619,10 @@
   "url": null,
   "at": "2026-10-31"
  },
+ "sports|women s super league highlights matchday 9": {
+  "url": null,
+  "at": "2026-11-11"
+ },
  "sports|women s super league liverpool vs arsenal": {
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/5qdwpe1784549350.jpg",
   "at": "2026-11-09"
@@ -2641,7 +2657,7 @@
  },
  "sports|wtt champions frankfurt 2026 day 3 session 1": {
   "url": null,
-  "at": "2026-11-05"
+  "at": "2026-11-11"
  },
  "sports|wtt champions frankfurt 2026 day 3 session 2": {
   "url": null,
@@ -3421,7 +3437,7 @@
  },
  "youtube|tv9|nasi lemak kopi o 2026 2027": {
   "url": null,
-  "at": "2026-11-04"
+  "at": "2026-11-11"
  },
  "youtube|tv9|oddbods season 3": {
   "url": null,
