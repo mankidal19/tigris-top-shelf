@@ -1567,6 +1567,10 @@
   "url": null,
   "at": "2026-11-01"
  },
+ "sports|2026 e1 world championship rd 7 miami gp q1": {
+  "url": null,
+  "at": "2026-11-12"
+ },
  "sports|2026 fim ewc highlights rd 4 bol d or france": {
   "url": null,
   "at": "2026-10-31"
@@ -2355,6 +2359,10 @@
   "url": null,
   "at": "2026-11-02"
  },
+ "sports|mutv lifeblood short reds in europe": {
+  "url": null,
+  "at": "2026-11-12"
+ },
  "sports|mutv man united vs aston villa": {
   "url": null,
   "at": "2026-11-09"
@@ -2470,6 +2478,10 @@
  "sports|roshn saudi league 26 27 md 12 al nassr vs al khloud": {
   "url": null,
   "at": "2026-11-02"
+ },
+ "sports|roshn saudi league 26 27 md 12 al nassr vs al kholood": {
+  "url": null,
+  "at": "2026-11-12"
  },
  "sports|roshn saudi league 26 27 md 12 al shabab vs al ahli": {
   "url": null,
@@ -2965,7 +2977,7 @@
  },
  "youtube|tv1|live forum perdana ehwal islam": {
   "url": null,
-  "at": "2026-11-05"
+  "at": "2026-11-12"
  },
  "youtube|tv1|live junior innovathon": {
   "url": null,
@@ -3125,6 +3137,10 @@
  },
  "youtube|tv2|eye of an angel": {
   "url": "https://i.ytimg.com/vi/iyp11SBUeXg/hq720.jpg",
+  "at": "2026-11-12"
+ },
+ "youtube|tv2|fagara": {
+  "url": "https://i.ytimg.com/vi/26qSmAsSZNs/hq720.jpg",
   "at": "2026-11-12"
  },
  "youtube|tv2|fantasi cinta dobi": {
@@ -3401,7 +3417,7 @@
  },
  "youtube|tv3|melodi jul dec 2026": {
   "url": null,
-  "at": "2026-11-05"
+  "at": "2026-11-12"
  },
  "youtube|tv3|misteri wan peah": {
   "url": "https://i.ytimg.com/vi/V7qAZ30rlxk/hq720.jpg",
