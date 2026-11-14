@@ -1145,7 +1145,7 @@
  },
  "about|series|sixth sense b side": {
   "url": "",
-  "at": "2026-11-10"
+  "at": "2026-11-14"
  },
  "about|series|spice of youth garam muda": {
   "url": "",
@@ -1533,7 +1533,7 @@
  },
  "series|sixth sense b side": {
   "url": null,
-  "at": "2026-11-10"
+  "at": "2026-11-14"
  },
  "series|spike": {
   "url": null,
@@ -1646,6 +1646,10 @@
  "sports|2026 e1 world championship rd 6 miami gp group stages": {
   "url": null,
   "at": "2026-11-13"
+ },
+ "sports|2026 e1 world championship rd 7 miami gp group stages": {
+  "url": null,
+  "at": "2026-11-14"
  },
  "sports|2026 e1 world championship rd 7 miami gp q1": {
   "url": null,
@@ -1883,6 +1887,10 @@
   "url": null,
   "at": "2026-11-14"
  },
+ "sports|2026 the asian tournament iloilo game 24 semi finals": {
+  "url": null,
+  "at": "2026-11-14"
+ },
  "sports|2026 the asian tournament iloilo game 6 toronto jc trans vs hong kong vanta black dragon": {
   "url": null,
   "at": "2026-11-06"
@@ -1970,6 +1978,10 @@
  "sports|afcon qualifiers ivory coast vs gambia l": {
   "url": null,
   "at": "2026-11-12"
+ },
+ "sports|afcon qualifiers mali vs rwanda": {
+  "url": null,
+  "at": "2026-11-14"
  },
  "sports|afcon qualifiers morocco vs niger l": {
   "url": null,
@@ -2126,6 +2138,10 @@
  "sports|epic series swiss epic recap": {
   "url": null,
   "at": "2026-10-31"
+ },
+ "sports|european le mans series season review": {
+  "url": null,
+  "at": "2026-11-14"
  },
  "sports|fastzone episode number 29": {
   "url": null,
@@ -2624,6 +2640,14 @@
   "at": "2026-11-13"
  },
  "sports|premier padel dubai p1 day 4 qf match 5": {
+  "url": null,
+  "at": "2026-11-14"
+ },
+ "sports|premier padel dubai p1 day 4 qf match 6": {
+  "url": null,
+  "at": "2026-11-14"
+ },
+ "sports|premier padel dubai p1 finals": {
   "url": null,
   "at": "2026-11-14"
  },
@@ -3602,6 +3626,10 @@
  "youtube|tv3|bread barbershop season 2": {
   "url": null,
   "at": "2026-11-08"
+ },
+ "youtube|tv3|bukan ipar sempurna": {
+  "url": "https://i.ytimg.com/vi/MV4rgagl3ts/hq720.jpg",
+  "at": "2026-11-14"
  },
  "youtube|tv3|bukan puteri lindungan bulan": {
   "url": "https://i.ytimg.com/vi/harXI8sIbA8/hqdefault.jpg",
@@ -4814,6 +4842,10 @@
  "ytcat|yQuk7TFmfyg": {
   "url": "Entertainment",
   "at": "2026-11-02"
+ },
+ "ytcat|yWuDTKE3gUE": {
+  "url": "Music",
+  "at": "2026-11-14"
  },
  "ytcat|yv8xJued61M": {
   "url": "Entertainment",
