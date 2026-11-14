@@ -103,6 +103,10 @@
   "url": "",
   "at": "2026-11-01"
  },
+ "about|anime|chaeryeong lovesick": {
+  "url": "",
+  "at": "2026-11-14"
+ },
  "about|anime|chelsea 2 0 man utd": {
   "url": "",
   "at": "2026-11-01"
@@ -170,6 +174,10 @@
  "about|anime|eurovision song contest asia 2026": {
   "url": "",
   "at": "2026-11-13"
+ },
+ "about|anime|eurovision song contest asia 2026 livestream": {
+  "url": "",
+  "at": "2026-11-14"
  },
  "about|anime|evnne": {
   "url": "",
@@ -342,6 +350,10 @@
  "about|anime|nct dream boogie woogie": {
   "url": "",
   "at": "2026-11-11"
+ },
+ "about|anime|netherlands vs greece highlights": {
+  "url": "",
+  "at": "2026-11-14"
  },
  "about|anime|nmixx birthday wish": {
   "url": "",
@@ -691,6 +703,10 @@
   "url": "",
   "at": "2026-11-01"
  },
+ "about|series|chaeryeong lovesick": {
+  "url": "",
+  "at": "2026-11-14"
+ },
  "about|series|chansung s cooking": {
   "url": "",
   "at": "2026-11-07"
@@ -789,11 +805,15 @@
  },
  "about|series|europe outside your tent romantic italy": {
   "url": "",
-  "at": "2026-11-11"
+  "at": "2026-11-14"
  },
  "about|series|eurovision song contest asia 2026": {
   "url": "",
   "at": "2026-11-13"
+ },
+ "about|series|eurovision song contest asia 2026 livestream": {
+  "url": "",
+  "at": "2026-11-14"
  },
  "about|series|evnne": {
   "url": "",
@@ -858,6 +878,10 @@
  "about|series|hundred flowers in full bloom with rescene broadcast 11 10 26": {
   "url": "",
   "at": "2026-11-11"
+ },
+ "about|series|hurry up tomorrow": {
+  "url": "",
+  "at": "2026-11-14"
  },
  "about|series|i dle minnie blind eyes red cherry sky her to the moon queencard 261031 tpe": {
   "url": "",
@@ -1006,6 +1030,10 @@
  "about|series|nct dream boogie woogie": {
   "url": "",
   "at": "2026-11-11"
+ },
+ "about|series|netherlands vs greece highlights": {
+  "url": "",
+  "at": "2026-11-14"
  },
  "about|series|nmixx birthday wish": {
   "url": "",
@@ -1437,7 +1465,7 @@
  },
  "series|europe outside your tent romantic italy": {
   "url": null,
-  "at": "2026-11-11"
+  "at": "2026-11-14"
  },
  "series|fbi most wanted": {
   "url": "https://static.tvmaze.com/uploads/images/original_untouched/205/513036.jpg",
@@ -1470,6 +1498,10 @@
  "series|hotel del luna": {
   "url": "https://static.tvmaze.com/uploads/images/original_untouched/224/562315.jpg",
   "at": "2026-10-31"
+ },
+ "series|hurry up tomorrow": {
+  "url": null,
+  "at": "2026-11-14"
  },
  "series|kauriburi the cursed temple": {
   "url": null,
@@ -1646,6 +1678,10 @@
  "sports|2026 e1 world championship rd 6 miami gp group stages": {
   "url": null,
   "at": "2026-11-13"
+ },
+ "sports|2026 e1 world championship rd 7 miami gp finals": {
+  "url": null,
+  "at": "2026-11-14"
  },
  "sports|2026 e1 world championship rd 7 miami gp group stages": {
   "url": null,
@@ -1834,6 +1870,10 @@
  "sports|2026 pycl philippines s2 rd 1 thrifty drivers vs gfoxx paragon": {
   "url": null,
   "at": "2026-11-07"
+ },
+ "sports|2026 pycl philippines s2 rd 2 gfoxx paragon vs dentacare pearly whites": {
+  "url": null,
+  "at": "2026-11-14"
  },
  "sports|2026 supercars penrite oil sandown 500 race 33": {
   "url": null,
@@ -2326,6 +2366,10 @@
  "sports|horse racing breeders cup 2026 day 2": {
   "url": null,
   "at": "2026-11-09"
+ },
+ "sports|hsbc svns series australia vs new zealand singapore day 2 women": {
+  "url": null,
+  "at": "2026-11-14"
  },
  "sports|hsbc svns series fiji vs south africa new york day 2 men": {
   "url": null,
@@ -3031,6 +3075,10 @@
   "url": null,
   "at": "2026-11-07"
  },
+ "sports|women s super league brighton vs liverpool l": {
+  "url": null,
+  "at": "2026-11-14"
+ },
  "sports|women s super league charlton vs chelsea": {
   "url": null,
   "at": "2026-11-02"
@@ -3231,6 +3279,10 @@
   "url": null,
   "at": "2026-11-10"
  },
+ "youtube|tv1|ikonita ulangan": {
+  "url": null,
+  "at": "2026-11-14"
+ },
  "youtube|tv1|innovation nation s17 ulangan": {
   "url": null,
   "at": "2026-10-31"
@@ -3421,7 +3473,7 @@
  },
  "youtube|tv2|dialog sesudah senja": {
   "url": null,
-  "at": "2026-11-02"
+  "at": "2026-11-14"
  },
  "youtube|tv2|diva s secret": {
   "url": null,
@@ -3843,6 +3895,10 @@
   "url": null,
   "at": "2026-11-01"
  },
+ "youtube|tv3|wanita milik kaiden": {
+  "url": "https://i.ytimg.com/vi/9lrLJAAUTxo/hq720.jpg",
+  "at": "2026-11-14"
+ },
  "youtube|tv3|winx club the magic is back": {
   "url": "https://i.ytimg.com/vi/CsZgz-kEsM0/hq720.jpg",
   "at": "2026-11-07"
@@ -3918,6 +3974,10 @@
  "youtube|tv9|fay tom": {
   "url": "https://i.ytimg.com/vi/ZyypuwY4avQ/hqdefault.jpg",
   "at": "2026-11-07"
+ },
+ "youtube|tv9|gempita": {
+  "url": "https://i.ytimg.com/vi/g5Rtr6tyUJ8/hq720.jpg",
+  "at": "2026-11-14"
  },
  "youtube|tv9|hero oven 2017": {
   "url": "https://i.ytimg.com/vi/yPvCK_xloEc/hq720.jpg",
@@ -4166,6 +4226,10 @@
  "ytcat|BM_8ArZiD7k": {
   "url": "Music",
   "at": "2026-11-01"
+ },
+ "ytcat|BRWdA-1czyE": {
+  "url": "Music",
+  "at": "2026-11-14"
  },
  "ytcat|BSdftGYkVxo": {
   "url": "Entertainment",
@@ -4547,6 +4611,10 @@
   "url": "Sports",
   "at": "2026-11-02"
  },
+ "ytcat|casZJ_zOPlA": {
+  "url": "Entertainment",
+  "at": "2026-11-14"
+ },
  "ytcat|cs1ChvoognU": {
   "url": "Comedy",
   "at": "2026-11-13"
@@ -4706,6 +4774,10 @@
  "ytcat|oo3wfViHzq8": {
   "url": "Sports",
   "at": "2026-11-02"
+ },
+ "ytcat|pNlq7nSE1XY": {
+  "url": "Sports",
+  "at": "2026-11-14"
  },
  "ytcat|pe-rk1ekb4w": {
   "url": "Music",
