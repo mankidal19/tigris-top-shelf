@@ -921,7 +921,7 @@
  },
  "about|series|knowing bros": {
   "url": "",
-  "at": "2026-11-10"
+  "at": "2026-11-14"
  },
  "about|series|kodai naraoka vs lee zii jia": {
   "url": "",
@@ -1033,7 +1033,7 @@
  },
  "about|series|painfully delicious": {
   "url": "",
-  "at": "2026-11-09"
+  "at": "2026-11-14"
  },
  "about|series|percy jackson the olympians": {
   "url": "",
@@ -1481,7 +1481,7 @@
  },
  "series|knowing bros": {
   "url": null,
-  "at": "2026-11-10"
+  "at": "2026-11-14"
  },
  "series|korean lunch tray": {
   "url": null,
@@ -1509,7 +1509,7 @@
  },
  "series|painfully delicious": {
   "url": null,
-  "at": "2026-11-09"
+  "at": "2026-11-14"
  },
  "series|queen of masks": {
   "url": null,
@@ -1654,6 +1654,10 @@
  "sports|2026 e1 world championship rd 7 miami gp q1": {
   "url": null,
   "at": "2026-11-12"
+ },
+ "sports|2026 e1 world championship rd 7 miami gp race off": {
+  "url": null,
+  "at": "2026-11-14"
  },
  "sports|2026 fim ewc highlights rd 4 bol d or france": {
   "url": null,
@@ -1994,6 +1998,10 @@
  "sports|afcon qualifiers senegal vs sudan l": {
   "url": null,
   "at": "2026-11-12"
+ },
+ "sports|afcon qualifiers uganda vs botswana l": {
+  "url": null,
+  "at": "2026-11-14"
  },
  "sports|afcon qualifiers zambia vs burundi l": {
   "url": null,
@@ -2647,6 +2655,10 @@
   "url": null,
   "at": "2026-11-14"
  },
+ "sports|premier padel dubai p1 day 5 sf1 men l": {
+  "url": null,
+  "at": "2026-11-14"
+ },
  "sports|premier padel dubai p1 day 5 sf1 women l": {
   "url": null,
   "at": "2026-11-14"
@@ -3046,6 +3058,10 @@
  "sports|women s super league london city lionesses vs man city": {
   "url": null,
   "at": "2026-11-02"
+ },
+ "sports|women s super league tottenham vs everton l": {
+  "url": null,
+  "at": "2026-11-14"
  },
  "sports|women s team golf league s1 detroit vs los angeles": {
   "url": null,
@@ -3526,6 +3542,10 @@
  "youtube|tv2|sembang jarak jauh": {
   "url": "https://i.ytimg.com/vi/7SPdetRsmHo/hq720.jpg",
   "at": "2026-11-08"
+ },
+ "youtube|tv2|seperti yang kau pinta": {
+  "url": "https://i.ytimg.com/vi/5ieNwdMxeTw/hq720.jpg",
+  "at": "2026-11-14"
  },
  "youtube|tv2|siaran langsung apresiasi anugerah seri angkasa 2026": {
   "url": null,
