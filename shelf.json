@@ -98,6 +98,12 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
+      "title": "WANITA MILIK KAIDEN",
+      "meta": "TV3 · Now until 2:30 AM",
+      "image": "https://i.ytimg.com/vi/9lrLJAAUTxo/hq720.jpg"
+    },
+    {
+      "source": "On TV now",
       "title": "HADIAH (U)",
       "meta": "TV9 · Now until 2:30 AM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
@@ -111,20 +117,14 @@
     {
       "source": "On TV now",
       "title": "BLACK CLOVER",
-      "meta": "Animax · Now until 1:40 AM",
+      "meta": "Animax · Now until 2:10 AM",
       "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/97940-1URQdQ4U1a0b.jpg"
     },
     {
       "source": "On TV now",
-      "title": "2026/27 ALM Mini Match MW 4 - Sydney FC vs Central Coast Mariners",
-      "meta": "SPOTV · Now until 1:30 AM",
-      "image": "https://r2.thesportsdb.com/images/media/event/thumb/bcxnv11700302232.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "2026 MotoGP Rd 20 Qatar Airways Grand Prix of Qatar - Highlights",
-      "meta": "SPOTV2 · Now until 2:00 AM",
-      "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg"
+      "title": "2026/27 ALM Mini Match MW 4 - Auckland FC vs Wellington Phoenix",
+      "meta": "SPOTV · Now until 2:00 AM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/y7hb2f1547476364.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -142,15 +142,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Zuriat Dari Penjara (Ulangan)",
-      "meta": "TV1 · Now until 1:30 AM",
+      "title": "Dapur Berasap Artis Sempoi (Ulangan)",
+      "meta": "TV1 · Now until 2:00 AM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "Bukan Yang Pertama",
-      "meta": "TV2 · Now until 1:30 AM",
-      "image": "https://i.ytimg.com/vi/ZpK-Yc4oNIc/hq720.jpg"
+      "title": "Fantasi Cinta Dobi",
+      "meta": "TV2 · Now until 2:00 AM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/907F5B90-0688-4EC2-ABEF-A69F7C842287/0-16x9.jpg?width=1280"
     }
   ],
   "com.vuclip.viu.tv": [
