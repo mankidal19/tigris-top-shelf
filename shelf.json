@@ -98,8 +98,14 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "ODDBODS SEASON 3",
-      "meta": "TV9 · Now until 6:00 PM",
+      "title": "RINDU KASIH 2",
+      "meta": "TV3 · Now until 7:00 PM",
+      "image": "https://i.ytimg.com/vi/r_ULN7KU3zQ/hq720.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "BREAD BARBERSHOP (SEASON 2)",
+      "meta": "TV9 · Now until 6:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
     },
     {
@@ -110,21 +116,15 @@
     },
     {
       "source": "On TV now",
+      "title": "WITCH WATCH",
+      "meta": "Animax · Now until 6:40 PM",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/180367-Kpxveeh3Q3cm.jpg"
+    },
+    {
+      "source": "On TV now",
       "title": "2026 The Asian Tournament, Iloilo - Game 17: QF Rd 1",
       "meta": "SPOTV · Now until 7:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "2026/27 ALMS, 4 Hours of Le Castellet - Race 2",
-      "meta": "SPOTV2 · Now until 9:30 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "LFCTV Classic - Liverpool vs Man United PL 2022/23",
-      "meta": "beIN SPORTS 1 · Now until 7:10 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/A0C43E09-6105-4CD5-9F44-390B57BCA1A5/0-16x9.jpg?width=1280"
     }
   ],
   "my.gov.rtm.tv": [
@@ -142,15 +142,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "BERITA WILAYAH",
-      "meta": "TV1 · Now until 6:00 PM",
-      "image": "https://i.ytimg.com/vi/_HaZrfWdRJg/hq720.jpg"
+      "title": "Anda Musykil 2026 (Ulangan)",
+      "meta": "TV1 · Now until 6:45 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "Khabar Dari Casablanca",
-      "meta": "TV2 · Now until 6:00 PM",
-      "image": "https://i.ytimg.com/vi/0Dr-3DLjzSU/hq720.jpg"
+      "title": "Live It Up",
+      "meta": "TV2 · Now until 6:30 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/907F5B90-0688-4EC2-ABEF-A69F7C842287/0-16x9.jpg?width=1280"
     }
   ],
   "com.vuclip.viu.tv": [
