@@ -98,15 +98,9 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "SURVIVING BEAUTY",
-      "meta": "TV3 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/E8e97PRkG1s/hqdefault.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "MY #QURANTIME 2.0",
-      "meta": "TV9 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/IoahZj2KBsU/hq720.jpg"
+      "title": "SPANAR JAYA X",
+      "meta": "TV3 · Now until 1:30 PM",
+      "image": "https://i.ytimg.com/vi/TjB3X3sniLs/hq720.jpg"
     },
     {
       "source": "On TV now",
@@ -125,6 +119,12 @@
       "title": "2026 WTCS, Abu Dhabi - Women's and Men's Race",
       "meta": "SPOTV · Now until 2:15 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "2026 E1 World Championship Rd 6 Miami GP - Group Stages",
+      "meta": "SPOTV2 · Now until 3:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
     }
   ],
   "my.gov.rtm.tv": [
@@ -142,15 +142,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Help! We Bought A Village (Ulangan)",
-      "meta": "TV1 · Now until 1:00 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
+      "title": "BERITA TENGAH HARI",
+      "meta": "TV1 · Now until 1:30 PM",
+      "image": "https://i.ytimg.com/vi/91zPpx_uCWM/hq720.jpg"
     },
     {
       "source": "On RTMKlik",
-      "title": "WORLD TODAY",
-      "meta": "TV2 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/Va1VdSxZklo/hq720.jpg"
+      "title": "The Write One",
+      "meta": "TV2 · Now until 2:00 PM",
+      "image": "https://i.ytimg.com/vi/wKC8eO9TOuk/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
