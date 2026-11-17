@@ -1165,7 +1165,7 @@
  },
  "about|series|painfully delicious": {
   "url": "",
-  "at": "2026-11-14"
+  "at": "2026-11-17"
  },
  "about|series|percy jackson the olympians": {
   "url": "",
@@ -1697,7 +1697,7 @@
  },
  "series|painfully delicious": {
   "url": null,
-  "at": "2026-11-14"
+  "at": "2026-11-17"
  },
  "series|queen of masks": {
   "url": null,
@@ -1856,6 +1856,10 @@
   "at": "2026-11-13"
  },
  "sports|2026 e1 world championship rd 6 miami gp group stages": {
+  "url": null,
+  "at": "2026-11-17"
+ },
+ "sports|2026 e1 world championship rd 6 miami gp race off": {
   "url": null,
   "at": "2026-11-17"
  },
@@ -2151,6 +2155,10 @@
   "url": null,
   "at": "2026-11-11"
  },
+ "sports|2026 world surf league replay wrp0512 philippines pro finals day": {
+  "url": null,
+  "at": "2026-11-17"
+ },
  "sports|2026 wsl inside pro surfing wsl1309 fiji pro": {
   "url": null,
   "at": "2026-11-07"
@@ -2242,6 +2250,10 @@
  "sports|afcon qualifiers ivory coast vs gambia l": {
   "url": null,
   "at": "2026-11-12"
+ },
+ "sports|afcon qualifiers lesotho vs gabon": {
+  "url": null,
+  "at": "2026-11-17"
  },
  "sports|afcon qualifiers libya vs tunisia l": {
   "url": null,
@@ -3047,6 +3059,10 @@
   "url": null,
   "at": "2026-11-16"
  },
+ "sports|premier padel london p1 day 2 match 3": {
+  "url": null,
+  "at": "2026-11-17"
+ },
  "sports|premier padel pretoria p1 day 3 match 6": {
   "url": null,
   "at": "2026-11-01"
@@ -3383,6 +3399,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
   "at": "2026-11-10"
  },
+ "sports|uefa youth league psg vs barcelona md3": {
+  "url": null,
+  "at": "2026-11-17"
+ },
  "sports|uefa youth league roma vs real madrid md2": {
   "url": null,
   "at": "2026-11-17"
@@ -3594,6 +3614,10 @@
  "youtube|tv1|bicara naratif 2026": {
   "url": "https://i.ytimg.com/vi/Zn8V2KstIE4/hq720.jpg",
   "at": "2026-11-02"
+ },
+ "youtube|tv1|bismillah 2026 ulangan": {
+  "url": null,
+  "at": "2026-11-17"
  },
  "youtube|tv1|dapur berasap artis sempoi ulangan": {
   "url": null,
