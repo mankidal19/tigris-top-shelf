@@ -1269,7 +1269,7 @@
  },
  "about|series|sixth sense b side": {
   "url": "",
-  "at": "2026-11-14"
+  "at": "2026-11-17"
  },
  "about|series|spice of youth garam muda": {
   "url": "",
@@ -1697,7 +1697,7 @@
  },
  "series|sixth sense b side": {
   "url": null,
-  "at": "2026-11-14"
+  "at": "2026-11-17"
  },
  "series|spike": {
   "url": null,
@@ -1779,6 +1779,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/y7hb2f1547476364.jpg",
   "at": "2026-11-05"
  },
+ "sports|2026 27 almc le castellet race 1": {
+  "url": null,
+  "at": "2026-11-17"
+ },
  "sports|2026 27 almc le castellet race 2": {
   "url": null,
   "at": "2026-11-15"
@@ -1821,7 +1825,7 @@
  },
  "sports|2026 dubai t100 elite men s women s race": {
   "url": null,
-  "at": "2026-11-14"
+  "at": "2026-11-17"
  },
  "sports|2026 e1 world championship rd 6 miami gp finals": {
   "url": null,
@@ -2211,6 +2215,10 @@
   "url": null,
   "at": "2026-11-12"
  },
+ "sports|afcon qualifiers malawi vs egypt l": {
+  "url": null,
+  "at": "2026-11-17"
+ },
  "sports|afcon qualifiers mali vs rwanda": {
   "url": null,
   "at": "2026-11-14"
@@ -2230,6 +2238,14 @@
  "sports|afcon qualifiers somalia vs ghana": {
   "url": null,
   "at": "2026-11-16"
+ },
+ "sports|afcon qualifiers south sudan vs angola l": {
+  "url": null,
+  "at": "2026-11-17"
+ },
+ "sports|afcon qualifiers tanzania vs nigeria l": {
+  "url": null,
+  "at": "2026-11-17"
  },
  "sports|afcon qualifiers uganda vs botswana l": {
   "url": null,
@@ -3605,7 +3621,7 @@
  },
  "youtube|tv1|isteri untuk diiktiraf ulangan": {
   "url": null,
-  "at": "2026-11-11"
+  "at": "2026-11-17"
  },
  "youtube|tv1|jejak seribu kaki": {
   "url": null,
@@ -3882,6 +3898,10 @@
  "youtube|tv2|live it up": {
   "url": null,
   "at": "2026-11-16"
+ },
+ "youtube|tv2|maria mariana": {
+  "url": "https://i.ytimg.com/vi/v5qB0AG3qaM/hq720.jpg",
+  "at": "2026-11-17"
  },
  "youtube|tv2|maximus": {
   "url": "https://i.ytimg.com/vi/4kYF4uwS4e4/hq720.jpg",
@@ -4382,6 +4402,10 @@
  "youtube|tv9|salam taj mahal": {
   "url": null,
   "at": "2026-11-07"
+ },
+ "youtube|tv9|scarlet heart": {
+  "url": null,
+  "at": "2026-11-17"
  },
  "youtube|tv9|singh susu": {
   "url": null,
