@@ -1,97 +1,97 @@
 {
   "com.netflix.ninja": [
     {
-      "title": "Sunshine Through the Rain",
-      "meta": "Netflix · #6 in TV · New this week",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/650/1625305.jpg",
-      "source": "Top 10 in Malaysia"
-    },
-    {
-      "title": "Where the Mask Ends",
-      "meta": "Netflix · #5 in TV",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/596/1491800.jpg",
-      "source": "Top 10 in Malaysia"
-    },
-    {
-      "title": "Win the Mall",
-      "meta": "Netflix · S1 E1 · New today",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/652/1630035.jpg",
+      "title": "The Adam Ray Show",
+      "meta": "Netflix · S1 E25 · Out Fri 13 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/632/1580086.jpg",
       "source": "New on Netflix"
     },
     {
-      "title": "Stars and Vows: Anele & Buzza",
-      "meta": "Netflix · S1 · 4 episodes · Out Fri 13 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/650/1626725.jpg",
+      "title": "El crimen de Pazos",
+      "meta": "Netflix · S1 · 3 episodes · Out Fri 13 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/651/1628294.jpg",
       "source": "New on Netflix"
     },
     {
-      "title": "Bir Başkadır",
-      "meta": "Netflix · S2 · 4 episodes · Out Thu 12 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/282/706986.jpg",
+      "title": "Die Kaiserin",
+      "meta": "Netflix · S3 · 6 episodes · Out Thu 12 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/435/1089071.jpg",
+      "source": "New on Netflix"
+    },
+    {
+      "title": "Bros",
+      "meta": "Netflix · S2 · 9 episodes · Out Thu 12 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/651/1627864.jpg",
+      "source": "New on Netflix"
+    },
+    {
+      "title": "Love Is Blind Habibi",
+      "meta": "Netflix · S2 · 10 episodes · Out Thu 12 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/651/1628287.jpg",
       "source": "New on Netflix"
     }
   ],
   "com.amazon.amazonvideo.livingroom": [
     {
-      "title": "A Tale of the Secret Saint",
-      "meta": "Prime Video · S1 E9 · Coming Sat 21 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602819.jpg",
+      "title": "The Lord of the Rings: The Rings of Power",
+      "meta": "Prime Video · S3 · 2 episodes · Coming Wed 25 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/396/990035.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "The Chosen",
-      "meta": "Prime Video · S6 E4 · Coming Sun 22 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/383/958755.jpg",
+      "title": "Blade Runner 2099",
+      "meta": "Prime Video · S1 · 8 episodes · Coming Wed 25 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/633/1584393.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "The Assassin",
-      "meta": "Prime Video · S2 · 6 episodes · Out Fri 6 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/579/1448166.jpg",
+      "title": "Campus Drivers",
+      "meta": "Prime Video · S1 · 6 episodes · Out Fri 6 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/650/1625533.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "The Traitors Telugu",
-      "meta": "Prime Video · S1 E10 · Out Thu 5 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/644/1612250.jpg",
+      "title": "Demons' Crest",
+      "meta": "Prime Video · S1 · 2 episodes · Out Fri 6 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/650/1625526.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "Last One Laughing: Halloween",
-      "meta": "Prime Video · S1 E4 · Out Fri 30 Oct",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/647/1618814.jpg",
+      "title": "The Greatest",
+      "meta": "Prime Video · S1 · 8 episodes · Out Wed 4 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/649/1624472.jpg",
       "source": "New on Prime Video"
     }
   ],
   "com.google.android.youtube.tv": [
     {
-      "title": "The Dark Side of China’s Perfect Cars",
-      "meta": "YouTube · Mrwhosetheboss · 27 min",
-      "image": "https://i.ytimg.com/vi/awjlMCCdqXw/hq720.jpg",
+      "title": "Can You Trust MKBHD?",
+      "meta": "YouTube · Marques Brownlee · 14 min",
+      "image": "https://i.ytimg.com/vi/KTDJiVpSDTI/hq720.jpg",
       "source": "Recommended for you"
     },
     {
-      "title": "CHAERYEONG (채령(ITZY)) - Lovesick | Show! MusicCore | MBC261114방송",
-      "meta": "YouTube · MBCkpop · 3 min",
-      "image": "https://i.ytimg.com/vi/BRWdA-1czyE/hq720.jpg",
+      "title": "[#MMA2026] RESCENE - With + Deja Vu + LOVE ATTACK (4K) | #RESCENE #RESCENE #20261114",
+      "meta": "YouTube · 멜론 Melon · 8 min",
+      "image": "https://i.ytimg.com/vi/LSOE3OKjybs/hq720.jpg",
       "source": "Recommended for you"
     },
     {
-      "title": "K/DA - FIRESTARTER | Worlds 2026 Final Opening Ceremony Presented by Mastercard",
-      "meta": "YouTube · League of Legends · 3 min",
-      "image": "https://i.ytimg.com/vi/jMwTbhCguVc/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "AYAT RUQYAH DIRI DOA PENYEMBUH SEGALA PENY4KIT,INSYAALLAH S4KIT DITUBUHMU SEMBUH | By Alaa Aqel",
-      "meta": "YouTube · 1 h 46 min",
-      "image": "https://i.ytimg.com/vi/pgAyLeoxNC8/hqdefault.jpg",
+      "title": "RUQYAH RUMAH🏠RUQYAH PENGUSIR JIN, SETAN & SIHIR SERTA PENYEMBUH SEGALA MACAM PENYAKIT | murotal",
+      "meta": "YouTube · 1 h 9 min",
+      "image": "https://i.ytimg.com/vi/edl48hUPUfw/hq720.jpg",
       "source": "Watched before"
     },
     {
-      "title": "Tok Ram Tak Puas Hati Minggu Kedua.  Bagi Mawi Makan Daging?! Tak Masuk Campur GVMasuk • GV Fantasia",
-      "meta": "YouTube · F8Buzz · 7 min",
-      "image": "https://i.ytimg.com/vi/dvsQHe52-rQ/hq720.jpg",
+      "title": "Avengers: Doomsday All Post Credits | IN ORDER THEY APPEAR",
+      "meta": "YouTube · M45 · 13 min",
+      "image": "https://i.ytimg.com/vi/OV2d3EilpPw/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "Alphabet Song for Clever Kids with Papa Ayie - ABC [Full Version]",
+      "meta": "YouTube · Papa Ayie · 4 min",
+      "image": "https://i.ytimg.com/vi/ny9y05LdicU/hq720.jpg",
       "source": "Recommended for you"
     }
   ],
@@ -110,12 +110,6 @@
     },
     {
       "source": "On TV now",
-      "title": "SUICIDE SQUAD ISEKAI",
-      "meta": "Animax · Now until 5:40 AM",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/166710-ZRHB6rjcc089.jpg"
-    },
-    {
-      "source": "On TV now",
       "title": "A-League Men 26/27 MW 4 - Perth Glory vs Newcastle Jets",
       "meta": "SPOTV · Now until 6:00 AM",
       "image": "https://r2.thesportsdb.com/images/media/league/fanart/y7hb2f1547476364.jpg"
@@ -125,6 +119,12 @@
       "title": "2026/27 Longines FEI Jumping World Cup - Western European League, Stuttgart (GER)",
       "meta": "SPOTV2 · Now until 6:30 AM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "UEFA Women's Champions League - Chelsea vs PSG - MD5 (L)",
+      "meta": "beIN SPORTS 1 · Now until 6:00 AM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -155,33 +155,33 @@
   ],
   "com.vuclip.viu.tv": [
     {
-      "title": "The Rules",
-      "meta": "Viu · #1 trending in Malaysia",
-      "image": "https://prod-images.viu.com/1375146905/dd1e7f22031649f20cbcbbcee350d7e162f9091d?im=Resize,width=1280",
+      "title": "Bayangan Dendam",
+      "meta": "Viu · #2 trending in Malaysia",
+      "image": "https://prod-images.viu.com/2187216814/2d2dd8da5a6cf351940dbbb8bed3464df83d0d17?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Seadanya Kita",
-      "meta": "Viu · #7 trending in Malaysia",
-      "image": "https://prod-images.viu.com/2527637183/deb85e2e177f30142420afa5c6f5356402f292b8?im=Resize,width=1280",
+      "title": "Running Man (2026)",
+      "meta": "Viu · #3 trending in Malaysia",
+      "image": "https://prod-images.viu.com/617743966/78ea26f138eae0e1eb0dfd72d07efad90216f581?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Cinta Dalam Sekam",
-      "meta": "Viu · #8 trending in Malaysia",
-      "image": "https://prod-images.viu.com/2786942835/da20c8298983929301a80cccc8fc57aa29f326df?im=Resize,width=1280",
+      "title": "The Hidden Hand (Dia Perempuan Sialan)",
+      "meta": "Viu · #4 trending in Malaysia",
+      "image": "https://prod-images.viu.com/4112872894/70072b138b2c583b98355e629c9f9fe44ca476f3?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "kiDnap GAME",
-      "meta": "Viu · #9 trending in Malaysia",
-      "image": "https://prod-images.viu.com/234624579/ba727355d49afcb4b14284e072f2a1aeb9b55fb3?im=Resize,width=1280",
+      "title": "Abang Imam Minah Skuter",
+      "meta": "Viu · #5 trending in Malaysia",
+      "image": "https://prod-images.viu.com/2206944558/4577d4a7bf78e18641458f2f62e45c6738b52b92?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Taxi Driver 3",
-      "meta": "Viu · #10 trending in Malaysia",
-      "image": "https://prod-images.viu.com/1256732634/bc50fe41fc912eaa55b1fc339a7755432790e4de?im=Resize,width=1280",
+      "title": "Satu, Dua... Dia?",
+      "meta": "Viu · #6 trending in Malaysia",
+      "image": "https://prod-images.viu.com/1335697735/f0382db00f9d504bebf24070053eb32a7466d87c?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     }
   ]
