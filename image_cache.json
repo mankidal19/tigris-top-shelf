@@ -1489,7 +1489,7 @@
  },
  "about|series|world dice tour 4": {
   "url": "",
-  "at": "2026-11-15"
+  "at": "2026-11-18"
  },
  "about|series|yena fiesta smiley": {
   "url": "",
@@ -1785,7 +1785,7 @@
  },
  "series|world dice tour 4": {
   "url": null,
-  "at": "2026-11-15"
+  "at": "2026-11-18"
  },
  "series|you can cook with sam kim": {
   "url": null,
@@ -3427,6 +3427,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
   "at": "2026-11-10"
  },
+ "sports|uefa youth league man city vs aek athens md3": {
+  "url": null,
+  "at": "2026-11-18"
+ },
  "sports|uefa youth league psg vs barcelona md3": {
   "url": null,
   "at": "2026-11-17"
@@ -3606,6 +3610,10 @@
  "sports|wtt champions montpellier 2026 day 6 session 2 finals": {
   "url": null,
   "at": "2026-11-01"
+ },
+ "sports|wtt star contender muscat 2026 day 1 session 1": {
+  "url": null,
+  "at": "2026-11-18"
  },
  "youtube|tv1|amanat wasiat sumayyah": {
   "url": null,

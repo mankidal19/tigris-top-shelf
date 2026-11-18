@@ -97,34 +97,34 @@
   ],
   "com.tm.unifitv.tv": [
     {
-      "source": "On TV now",
-      "title": "1,2 BAKAR (2019)",
-      "meta": "TV3 · Now until 12:00 PM",
-      "image": "https://i.ytimg.com/vi/kqhKEl55dpU/hq720.jpg"
+      "source": "Live soon",
+      "title": "WTT Star Contender Muscat 2026 - Day 1 Session 1",
+      "meta": "SPOTV2 · Live · 3:00 PM – 7:30 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "My Bias, My Boss",
-      "meta": "tvN HD · Now until 12:25 PM",
+      "title": "SURVIVING BEAUTY",
+      "meta": "TV3 · Now until 1:00 PM",
+      "image": "https://i.ytimg.com/vi/E8e97PRkG1s/hqdefault.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "MY #QURANTIME 2.0",
+      "meta": "TV9 · Now until 1:00 PM",
+      "image": "https://i.ytimg.com/vi/IoahZj2KBsU/hq720.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "World Dice Tour 4",
+      "meta": "tvN HD · Now until 2:35 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "BLACK CLOVER",
-      "meta": "Animax · Now until 12:10 PM",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/97940-1URQdQ4U1a0b.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "2026 WTCS, Abu Dhabi - Mixed Relay Series",
-      "meta": "SPOTV · Now until 2:00 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "2026 Longines Global Champions Tour, Rabat - Highlights",
-      "meta": "SPOTV2 · Now until 12:00 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
+      "title": "FRUITS BASKET",
+      "meta": "Animax · Now until 12:40 PM",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/120-PautbsS8uEAe.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -142,15 +142,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "LANGSUNG DARI PARLIMEN",
-      "meta": "TV1 · Now until 12:05 PM",
-      "image": "https://i.ytimg.com/vi/vJPXtNFAHwU/hqdefault.jpg"
+      "title": "Help! We Bought A Village (Ulangan)",
+      "meta": "TV1 · Now until 1:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "Syahadat Cinta",
-      "meta": "TV2 · Now until 12:00 PM",
-      "image": "https://i.ytimg.com/vi/Z4n7AWGgxH4/hqdefault.jpg"
+      "title": "WORLD TODAY",
+      "meta": "TV2 · Now until 1:00 PM",
+      "image": "https://i.ytimg.com/vi/Va1VdSxZklo/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
