@@ -98,26 +98,20 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "ASEAN Club Championship Shopee Cup 2026/27 - MD 2 Group B: Cong An Ha Noi vs Johor Darul Ta'zim",
-      "meta": "SPOTV · Live · Now until 10:30 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
       "title": "WTT Star Contender Muscat 2026 - Day 2 Session 2",
       "meta": "SPOTV2 · Live · Now until 1:00 AM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "MELODI (JUL-DEC 2026)",
-      "meta": "TV3 · Now until 10:00 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280"
+      "title": "SEPENUH HATI RINDU",
+      "meta": "TV3 · Now until 11:00 PM",
+      "image": "https://i.ytimg.com/vi/Wed6OQMrLuI/hq720.jpg"
     },
     {
       "source": "On TV now",
-      "title": "1 JUTA aka SATU JUTA (U)",
-      "meta": "TV9 · Now until 10:30 PM",
+      "title": "SCARLET HEART",
+      "meta": "TV9 · Now until 11:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
     },
     {
@@ -125,6 +119,12 @@
       "title": "The Practical Guide to Love",
       "meta": "tvN HD · Now until 10:35 PM",
       "image": "https://static.tvmaze.com/uploads/images/original_untouched/612/1530078.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "2026/27 ALM Mini Match MW 4 - Auckland FC vs Wellington Phoenix",
+      "meta": "SPOTV · Now until 11:00 PM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/y7hb2f1547476364.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -142,8 +142,8 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "LIVE : FORUM PERDANA EHWAL ISLAM",
-      "meta": "TV1 · Now until 10:00 PM",
+      "title": "Skuad JPJ 2.0",
+      "meta": "TV1 · Now until 11:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
