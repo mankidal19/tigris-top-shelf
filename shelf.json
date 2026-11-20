@@ -110,21 +110,21 @@
     },
     {
       "source": "On TV now",
-      "title": "DAPUR PANAS 2021",
-      "meta": "TV3 · Now until 12:00 PM",
-      "image": "https://i.ytimg.com/vi/d-nCwQwFhKs/hq720.jpg"
+      "title": "WANITA HARI INI VIBE",
+      "meta": "TV3 · Now until 12:05 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "MY #QURANTIME 2.0",
+      "meta": "TV9 · Now until 1:00 PM",
+      "image": "https://i.ytimg.com/vi/IoahZj2KBsU/hq720.jpg"
     },
     {
       "source": "On TV now",
       "title": "The Practical Guide to Love",
       "meta": "tvN HD · Now until 12:55 PM",
       "image": "https://static.tvmaze.com/uploads/images/original_untouched/612/1530078.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "WHY RAELIANA ENDED UP AT THE DUKE'S MANSION",
-      "meta": "Animax · Now until 12:10 PM",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/151847-S1pTlfRY2DqB.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -142,15 +142,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Agrotek 2025 (Ulangan)",
-      "meta": "TV1 · Now until 12:00 PM",
+      "title": "LIVE : BERITA SEMASA",
+      "meta": "TV1 · Now until 12:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "Syahadat Cinta",
-      "meta": "TV2 · Now until 12:00 PM",
-      "image": "https://i.ytimg.com/vi/Z4n7AWGgxH4/hqdefault.jpg"
+      "title": "BERITA MANDARIN",
+      "meta": "TV2 · Now until 12:30 PM",
+      "image": "https://i.ytimg.com/vi/ZZ33zmS4E_M/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
