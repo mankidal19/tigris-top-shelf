@@ -1337,7 +1337,7 @@
  },
  "about|series|show champion": {
   "url": "",
-  "at": "2026-11-13"
+  "at": "2026-11-20"
  },
  "about|series|sight unseen": {
   "url": "Drama Crime  Homicide detective Tess Avery is forced to quit the job she loves after nearly killing her partner and being diagnosed as clinically blind. Reluctant to accept help, Tess uses an assistance app and connects with Sunny Patel, a professional seeing-eye guide and agoraphobe living 3,000 miles away. Haunted by the unsolved cases she left behind, Tess uses a hidden camera and earpiece, while Sunny remotely steers Tess through life's obstacles -- and crimes -- as the two challenge preconceptions about ability, trust and where to draw the line.",
@@ -1817,7 +1817,7 @@
  },
  "series|show champion": {
   "url": null,
-  "at": "2026-11-13"
+  "at": "2026-11-20"
  },
  "series|sixth sense b side": {
   "url": null,
@@ -2083,6 +2083,10 @@
   "url": null,
   "at": "2026-11-18"
  },
+ "sports|2026 longines global champions tour verona global champions league super cup semi final": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
+  "at": "2026-11-20"
+ },
  "sports|2026 motogp rd 19 petronas grand prix of malaysia free practice 2 qualifying": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg",
   "at": "2026-11-04"
@@ -2198,6 +2202,10 @@
  "sports|2026 pycl philippines s2 rd 2 gfoxx paragon vs dentacare pearly whites": {
   "url": null,
   "at": "2026-11-14"
+ },
+ "sports|2026 pycl philippines s2 rd 2 konjac zero phoenix force vs gfoxx paragon": {
+  "url": null,
+  "at": "2026-11-20"
  },
  "sports|2026 supercars penrite oil sandown 500 race 33": {
   "url": null,
@@ -2506,6 +2514,10 @@
  "sports|bundesliga augsburg vs freiburg": {
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/2rcdmc1688630706.jpg",
   "at": "2026-11-01"
+ },
+ "sports|bundesliga bayern vs cologne l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
+  "at": "2026-11-20"
  },
  "sports|bundesliga bayern vs dortmund": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
@@ -2915,6 +2927,10 @@
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/ac9ido1784904574.jpg",
   "at": "2026-11-08"
  },
+ "sports|laliga athletic bilbao vs espanyol l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
+  "at": "2026-11-20"
+ },
  "sports|laliga athletic bilbao vs real sociedad": {
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/z75dit1784904549.jpg",
   "at": "2026-11-06"
@@ -3290,6 +3306,10 @@
  "sports|premier padel london p1 day 3 match 5": {
   "url": null,
   "at": "2026-11-19"
+ },
+ "sports|premier padel match highlights rotterdam p2 women": {
+  "url": null,
+  "at": "2026-11-20"
  },
  "sports|premier padel pretoria p1 day 3 match 6": {
   "url": null,
@@ -4327,6 +4347,10 @@
   "url": "https://i.ytimg.com/vi/cf-kSsryQfg/hq720.jpg",
   "at": "2026-11-08"
  },
+ "youtube|tv2|pabila syaitan berbisik": {
+  "url": null,
+  "at": "2026-11-20"
+ },
  "youtube|tv2|penama kedua": {
   "url": null,
   "at": "2026-11-13"
@@ -4858,6 +4882,10 @@
  "youtube|tv9|spa q": {
   "url": "https://i.ytimg.com/vi/se9uYKhQzbc/hqdefault.jpg",
   "at": "2026-11-11"
+ },
+ "youtube|tv9|streets the": {
+  "url": null,
+  "at": "2026-11-20"
  },
  "youtube|tv9|supa strikas season 4 6": {
   "url": null,
