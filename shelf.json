@@ -98,32 +98,32 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "A-League Men 26/27 MW 5 - Auckland FC vs Melbourne Victory",
-      "meta": "SPOTV · Live · Now until 2:00 PM",
-      "image": "https://r2.thesportsdb.com/images/media/event/thumb/3m1pbe1758095036.jpg"
+      "title": "SailGP S6: Emirates Dubai Sail Grand Prix - Day 1 Race",
+      "meta": "SPOTV · Live · Now until 8:30 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "Live soon",
+      "title": "2026 MotoGP Rd 21 Repsol Grand Prix of Portugal - Qualifying/Sprint",
+      "meta": "SPOTV2 · Live · 8:40 PM – 11:45 PM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg"
     },
     {
       "source": "On TV now",
-      "title": "2026 FIA F4 World Cup, Macau - Qualification Race",
-      "meta": "SPOTV2 · Live · Now until 1:05 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
+      "title": "BUKAN IPAR SEMPURNA",
+      "meta": "TV3 · Now until 8:00 PM",
+      "image": "https://i.ytimg.com/vi/MV4rgagl3ts/hq720.jpg"
     },
     {
       "source": "On TV now",
-      "title": "SUMBANG SUARA 2022",
-      "meta": "TV3 · Now until 12:30 PM",
-      "image": "https://i.ytimg.com/vi/5b5N4sSk_L8/hq720.jpg"
+      "title": "BULETIN TV9 2026/2027",
+      "meta": "TV9 · Now until 7:50 PM",
+      "image": "https://i.ytimg.com/vi/0sGsr1vDTLk/hq720.jpg"
     },
     {
       "source": "On TV now",
-      "title": "MY #QURANTIME 2.0",
-      "meta": "TV9 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/IoahZj2KBsU/hq720.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "My Bias, My Boss",
-      "meta": "tvN HD · Now until 12:20 PM",
+      "title": "Walking Through The Village",
+      "meta": "tvN HD · Now until 8:05 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
     }
   ],
@@ -142,15 +142,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Ikonita (Ulangan)",
-      "meta": "TV1 · Now until 12:30 PM",
+      "title": "LIVE : KANTA 744",
+      "meta": "TV1 · Now until 8:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "BERITA MANDARIN",
-      "meta": "TV2 · Now until 12:30 PM",
-      "image": "https://i.ytimg.com/vi/ZZ33zmS4E_M/hq720.jpg"
+      "title": "BERITA TAMIL",
+      "meta": "TV2 · Now until 8:00 PM",
+      "image": "https://i.ytimg.com/vi/CMVept3d60w/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [

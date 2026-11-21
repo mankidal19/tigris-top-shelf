@@ -1569,7 +1569,7 @@
  },
  "about|series|walking through the village": {
   "url": "",
-  "at": "2026-11-18"
+  "at": "2026-11-21"
  },
  "about|series|we re going to be talking about the milwaukee brewers team for a long time": {
   "url": "",
@@ -1925,7 +1925,7 @@
  },
  "series|walking through the village": {
   "url": null,
-  "at": "2026-11-18"
+  "at": "2026-11-21"
  },
  "series|weekly idol": {
   "url": "https://static.tvmaze.com/uploads/images/original_untouched/223/557543.jpg",
@@ -2190,6 +2190,10 @@
  "sports|2026 motogp rd 21 repsol grand prix of portugal practice": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg",
   "at": "2026-11-20"
+ },
+ "sports|2026 motogp rd 21 repsol grand prix of portugal qualifying sprint": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg",
+  "at": "2026-11-21"
  },
  "sports|2026 pycl philippines s2 rd 1 black mamba aces vs konjac zero phoenix force": {
   "url": null,
@@ -2579,6 +2583,10 @@
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/2rcdmc1688630706.jpg",
   "at": "2026-11-01"
  },
+ "sports|bundesliga bayern vs cologne": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
+  "at": "2026-11-21"
+ },
  "sports|bundesliga bayern vs cologne l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
   "at": "2026-11-20"
@@ -2834,6 +2842,10 @@
  "sports|formula 1 practice formula 1 heineken las vegas grand prix 2026 practice 2 l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg",
   "at": "2026-11-20"
+ },
+ "sports|formula 1 practice formula 1 heineken las vegas grand prix 2026 practice 3": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg",
+  "at": "2026-11-21"
  },
  "sports|formula 1 practice formula 1 msc cruises grande premio de sao paulo 2026 practice 1": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg",
@@ -3458,6 +3470,14 @@
  "sports|roshn saudi league 26 27 md 12 al shabab vs al ahli": {
   "url": null,
   "at": "2026-11-02"
+ },
+ "sports|sailgp dubai uae day 1 l": {
+  "url": null,
+  "at": "2026-11-21"
+ },
+ "sports|sailgp s6 emirates dubai sail grand prix day 1 race": {
+  "url": null,
+  "at": "2026-11-21"
  },
  "sports|spotv": {
   "url": null,
@@ -4149,7 +4169,7 @@
  },
  "youtube|tv1|live kanta 744": {
   "url": null,
-  "at": "2026-11-12"
+  "at": "2026-11-21"
  },
  "youtube|tv1|live selamat pagi malaysia": {
   "url": null,
