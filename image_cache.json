@@ -3047,6 +3047,10 @@
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/ac9ido1784904574.jpg",
   "at": "2026-11-08"
  },
+ "sports|laliga alaves vs deportivo l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
+  "at": "2026-11-21"
+ },
  "sports|laliga athletic bilbao vs espanyol l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-11-20"
@@ -3530,6 +3534,10 @@
  "sports|super lig galatasaray vs amedspor": {
   "url": null,
   "at": "2026-11-10"
+ },
+ "sports|super lig galatasaray vs samsunspor l": {
+  "url": null,
+  "at": "2026-11-21"
  },
  "sports|super lig kasimpasa vs besiktas": {
   "url": null,
@@ -4158,6 +4166,10 @@
  "youtube|tv1|gambus rindu ulangan": {
   "url": null,
   "at": "2026-11-01"
+ },
+ "youtube|tv1|geng star kampung": {
+  "url": "https://i.ytimg.com/vi/5AcdSJJZi98/hq720.jpg",
+  "at": "2026-11-21"
  },
  "youtube|tv1|help we bought a village ulangan": {
   "url": null,
