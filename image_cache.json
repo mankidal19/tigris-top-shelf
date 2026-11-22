@@ -2125,7 +2125,7 @@
  },
  "sports|2026 e1 world championship rd 7 miami gp race off": {
   "url": null,
-  "at": "2026-11-14"
+  "at": "2026-11-22"
  },
  "sports|2026 fia f4 world cup macau main race": {
   "url": null,
@@ -2358,6 +2358,10 @@
  "sports|2026 pycl philippines s2 rd 2 dentacare pearly whites vs black mamba aces": {
   "url": null,
   "at": "2026-11-21"
+ },
+ "sports|2026 pycl philippines s2 rd 2 dentacare pearly whites vs thrifty drivers": {
+  "url": null,
+  "at": "2026-11-22"
  },
  "sports|2026 pycl philippines s2 rd 2 gfoxx paragon vs dentacare pearly whites": {
   "url": null,
@@ -2609,7 +2613,7 @@
  },
  "sports|afcon qualifiers niger vs morocco": {
   "url": null,
-  "at": "2026-11-18"
+  "at": "2026-11-22"
  },
  "sports|afcon qualifiers rwanda vs mali": {
   "url": null,
@@ -3227,6 +3231,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-11-14"
  },
+ "sports|laliga getafe vs atletico madrid l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
+  "at": "2026-11-22"
+ },
  "sports|laliga getafe vs sevilla": {
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/9s6kvb1784904557.jpg",
   "at": "2026-11-02"
@@ -3594,6 +3602,10 @@
  "sports|premier padel london p1 day 5 sf1 women": {
   "url": null,
   "at": "2026-11-21"
+ },
+ "sports|premier padel london p1 day 6 final men": {
+  "url": null,
+  "at": "2026-11-22"
  },
  "sports|premier padel match highlights milan p1 men": {
   "url": null,
@@ -4259,6 +4271,10 @@
   "url": null,
   "at": "2026-11-16"
  },
+ "youtube|tv1|apek dan siti ulangan": {
+  "url": null,
+  "at": "2026-11-22"
+ },
  "youtube|tv1|berita inggeris malaysia tonight": {
   "url": null,
   "at": "2026-11-20"
@@ -4666,6 +4682,10 @@
  "youtube|tv2|ladies first": {
   "url": "https://i.ytimg.com/vi/PeR0TYgqVWA/hqdefault.jpg",
   "at": "2026-11-02"
+ },
+ "youtube|tv2|lara": {
+  "url": "https://i.ytimg.com/vi/Q6ji5MzyBZo/hq720.jpg",
+  "at": "2026-11-22"
  },
  "youtube|tv2|late night ride": {
   "url": "https://i.ytimg.com/vi/jIKbSfGgzlo/hq720.jpg",
