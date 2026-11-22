@@ -897,7 +897,7 @@
  },
  "about|series|chef my fridge": {
   "url": "",
-  "at": "2026-11-15"
+  "at": "2026-11-22"
  },
  "about|series|chelsea 2 0 man utd": {
   "url": "",
@@ -1797,7 +1797,7 @@
  },
  "series|chef my fridge": {
   "url": null,
-  "at": "2026-11-15"
+  "at": "2026-11-22"
  },
  "series|coroner": {
   "url": "https://static.tvmaze.com/uploads/images/original_untouched/179/448552.jpg",
@@ -2843,6 +2843,10 @@
   "url": null,
   "at": "2026-11-19"
  },
+ "sports|ferrari challenge coppa shell world final race l": {
+  "url": null,
+  "at": "2026-11-22"
+ },
  "sports|ferrari challenge highlights hungaroring": {
   "url": null,
   "at": "2026-11-02"
@@ -2934,6 +2938,10 @@
  "sports|formula 1 main race formula 1 gran premio de la ciudad de mexico 2026": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg",
   "at": "2026-11-02"
+ },
+ "sports|formula 1 main race formula 1 heineken las vegas grand prix 2026": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg",
+  "at": "2026-11-22"
  },
  "sports|formula 1 main race formula 1 msc cruises grande premio de sao paulo 2026": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg",
@@ -3638,6 +3646,10 @@
  "sports|sailgp dubai uae day 1 l": {
   "url": null,
   "at": "2026-11-21"
+ },
+ "sports|sailgp dubai uae day 2 l": {
+  "url": null,
+  "at": "2026-11-22"
  },
  "sports|sailgp s6 emirates dubai sail grand prix day 1 race": {
   "url": null,
@@ -4445,7 +4457,7 @@
  },
  "youtube|tv1|zuriat dari penjara ulangan": {
   "url": null,
-  "at": "2026-11-13"
+  "at": "2026-11-22"
  },
  "youtube|tv2|19th street": {
   "url": "https://i.ytimg.com/vi/PHv5udqZjrw/hqdefault.jpg",

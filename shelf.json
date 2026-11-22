@@ -98,32 +98,32 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
+      "title": "SailGP S6: Emirates Dubai Sail Grand Prix - Day 2 Race",
+      "meta": "SPOTV · Live · Now until 8:30 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
       "title": "2026 MotoGP Rd 21 Repsol Grand Prix of Portugal - Race",
       "meta": "SPOTV2 · Live · Now until 10:15 PM",
       "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg"
     },
     {
-      "source": "Live soon",
-      "title": "SailGP S6: Emirates Dubai Sail Grand Prix - Day 2 Race",
-      "meta": "SPOTV · Live · 7:00 PM – 8:30 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+      "source": "On TV now",
+      "title": "BUKAN IPAR SEMPURNA",
+      "meta": "TV3 · Now until 8:00 PM",
+      "image": "https://i.ytimg.com/vi/MV4rgagl3ts/hq720.jpg"
     },
     {
       "source": "On TV now",
-      "title": "HELO DOKTOR 2024/2025",
-      "meta": "TV3 · Now until 6:30 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "BLIPPI WONDERS",
-      "meta": "TV9 · Now until 6:30 PM",
-      "image": "https://i.ytimg.com/vi/I4ttVbgda6s/hq720.jpg"
+      "title": "BULETIN TV9 2026/2027",
+      "meta": "TV9 · Now until 7:50 PM",
+      "image": "https://i.ytimg.com/vi/0sGsr1vDTLk/hq720.jpg"
     },
     {
       "source": "On TV now",
       "title": "GBRB: Joy Pops Laugh Pops",
-      "meta": "tvN HD · Now until 7:35 PM",
+      "meta": "tvN HD · Now until 9:20 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
     }
   ],
@@ -142,15 +142,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Agrotek 2025 (Ulangan)",
-      "meta": "TV1 · Now until 6:30 PM",
+      "title": "Zuriat Dari Penjara (Ulangan)",
+      "meta": "TV1 · Now until 7:44 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "Inspector Gadget",
-      "meta": "TV2 · Now until 6:30 PM",
-      "image": "https://i.ytimg.com/vi/q3UDI7GrhWU/hqdefault.jpg"
+      "title": "BERITA TAMIL",
+      "meta": "TV2 · Now until 8:00 PM",
+      "image": "https://i.ytimg.com/vi/CMVept3d60w/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
