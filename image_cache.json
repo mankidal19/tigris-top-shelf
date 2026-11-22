@@ -1577,7 +1577,7 @@
  },
  "about|series|undercover chef friends from afar": {
   "url": "",
-  "at": "2026-11-19"
+  "at": "2026-11-22"
  },
  "about|series|vibey songs for watching the city lights with you": {
   "url": "",
@@ -1969,7 +1969,7 @@
  },
  "series|undercover chef friends from afar": {
   "url": null,
-  "at": "2026-11-19"
+  "at": "2026-11-22"
  },
  "series|walking through the village": {
   "url": null,
@@ -2114,6 +2114,10 @@
  "sports|2026 fia tcr world tour macau qualifying": {
   "url": null,
   "at": "2026-11-20"
+ },
+ "sports|2026 fia tcr world tour macau round 20 race": {
+  "url": null,
+  "at": "2026-11-22"
  },
  "sports|2026 fim ewc highlights rd 4 bol d or france": {
   "url": null,
@@ -2746,6 +2750,10 @@
  "sports|bundesliga mainz vs bayern l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
   "at": "2026-11-07"
+ },
+ "sports|bundesliga monchengladbach vs dortmund": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
+  "at": "2026-11-22"
  },
  "sports|bundesliga monchengladbach vs paderborn": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
@@ -3485,7 +3493,7 @@
  },
  "sports|premier padel kuwait major day 7 final men": {
   "url": null,
-  "at": "2026-11-15"
+  "at": "2026-11-22"
  },
  "sports|premier padel kuwait major day 7 final women": {
   "url": null,
@@ -4191,6 +4199,10 @@
   "url": null,
   "at": "2026-11-17"
  },
+ "youtube|tv1|cuit sikit jangan sentap 2026 ulangan": {
+  "url": null,
+  "at": "2026-11-22"
+ },
  "youtube|tv1|dapur berasap artis sempoi ulangan": {
   "url": null,
   "at": "2026-11-15"
@@ -4426,6 +4438,10 @@
  "youtube|tv2|arkitek junior": {
   "url": "https://i.ytimg.com/vi/tVj7Uzr00AM/hq720.jpg",
   "at": "2026-11-15"
+ },
+ "youtube|tv2|australian survivor titans vs rebels": {
+  "url": "https://i.ytimg.com/vi/Xdd-5gcNG38/hq720.jpg",
+  "at": "2026-11-22"
  },
  "youtube|tv2|ayah janganlah diam": {
   "url": "https://i.ytimg.com/vi/O6OZT46hcPc/hq720.jpg",
@@ -4929,7 +4945,7 @@
  },
  "youtube|tv3|supa strikas season 4 6": {
   "url": null,
-  "at": "2026-11-02"
+  "at": "2026-11-22"
  },
  "youtube|tv3|survival of the beast": {
   "url": null,
