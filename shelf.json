@@ -1,69 +1,81 @@
 {
   "com.netflix.ninja": [
     {
-      "title": "Sesame Street",
-      "meta": "Netflix · S57 · 4 episodes · New today",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/389/973554.jpg",
+      "title": "Where the Mask Ends",
+      "meta": "Netflix · #5 in TV",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/596/1491800.jpg",
+      "source": "Top 10 in Malaysia"
+    },
+    {
+      "title": "Sunshine Through the Rain",
+      "meta": "Netflix · #6 in TV · New this week",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/650/1625305.jpg",
+      "source": "Top 10 in Malaysia"
+    },
+    {
+      "title": "The Devil's Plan",
+      "meta": "Netflix · S3 · 4 episodes · New today",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/474/1187179.jpg",
       "source": "New on Netflix"
     },
     {
-      "title": "The Blue Road",
-      "meta": "Netflix · S1 · 8 episodes · Out Fri 20 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/652/1631369.jpg",
+      "title": "The Altruists",
+      "meta": "Netflix · S1 · 8 episodes · Out Thu 19 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/614/1537364.jpg",
       "source": "New on Netflix"
     },
     {
-      "title": "The Adam Ray Show",
-      "meta": "Netflix · S1 E26 · Out Fri 20 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/632/1580086.jpg",
-      "source": "New on Netflix"
-    },
-    {
-      "title": "Prawo Bestii",
-      "meta": "Netflix · S1 · 4 episodes · Out Wed 18 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/652/1631410.jpg",
-      "source": "New on Netflix"
-    },
-    {
-      "title": "Os 12 Signos de Valentina",
+      "title": "Win the Mall",
       "meta": "Netflix · S1 · 8 episodes · Out Wed 18 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/652/1631418.jpg",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/652/1630035.jpg",
       "source": "New on Netflix"
     }
   ],
   "com.amazon.amazonvideo.livingroom": [
     {
-      "title": "The Lord of the Rings: The Rings of Power",
-      "meta": "Prime Video · S3 · 2 episodes · Coming Wed 25 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/396/990035.jpg",
+      "title": "A Tale of the Secret Saint",
+      "meta": "Prime Video · S1 E10 · Coming Sat 28 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602819.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "Blade Runner 2099",
-      "meta": "Prime Video · S1 · 8 episodes · Coming Wed 25 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/633/1584393.jpg",
+      "title": "The Chosen",
+      "meta": "Prime Video · S6 E5 · Coming Sun 29 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/383/958755.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "Alan Carr's Great Big Bucket List",
-      "meta": "Prime Video · S1 · 4 episodes · Coming Fri 27 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/650/1625407.jpg",
+      "title": "The Assassin",
+      "meta": "Prime Video · S2 · 6 episodes · Out Fri 6 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/579/1448166.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "Demons' Crest",
-      "meta": "Prime Video · S1 E3 · Out Fri 13 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/653/1632553.jpg",
+      "title": "Campus Drivers",
+      "meta": "Prime Video · S1 · 6 episodes · Out Fri 6 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/650/1625533.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "Rock, Paper, Landmines",
-      "meta": "Prime Video · S1 · 6 episodes · Out Fri 13 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/652/1630990.jpg",
+      "title": "The Traitors Telugu",
+      "meta": "Prime Video · S1 E10 · Out Thu 5 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/644/1612250.jpg",
       "source": "New on Prime Video"
     }
   ],
   "com.google.android.youtube.tv": [
+    {
+      "title": "I'm Starting Over",
+      "meta": "YouTube · Marques Brownlee · 22 min",
+      "image": "https://i.ytimg.com/vi/cc5C8hRblBY/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "AKIM - INILAH CINTA & BENGANG | GEGAR VAGANZA FANTASIA #CelcomDigiGV13 #Power5GTanpaHad",
+      "meta": "YouTube · Astro Gempak · 4 min",
+      "image": "https://i.ytimg.com/vi/zIMw_t2MymE/hq720.jpg",
+      "source": "Recommended for you"
+    },
     {
       "title": "The Thirsty Dog | Islamic nursery rhyme for Kids | Deen Kids TV #hadith",
       "meta": "YouTube · 3 min",
@@ -71,60 +83,48 @@
       "source": "Watched before"
     },
     {
-      "title": "Avengers: Doomsday | Final Trailer | In Theaters December 18",
-      "meta": "YouTube · Marvel Entertainment · 3 min",
-      "image": "https://i.ytimg.com/vi/Wb8Tq_HD4E8/hq720.jpg",
+      "title": "NAYEON “BABY ANGEL” M/V",
+      "meta": "YouTube · JYP Entertainment · 2 min",
+      "image": "https://i.ytimg.com/vi/0JQ9k6kcKVs/hq720.jpg",
       "source": "Recommended for you"
     },
     {
-      "title": "WENDY (웬디) 'Before Sunrise' MV",
-      "meta": "YouTube · 웬디 WENDY · 3 min",
-      "image": "https://i.ytimg.com/vi/4FVkUBRVXiU/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "Can You Trust MKBHD?",
-      "meta": "YouTube · Marques Brownlee · 14 min",
-      "image": "https://i.ytimg.com/vi/KTDJiVpSDTI/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "Race Highlights | 2026 Las Vegas Grand Prix",
-      "meta": "YouTube · FORMULA 1 · 8 min",
-      "image": "https://i.ytimg.com/vi/Vyk_6bNm7lo/hq720.jpg",
+      "title": "[CLIP] Melodi (19 Nov 2026): Kontroversi Antara Puteri Balqis dan Zarif Ghazzi | Tonton",
+      "meta": "YouTube · TV3MALAYSIA Official · 3 min",
+      "image": "https://i.ytimg.com/vi/U_wEyTvIhlY/hq720.jpg",
       "source": "Recommended for you"
     }
   ],
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "Sixth Sense: B-side",
-      "meta": "tvN HD · Now until 9:45 AM",
+      "title": "DERINGAN (U)",
+      "meta": "TV9 · Now until 3:30 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "Europe Outside Your Tent: Romantic Italy",
+      "meta": "tvN HD · Now until 3:45 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
       "title": "WITCH WATCH",
-      "meta": "Animax · Now until 9:40 AM",
+      "meta": "Animax · Now until 2:10 PM",
       "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/180367-Kpxveeh3Q3cm.jpg"
     },
     {
       "source": "On TV now",
-      "title": "2026 Dubai T100 - Elite Men's & Women's Race",
-      "meta": "SPOTV · Now until 10:00 AM",
+      "title": "Roshn Saudi League 26/27 - MD 12 Al Nassr vs Al Kholood",
+      "meta": "SPOTV · Now until 4:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "WTT Star Contender Muscat 2026 - Day 4 Session 1",
-      "meta": "SPOTV2 · Now until 11:30 AM",
+      "title": "SailGP: Racing on the Edge S6 - Ep 6",
+      "meta": "SPOTV2 · Now until 2:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "Formula 1 Main Race - FORMULA 1 HEINEKEN LAS VEGAS GRAND PRIX 2026",
-      "meta": "beIN SPORTS 1 · Now until 11:00 AM",
-      "image": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -142,46 +142,46 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "LIVE : SELAMAT PAGI MALAYSIA",
-      "meta": "TV1 · Now until 10:00 AM",
+      "title": "Kasih Malisa (Ulangan)",
+      "meta": "TV1 · Now until 2:30 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "Dunia Kiara",
-      "meta": "TV2 · Now until 10:00 AM",
-      "image": "https://i.ytimg.com/vi/npx87TtHKtU/hq720.jpg"
+      "title": "Past Life, Present Love",
+      "meta": "TV2 · Now until 3:00 PM",
+      "image": "https://i.ytimg.com/vi/bd86ceGg9MM/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
     {
-      "title": "Bayangan Dendam",
-      "meta": "Viu · #2 trending in Malaysia",
-      "image": "https://prod-images.viu.com/2187216814/2d2dd8da5a6cf351940dbbb8bed3464df83d0d17?im=Resize,width=1280",
+      "title": "The Rules",
+      "meta": "Viu · #1 trending in Malaysia",
+      "image": "https://prod-images.viu.com/1375146905/dd1e7f22031649f20cbcbbcee350d7e162f9091d?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Running Man (2026)",
-      "meta": "Viu · #4 trending in Malaysia",
-      "image": "https://prod-images.viu.com/617743966/78ea26f138eae0e1eb0dfd72d07efad90216f581?im=Resize,width=1280",
+      "title": "Wali Dalam Tangisan",
+      "meta": "Viu · #3 trending in Malaysia",
+      "image": "https://prod-images.viu.com/3728650868/d4a3251afb48290b3cd150bed36a658eb3700305?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Abang Imam Minah Skuter",
-      "meta": "Viu · #5 trending in Malaysia",
-      "image": "https://prod-images.viu.com/2206944558/4577d4a7bf78e18641458f2f62e45c6738b52b92?im=Resize,width=1280",
+      "title": "Seadanya Kita",
+      "meta": "Viu · #8 trending in Malaysia",
+      "image": "https://prod-images.viu.com/2527637183/deb85e2e177f30142420afa5c6f5356402f292b8?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "The Hidden Hand (Dia Perempuan Sialan)",
-      "meta": "Viu · #6 trending in Malaysia",
-      "image": "https://prod-images.viu.com/4112872894/70072b138b2c583b98355e629c9f9fe44ca476f3?im=Resize,width=1280",
+      "title": "Cinta Dalam Sekam",
+      "meta": "Viu · #9 trending in Malaysia",
+      "image": "https://prod-images.viu.com/2786942835/da20c8298983929301a80cccc8fc57aa29f326df?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Satu, Dua... Dia?",
-      "meta": "Viu · #7 trending in Malaysia",
-      "image": "https://prod-images.viu.com/1335697735/f0382db00f9d504bebf24070053eb32a7466d87c?im=Resize,width=1280",
+      "title": "Oh! My Guard",
+      "meta": "Viu · #10 trending in Malaysia",
+      "image": "https://prod-images.viu.com/1872234859/b0fc0fc13a8269ff3cda597a6e3ce0e61a2f0247?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     }
   ]
