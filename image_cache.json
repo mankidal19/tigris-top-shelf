@@ -2597,7 +2597,7 @@
  },
  "sports|2026 wtcs abu dhabi mixed relay series": {
   "url": null,
-  "at": "2026-11-18"
+  "at": "2026-11-24"
  },
  "sports|2026 wtcs abu dhabi women s and men s race": {
   "url": null,
@@ -3983,6 +3983,10 @@
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/j9cphu1787915677.jpg",
   "at": "2026-11-04"
  },
+ "sports|uefa champions league arsenal vs dortmund md5 l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
+  "at": "2026-11-24"
+ },
  "sports|uefa champions league atletico madrid vs bayern md4 l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
   "at": "2026-11-03"
@@ -4039,6 +4043,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
   "at": "2026-11-16"
  },
+ "sports|uefa champions league man city vs napoli md5 l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
+  "at": "2026-11-24"
+ },
  "sports|uefa champions league man united vs roma md4": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
   "at": "2026-11-04"
@@ -4050,6 +4058,10 @@
  "sports|uefa champions league psv vs club brugge md4": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
   "at": "2026-11-05"
+ },
+ "sports|uefa champions league real madrid vs psv md5 l": {
+  "url": "https://r2.thesportsdb.com/images/media/event/thumb/o6s9nc1787915660.jpg",
+  "at": "2026-11-24"
  },
  "sports|uefa champions league shakhtar vs sporting md4 l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
@@ -4554,6 +4566,10 @@
  "youtube|tv1|diaspora melayu ulangan": {
   "url": null,
   "at": "2026-11-11"
+ },
+ "youtube|tv1|digital massa ulangan": {
+  "url": null,
+  "at": "2026-11-24"
  },
  "youtube|tv1|dimensi legenda ulangan": {
   "url": null,
