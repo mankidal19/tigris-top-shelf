@@ -97,10 +97,16 @@
   ],
   "com.tm.unifitv.tv": [
     {
+      "source": "Live soon",
+      "title": "2026 FIM MotoMini World Series Final, Valencia - 160cc & 190cc",
+      "meta": "SPOTV2 · Live · 3:50 PM – 9:45 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
+    },
+    {
       "source": "On TV now",
-      "title": "MY #QURANTIME 2.0",
-      "meta": "TV9 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/IoahZj2KBsU/hq720.jpg"
+      "title": "J.K.K (MUSIM 3)",
+      "meta": "TV3 · Now until 1:30 PM",
+      "image": "https://i.ytimg.com/vi/da1tTvn_DTQ/hqdefault.jpg"
     },
     {
       "source": "On TV now",
@@ -111,20 +117,14 @@
     {
       "source": "On TV now",
       "title": "FRUITS BASKET",
-      "meta": "Animax · Now until 12:40 PM",
+      "meta": "Animax · Now until 1:10 PM",
       "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/120-PautbsS8uEAe.jpg"
     },
     {
       "source": "On TV now",
-      "title": "2026 World Surf League Replay - WRP0511 Portugal Pro Finals Day",
-      "meta": "SPOTV · Now until 12:30 PM",
+      "title": "2026 The Asian Tournament, Iloilo - Game 22: SF 1 Philippine Aces vs Hanoi DaMau Bulls",
+      "meta": "SPOTV · Now until 1:55 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "2026 MotoGP Rewind - Grand Prix of Portugal",
-      "meta": "SPOTV2 · Now until 12:45 PM",
-      "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -142,15 +142,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Help! We Bought A Village (Ulangan)",
-      "meta": "TV1 · Now until 1:00 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
+      "title": "BERITA TENGAH HARI",
+      "meta": "TV1 · Now until 1:30 PM",
+      "image": "https://i.ytimg.com/vi/91zPpx_uCWM/hq720.jpg"
     },
     {
       "source": "On RTMKlik",
-      "title": "BERITA MANDARIN",
-      "meta": "TV2 · Now until 12:30 PM",
-      "image": "https://i.ytimg.com/vi/ZZ33zmS4E_M/hq720.jpg"
+      "title": "The Write One",
+      "meta": "TV2 · Now until 2:00 PM",
+      "image": "https://i.ytimg.com/vi/wKC8eO9TOuk/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
