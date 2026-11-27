@@ -1017,7 +1017,7 @@
  },
  "about|series|chef my fridge": {
   "url": "",
-  "at": "2026-11-22"
+  "at": "2026-11-27"
  },
  "about|series|chelsea 2 0 man utd": {
   "url": "",
@@ -2009,7 +2009,7 @@
  },
  "series|chef my fridge": {
   "url": null,
-  "at": "2026-11-22"
+  "at": "2026-11-27"
  },
  "series|coroner": {
   "url": "https://static.tvmaze.com/uploads/images/original_untouched/179/448552.jpg",
@@ -3507,6 +3507,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-11-13"
  },
+ "sports|laliga 2 leganes vs sabadell": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
+  "at": "2026-11-27"
+ },
  "sports|laliga 2 leganes vs sabadell l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-11-27"
@@ -4031,6 +4035,10 @@
   "url": null,
   "at": "2026-11-26"
  },
+ "sports|premier padel mexico major day 5 qf match 2 l": {
+  "url": null,
+  "at": "2026-11-27"
+ },
  "sports|premier padel pretoria p1 day 3 match 6": {
   "url": null,
   "at": "2026-11-01"
@@ -4114,6 +4122,10 @@
  "sports|sailgp dubai uae day 2 l": {
   "url": null,
   "at": "2026-11-22"
+ },
+ "sports|sailgp highlights dubai uae": {
+  "url": null,
+  "at": "2026-11-27"
  },
  "sports|sailgp racing on the edge s6 ep 6": {
   "url": null,
@@ -4769,7 +4781,7 @@
  },
  "sports|wtt star contender muscat 2026 day 3 session 2": {
   "url": null,
-  "at": "2026-11-20"
+  "at": "2026-11-27"
  },
  "sports|wtt star contender muscat 2026 day 4 session 1": {
   "url": null,
@@ -5359,6 +5371,10 @@
   "url": null,
   "at": "2026-11-07"
  },
+ "youtube|tv2|sumo mouse": {
+  "url": "https://i.ytimg.com/vi/qFnzHQEQWVs/hq720.jpg",
+  "at": "2026-11-27"
+ },
  "youtube|tv2|super dinosaur": {
   "url": "https://i.ytimg.com/vi/n5lhnjNQskQ/hq720.jpg",
   "at": "2026-11-01"
@@ -5687,6 +5703,10 @@
   "url": "https://i.ytimg.com/vi/E8e97PRkG1s/hqdefault.jpg",
   "at": "2026-11-02"
  },
+ "youtube|tv3|tanyalah ustaz 2026 sat sun jan dec": {
+  "url": null,
+  "at": "2026-11-27"
+ },
  "youtube|tv3|tanyalah ustaz july dec 2026": {
   "url": null,
   "at": "2026-11-26"
@@ -5930,6 +5950,10 @@
  "youtube|tv9|supa strikas season 4 6": {
   "url": null,
   "at": "2026-11-08"
+ },
+ "youtube|tv9|tanyalah ustaz 2026 sat sun jan dec": {
+  "url": null,
+  "at": "2026-11-27"
  },
  "youtube|tv9|tanyalah ustaz july dec 2026": {
   "url": null,
