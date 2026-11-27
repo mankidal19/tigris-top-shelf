@@ -97,42 +97,48 @@
   ],
   "com.tm.unifitv.tv": [
     {
-      "source": "On TV now",
-      "title": "TANYALAH USTAZ JULY – DEC 2026",
-      "meta": "TV3 · Now until 8:00 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280"
+      "source": "Live soon",
+      "title": "2026 Supercars: bp Adelaide Grand Final - Race 35",
+      "meta": "SPOTV · Live · 1:45 PM – 3:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "Live soon",
+      "title": "2026 MotoGP Rd 22 Motul Grand Prix of Valencia - Free Practice 1",
+      "meta": "SPOTV2 · Live · 3:55 PM – 6:50 PM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg"
     },
     {
       "source": "On TV now",
-      "title": "TANYALAH USTAZ JULY – DEC 2026",
-      "meta": "TV9 · Now until 8:00 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
+      "title": "JERIJI PATIN",
+      "meta": "TV3 · Now until 3:00 PM",
+      "image": "https://i.ytimg.com/vi/8spodKRzrzo/hq720.jpg"
     },
     {
       "source": "On TV now",
-      "title": "Sixth Sense: B-side",
-      "meta": "tvN HD · Now until 7:25 AM",
+      "title": "The Ordinary Jackpot",
+      "meta": "tvN HD · Now until 2:05 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "WHY RAELIANA ENDED UP AT THE DUKE'S MANSION",
-      "meta": "Animax · Now until 7:40 AM",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/151847-S1pTlfRY2DqB.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "2026 LET: Aramco China Championship - Day 4",
-      "meta": "SPOTV · Now until 10:00 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+      "title": "THE FARAWAY PALADIN",
+      "meta": "Animax · Now until 1:10 PM",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/132473-Lxge5Xq2A6HC.jpg"
     }
   ],
   "my.gov.rtm.tv": [
     {
       "source": "On RTMKlik",
-      "title": "RTM World",
+      "title": "SALURAN KHAS PILIHAN RAYA NEGERI SARAWAK KE-13",
       "meta": "RTMKlik · Saluran Khas · Live",
-      "image": "https://rtm-images.glueapi.io/1280x720/live_channel/RtmW.png"
+      "image": "https://rtm-images.glueapi.io/1280x720/live_channel/FEATURED_BANNER_PRNSARAWAK_26.jpg"
+    },
+    {
+      "source": "On RTMKlik",
+      "title": "MotoGP 2026",
+      "meta": "RTMKlik · Saluran Khas · Live",
+      "image": "https://rtm-images.glueapi.io/1280x720/live_channel/VALENCIA_MOTOGP26.jpg"
     },
     {
       "source": "On RTMKlik",
@@ -142,15 +148,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "BERITA PAGI",
-      "meta": "TV1 · Now until 7:44 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
+      "title": "LIVE : SOLAT JUMAAT",
+      "meta": "TV1 · Now until 2:00 PM",
+      "image": "https://i.ytimg.com/vi/xS1Yl45TjhQ/hqdefault.jpg"
     },
     {
       "source": "On RTMKlik",
-      "title": "Planet Saga",
-      "meta": "TV2 · Now until 7:30 AM",
-      "image": "https://i.ytimg.com/vi/Ko1TdTfEz74/hq720.jpg"
+      "title": "The Write One",
+      "meta": "TV2 · Now until 2:00 PM",
+      "image": "https://i.ytimg.com/vi/wKC8eO9TOuk/hq720.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
