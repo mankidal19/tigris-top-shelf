@@ -2261,7 +2261,7 @@
  },
  "sports|2026 27 alms 4 hours of le castellet race 2": {
   "url": null,
-  "at": "2026-11-20"
+  "at": "2026-11-27"
  },
  "sports|2026 27 longines fei jumping world cup western european league lyon fra": {
   "url": null,
@@ -2378,6 +2378,10 @@
  "sports|2026 let andalucia costa del sol open de espana day 1": {
   "url": null,
   "at": "2026-11-26"
+ },
+ "sports|2026 let andalucia costa del sol open de espana day 2": {
+  "url": null,
+  "at": "2026-11-27"
  },
  "sports|2026 let aramco china championship day 1": {
   "url": null,
@@ -3155,6 +3159,10 @@
   "url": null,
   "at": "2026-11-20"
  },
+ "sports|fia formula 2 championship qualifying lusail qatar l": {
+  "url": null,
+  "at": "2026-11-27"
+ },
  "sports|fip world cup argentina vs spain day 6 final men match 3": {
   "url": null,
   "at": "2026-11-25"
@@ -3795,6 +3803,10 @@
   "url": null,
   "at": "2026-11-20"
  },
+ "sports|one friday fights off 180 l": {
+  "url": null,
+  "at": "2026-11-27"
+ },
  "sports|one weekly episode number 46": {
   "url": null,
   "at": "2026-11-13"
@@ -4278,6 +4290,10 @@
  "sports|uefa champions league villarreal vs psg md4 l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/r4805d1784729827.jpg",
   "at": "2026-11-03"
+ },
+ "sports|uefa conference league ajax vs thun md4": {
+  "url": "https://r2.thesportsdb.com/images/media/event/thumb/jfztcq1787937401.jpg",
+  "at": "2026-11-27"
  },
  "sports|uefa conference league atalanta vs kairat md3": {
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/1ettd61787937424.jpg",
@@ -4913,7 +4929,7 @@
  },
  "youtube|tv1|planet sukan 2026 ulangan": {
   "url": null,
-  "at": "2026-11-13"
+  "at": "2026-11-27"
  },
  "youtube|tv1|pocoyo s5 ulangan": {
   "url": null,
@@ -5650,6 +5666,10 @@
  "youtube|tv9|1 juta aka satu juta u": {
   "url": null,
   "at": "2026-11-19"
+ },
+ "youtube|tv9|al kuliyyah 2019": {
+  "url": "https://i.ytimg.com/vi/wRQgLgenLw4/hq720.jpg",
+  "at": "2026-11-27"
  },
  "youtube|tv9|along angah kidnap u": {
   "url": null,
