@@ -1,79 +1,91 @@
 {
   "com.netflix.ninja": [
     {
-      "title": "Sunshine Through the Rain",
-      "meta": "Netflix · #9 in TV",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/650/1625305.jpg",
-      "source": "Top 10 in Malaysia"
-    },
-    {
-      "title": "Tomb Raider King",
-      "meta": "Netflix · #7 in TV · New this week",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/627/1569871.jpg",
-      "source": "Top 10 in Malaysia"
-    },
-    {
-      "title": "The Hunting Wives",
-      "meta": "Netflix · S2 · 8 episodes · Out Thu 26 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/579/1448884.jpg",
+      "title": "Steel Ball Run: JoJo's Bizarre Adventure",
+      "meta": "Netflix · S2 E10 · Out Fri 27 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/618/1546750.jpg",
       "source": "New on Netflix"
     },
     {
-      "title": "Fool Night",
-      "meta": "Netflix · S1 · 12 episodes · Out Thu 26 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/629/1574764.jpg",
+      "title": "Legevakta",
+      "meta": "Netflix · S1 · 7 episodes · Out Thu 26 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/653/1633847.jpg",
       "source": "New on Netflix"
     },
     {
-      "title": "The Devil's Plan",
-      "meta": "Netflix · S3 · 4 episodes · Out Tue 24 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/474/1187179.jpg",
+      "title": "Toos: De van der Valk ontvoering",
+      "meta": "Netflix · S1 · 6 episodes · Out Thu 26 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/653/1633877.jpg",
+      "source": "New on Netflix"
+    },
+    {
+      "title": "Paskong Pinoy",
+      "meta": "Netflix · S1 · 4 episodes · Out Thu 26 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/653/1633871.jpg",
+      "source": "New on Netflix"
+    },
+    {
+      "title": "Allegedly with Ellison Barber",
+      "meta": "Netflix · S1 E31 · Out Wed 25 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/641/1603343.jpg",
       "source": "New on Netflix"
     }
   ],
   "com.amazon.amazonvideo.livingroom": [
     {
-      "title": "A Tale of the Secret Saint",
-      "meta": "Prime Video · S1 E10 · Coming Sat 28 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602819.jpg",
+      "title": "Alan Carr's Great Big Bucket List",
+      "meta": "Prime Video · S1 · 4 episodes · Out Fri 27 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/650/1625407.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "The Chosen",
-      "meta": "Prime Video · S6 E5 · Coming Sun 29 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/383/958755.jpg",
+      "title": "The Lord of the Rings: The Rings of Power",
+      "meta": "Prime Video · S3 · 2 episodes · Out Tue 24 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/396/990035.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "Mírame así, el camino de Noa",
-      "meta": "Prime Video · S1 · 4 episodes · Out Fri 13 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/653/1633145.jpg",
+      "title": "Blade Runner 2099",
+      "meta": "Prime Video · S1 · 8 episodes · Out Tue 24 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/633/1584393.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "Rock, Paper, Landmines",
-      "meta": "Prime Video · S1 · 6 episodes · Out Fri 13 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/652/1630990.jpg",
+      "title": "Quiz from God",
+      "meta": "Prime Video · S1 E1 · Coming Fri 4 Dec",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/653/1633707.jpg",
       "source": "New on Prime Video"
     },
     {
-      "title": "The Assassin",
-      "meta": "Prime Video · S2 · 6 episodes · Out Fri 6 Nov",
-      "image": "https://static.tvmaze.com/uploads/images/original_untouched/579/1448166.jpg",
+      "title": "Demons' Crest",
+      "meta": "Prime Video · S1 E4 · Out Fri 20 Nov",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/653/1632554.jpg",
       "source": "New on Prime Video"
     }
   ],
   "com.google.android.youtube.tv": [
     {
-      "title": "BABY ANGEL - 나연 (TWICE) [뮤직뱅크/Music Bank] | KBS 261127 방송",
-      "meta": "YouTube · KBS Kpop · 3 min",
-      "image": "https://i.ytimg.com/vi/5-9ZsGnN2HQ/hq720.jpg",
+      "title": "Akim • INILAH CINTA & BENGANG @ Gegar Vaganza Fantasia • F8Buzz React X Cikgu Sarah Ismail",
+      "meta": "YouTube · F8Buzz · 16 min",
+      "image": "https://i.ytimg.com/vi/0HcPKOLa9bM/hq720.jpg",
       "source": "Recommended for you"
     },
     {
-      "title": "Welcome to MKBHQ! The Ultimate Video Studio Tour",
-      "meta": "YouTube · Marques Brownlee · 30 min",
-      "image": "https://i.ytimg.com/vi/ZvqYNSnsIDY/hq720.jpg",
+      "title": "TOMORROW X TOGETHER's Killing Voice Live!- Angel Or Devil, 0X1=LOVESONG (I Know I Love You), LO$E...",
+      "meta": "YouTube · 딩고 뮤직 / dingo music · 21 min",
+      "image": "https://i.ytimg.com/vi/Nvqrp5xTdso/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "The iPhone Duo’s Bizarre Comeback",
+      "meta": "YouTube · Mrwhosetheboss · 11 min",
+      "image": "https://i.ytimg.com/vi/SyLzrF7LeUY/hq720.jpg",
+      "source": "Recommended for you"
+    },
+    {
+      "title": "Malaysia 5 - 5 Pakistan | Sorotan Piala Sultan Azlan Shah 2026",
+      "meta": "YouTube · Astro Arena · 16 min",
+      "image": "https://i.ytimg.com/vi/Y5uY1tHxZyY/hq720.jpg",
       "source": "Recommended for you"
     },
     {
@@ -81,50 +93,38 @@
       "meta": "YouTube · 27 min",
       "image": "https://i.ytimg.com/vi/mbiXJN5xii4/hq720.jpg",
       "source": "Watched before"
-    },
-    {
-      "title": "[#2026MAMA] BIGBANG (빅뱅) - BAD + LIVE FAST DIE SLOW + 기립 (GiiiRIP) + BiiiG | Mnet 261121 방송",
-      "meta": "YouTube · Mnet K-POP · 16 min",
-      "image": "https://i.ytimg.com/vi/f0-Oq0kh298/hq720.jpg",
-      "source": "Recommended for you"
-    },
-    {
-      "title": "izna 'IWALY (사랑으로 남길)'ㅣSpecial Performance Video",
-      "meta": "YouTube · izna (이즈나) · 4 min",
-      "image": "https://i.ytimg.com/vi/PyrLjTPJ19k/hq720.jpg",
-      "source": "Recommended for you"
     }
   ],
   "com.tm.unifitv.tv": [
     {
-      "source": "On TV now",
-      "title": "TANYALAH USTAZ 2026 (SAT & SUN) : JAN - DEC",
-      "meta": "TV3 · Now until 8:00 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "TANYALAH USTAZ 2026 (SAT & SUN) : JAN - DEC",
-      "meta": "TV9 · Now until 8:30 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "GBRB: Joy Pops Laugh Pops",
-      "meta": "tvN HD · Now until 7:45 AM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "On TV now",
-      "title": "WITCH WATCH",
-      "meta": "Animax · Now until 8:10 AM",
-      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/180367-Kpxveeh3Q3cm.jpg"
-    },
-    {
-      "source": "On TV now",
-      "title": "2026 LET: Andalucia Costa Del Sol Open De Espana - Day 1",
-      "meta": "SPOTV · Now until 9:00 AM",
+      "source": "Live soon",
+      "title": "2026 Supercars: bp Adelaide Grand Final - Race 36",
+      "meta": "SPOTV · Live · 12:45 PM – 3:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "The Practical Guide to Love",
+      "meta": "tvN HD · Now until 12:20 PM",
+      "image": "https://static.tvmaze.com/uploads/images/original_untouched/612/1530078.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "FRUITS BASKET",
+      "meta": "Animax · Now until 12:10 PM",
+      "image": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/120-PautbsS8uEAe.jpg"
+    },
+    {
+      "source": "On TV now",
+      "title": "E1 World Championship 2026 HLs - Rd 6 Miami",
+      "meta": "SPOTV2 · Now until 12:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/6E16A3C6-3131-4199-B8F2-467F023E14BE/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "Formula 1 Practice - FORMULA 1 QATAR AIRWAYS QATAR GRAND PRIX 2026 Practice 2",
+      "meta": "beIN SPORTS 1 · Now until 12:50 PM",
+      "image": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg"
     }
   ],
   "my.gov.rtm.tv": [
@@ -148,46 +148,46 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "LIVE : KANTA 744",
-      "meta": "TV1 · Now until 8:00 AM",
+      "title": "Rona Sabah (Sr.17) 2026 (Ulangan)",
+      "meta": "TV1 · Now until 12:00 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
     },
     {
       "source": "On RTMKlik",
-      "title": "Sumo Mouse",
-      "meta": "TV2 · Now until 8:00 AM",
-      "image": "https://i.ytimg.com/vi/qFnzHQEQWVs/hq720.jpg"
+      "title": "Gig",
+      "meta": "TV2 · Now until 12:00 PM",
+      "image": "https://i.ytimg.com/vi/PvXGunhoMv8/hqdefault.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
     {
-      "title": "The Rules",
-      "meta": "Viu · #1 trending in Malaysia",
-      "image": "https://prod-images.viu.com/1375146905/dd1e7f22031649f20cbcbbcee350d7e162f9091d?im=Resize,width=1280",
+      "title": "Bayangan Dendam",
+      "meta": "Viu · #2 trending in Malaysia",
+      "image": "https://prod-images.viu.com/2187216814/2d2dd8da5a6cf351940dbbb8bed3464df83d0d17?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Wali Dalam Tangisan",
-      "meta": "Viu · #3 trending in Malaysia",
-      "image": "https://prod-images.viu.com/3728650868/d4a3251afb48290b3cd150bed36a658eb3700305?im=Resize,width=1280",
+      "title": "Running Man (2026)",
+      "meta": "Viu · #4 trending in Malaysia",
+      "image": "https://prod-images.viu.com/617743966/78ea26f138eae0e1eb0dfd72d07efad90216f581?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Seadanya Kita",
-      "meta": "Viu · #7 trending in Malaysia",
-      "image": "https://prod-images.viu.com/2527637183/deb85e2e177f30142420afa5c6f5356402f292b8?im=Resize,width=1280",
+      "title": "Abang Imam Minah Skuter",
+      "meta": "Viu · #5 trending in Malaysia",
+      "image": "https://prod-images.viu.com/2206944558/4577d4a7bf78e18641458f2f62e45c6738b52b92?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Cinta Dalam Sekam",
-      "meta": "Viu · #9 trending in Malaysia",
-      "image": "https://prod-images.viu.com/2786942835/da20c8298983929301a80cccc8fc57aa29f326df?im=Resize,width=1280",
+      "title": "The Hidden Hand (Dia Perempuan Sialan)",
+      "meta": "Viu · #6 trending in Malaysia",
+      "image": "https://prod-images.viu.com/4112872894/70072b138b2c583b98355e629c9f9fe44ca476f3?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     },
     {
-      "title": "Good Partner 2",
-      "meta": "Viu · #10 trending in Malaysia",
-      "image": "https://prod-images.viu.com/1526870793/f9053745d62e4cdac6437656f29d1839ca1d72d9?im=Resize,width=1280",
+      "title": "Satu, Dua... Dia?",
+      "meta": "Viu · #8 trending in Malaysia",
+      "image": "https://prod-images.viu.com/1335697735/f0382db00f9d504bebf24070053eb32a7466d87c?im=Resize,width=1280",
       "source": "Trending in Malaysia"
     }
   ]
