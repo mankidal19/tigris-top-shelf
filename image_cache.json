@@ -1833,7 +1833,7 @@
  },
  "about|series|undercover chef friends from afar": {
   "url": "",
-  "at": "2026-11-22"
+  "at": "2026-11-28"
  },
  "about|series|vibey songs for watching the city lights with you": {
   "url": "",
@@ -2265,7 +2265,7 @@
  },
  "series|undercover chef friends from afar": {
   "url": null,
-  "at": "2026-11-22"
+  "at": "2026-11-28"
  },
  "series|walking through the village": {
   "url": null,
@@ -3143,6 +3143,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
   "at": "2026-11-08"
  },
+ "sports|bundesliga hamburg vs bayern l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
+  "at": "2026-11-28"
+ },
  "sports|bundesliga hamburg vs monchengladbach": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
   "at": "2026-11-07"
@@ -3424,6 +3428,10 @@
   "at": "2026-11-28"
  },
  "sports|formula 1 practice formula 1 qatar airways qatar grand prix 2026 practice 2": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg",
+  "at": "2026-11-28"
+ },
+ "sports|formula 1 practice formula 1 qatar airways qatar grand prix 2026 practice 3 l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg",
   "at": "2026-11-28"
  },
@@ -4214,6 +4222,10 @@
  "sports|roshn saudi league 26 27 md 12 al shabab vs al ahli": {
   "url": null,
   "at": "2026-11-02"
+ },
+ "sports|roshn saudi league 26 27 md 13 al ettifaq vs al hilal": {
+  "url": null,
+  "at": "2026-11-28"
  },
  "sports|roshn saudi league 26 27 md 13 al hazem vs al nassr": {
   "url": null,
@@ -5062,6 +5074,10 @@
  "youtube|tv1|jejak seribu kaki ulangan": {
   "url": null,
   "at": "2026-11-14"
+ },
+ "youtube|tv1|jom pancing ulangan": {
+  "url": null,
+  "at": "2026-11-28"
  },
  "youtube|tv1|kasih malisa ulangan": {
   "url": null,
@@ -6018,6 +6034,10 @@
  "youtube|tv9|lintas langsung di karnival jom heboh 2026": {
   "url": null,
   "at": "2026-11-01"
+ },
+ "youtube|tv9|mantera anjasmoro": {
+  "url": "https://i.ytimg.com/vi/NmjZbb_jSqM/hqdefault.jpg",
+  "at": "2026-11-28"
  },
  "youtube|tv9|mentor ss 3 weekly": {
   "url": null,
