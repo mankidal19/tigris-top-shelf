@@ -98,32 +98,32 @@
   "com.tm.unifitv.tv": [
     {
       "source": "On TV now",
-      "title": "2026 Supercars: bp Adelaide Grand Final - Race 36",
-      "meta": "SPOTV · Live · Now until 3:00 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
-    },
-    {
-      "source": "Live soon",
       "title": "2026 MotoGP Rd 22 Motul Grand Prix of Valencia - Free Practice 2/Qualifying",
-      "meta": "SPOTV2 · Live · 3:35 PM – 6:45 PM",
+      "meta": "SPOTV2 · Live · Now until 6:45 PM",
       "image": "https://r2.thesportsdb.com/images/media/league/fanart/vvwuxq1432213976.jpg"
     },
     {
-      "source": "On TV now",
-      "title": "PESAN MAKAN 2022",
-      "meta": "TV3 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/bpOqQgEO3-Y/hq720.jpg"
+      "source": "Live soon",
+      "title": "SailGP S6: Mubadala Abu Dhabi Sail Grand Prix - Day 1 Race",
+      "meta": "SPOTV · Live · 6:00 PM – 7:30 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/75E45C13-621B-44EB-86F1-35C8C3DCB7E1/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "MY #QURANTIME 2.0",
-      "meta": "TV9 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/IoahZj2KBsU/hq720.jpg"
+      "title": "SURVIVAL OF THE BEAST",
+      "meta": "TV3 · Now until 5:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/AED0C736-D2D2-4E97-B2F6-4FF4A0ACE765/0-16x9.jpg?width=1280"
     },
     {
       "source": "On TV now",
-      "title": "World Dice Tour 4",
-      "meta": "tvN HD · Now until 2:10 PM",
+      "title": "SALAM TAJ MAHAL",
+      "meta": "TV9 · Now until 5:00 PM",
+      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/01A5D01A-1DAE-4E0F-8003-0B570E9F474E/0-16x9.jpg?width=1280"
+    },
+    {
+      "source": "On TV now",
+      "title": "GBRB: Joy Pops Laugh Pops",
+      "meta": "tvN HD · Now until 6:05 PM",
       "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/E81EA250-61A3-4778-9E6D-4648A2E391A1/0-16x9.jpg?width=1280"
     }
   ],
@@ -148,15 +148,15 @@
     },
     {
       "source": "On RTMKlik",
-      "title": "Panorama 2025 (Ulangan)",
-      "meta": "TV1 · Now until 1:00 PM",
-      "image": "https://image-resizer-cloud-cdn.api.tmcms.quickplay.com/image/F01074B2-F6DD-441B-9477-1DF50C081978/0-16x9.jpg?width=1280"
+      "title": "Travelog Dikir",
+      "meta": "TV1 · Now until 5:00 PM",
+      "image": "https://i.ytimg.com/vi/-QS6uOKE6oE/hq720.jpg"
     },
     {
       "source": "On RTMKlik",
-      "title": "WORLD TODAY",
-      "meta": "TV2 · Now until 1:00 PM",
-      "image": "https://i.ytimg.com/vi/Va1VdSxZklo/hq720.jpg"
+      "title": "Youn's Kitchen",
+      "meta": "TV2 · Now until 5:00 PM",
+      "image": "https://i.ytimg.com/vi/gXTnimVMoF4/hqdefault.jpg"
     }
   ],
   "com.vuclip.viu.tv": [
