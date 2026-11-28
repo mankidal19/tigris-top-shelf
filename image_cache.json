@@ -1149,7 +1149,7 @@
  },
  "about|series|europe outside your tent romantic italy": {
   "url": "",
-  "at": "2026-11-23"
+  "at": "2026-11-28"
  },
  "about|series|eurovision song contest asia 2026": {
   "url": "",
@@ -1399,6 +1399,10 @@
   "url": "Drama Adventure Crime  Inspired by the adventures of Arsène Lupin, gentleman thief Assane Diop sets out to avenge his father for an injustice inflicted by a wealthy family.",
   "at": "2026-11-04"
  },
+ "about|series|m3gan": {
+  "url": "",
+  "at": "2026-11-28"
+ },
  "about|series|malaysia 5 5 pakistan": {
   "url": "",
   "at": "2026-11-28"
@@ -1633,7 +1637,7 @@
  },
  "about|series|show champion": {
   "url": "",
-  "at": "2026-11-20"
+  "at": "2026-11-28"
  },
  "about|series|sight unseen": {
   "url": "Drama Crime  Homicide detective Tess Avery is forced to quit the job she loves after nearly killing her partner and being diagnosed as clinically blind. Reluctant to accept help, Tess uses an assistance app and connects with Sunny Patel, a professional seeing-eye guide and agoraphobe living 3,000 miles away. Haunted by the unsolved cases she left behind, Tess uses a hidden camera and earpiece, while Sunny remotely steers Tess through life's obstacles -- and crimes -- as the two challenge preconceptions about ability, trust and where to draw the line.",
@@ -2089,7 +2093,7 @@
  },
  "series|europe outside your tent romantic italy": {
   "url": null,
-  "at": "2026-11-23"
+  "at": "2026-11-28"
  },
  "series|fbi most wanted": {
   "url": "https://static.tvmaze.com/uploads/images/original_untouched/205/513036.jpg",
@@ -2155,6 +2159,10 @@
   "url": "https://static.tvmaze.com/uploads/images/original_untouched/292/730986.jpg",
   "at": "2026-11-04"
  },
+ "series|m3gan": {
+  "url": null,
+  "at": "2026-11-28"
+ },
  "series|my bias my boss": {
   "url": null,
   "at": "2026-11-21"
@@ -2201,7 +2209,7 @@
  },
  "series|show champion": {
   "url": null,
-  "at": "2026-11-20"
+  "at": "2026-11-28"
  },
  "series|sixth sense b side": {
   "url": null,
@@ -2333,7 +2341,7 @@
  },
  "sports|2026 27 almc le castellet race 2": {
   "url": null,
-  "at": "2026-11-24"
+  "at": "2026-11-28"
  },
  "sports|2026 27 alms 4 hours of le castellet race 1": {
   "url": null,
@@ -3199,6 +3207,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
   "at": "2026-11-01"
  },
+ "sports|bundesliga stuttgart vs frankfurt l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
+  "at": "2026-11-28"
+ },
  "sports|bundesliga weekly episode number 11": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/uststt1422059550.jpg",
   "at": "2026-11-05"
@@ -3455,6 +3467,10 @@
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg",
   "at": "2026-11-21"
  },
+ "sports|formula 1 qualifying pre show formula 1 qatar airways qatar grand prix 2026 l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/hreocd1620552411.jpg",
+  "at": "2026-11-28"
+ },
  "sports|formula 2 where f1 stars are made documentary": {
   "url": null,
   "at": "2026-11-28"
@@ -3666,6 +3682,10 @@
  "sports|laliga deportivo vs osasuna l": {
   "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
   "at": "2026-11-02"
+ },
+ "sports|laliga elche vs atletico madrid l": {
+  "url": "https://r2.thesportsdb.com/images/media/league/fanart/6am8r81707716890.jpg",
+  "at": "2026-11-28"
  },
  "sports|laliga elche vs real betis": {
   "url": "https://r2.thesportsdb.com/images/media/event/thumb/u14liq1784904577.jpg",
@@ -4222,6 +4242,10 @@
  "sports|roshn saudi league 26 27 md 12 al shabab vs al ahli": {
   "url": null,
   "at": "2026-11-02"
+ },
+ "sports|roshn saudi league 26 27 md 13 al ahli vs al taawoun": {
+  "url": null,
+  "at": "2026-11-28"
  },
  "sports|roshn saudi league 26 27 md 13 al ettifaq vs al hilal": {
   "url": null,
@@ -5211,6 +5235,10 @@
   "url": "https://i.ytimg.com/vi/-QS6uOKE6oE/hq720.jpg",
   "at": "2026-11-28"
  },
+ "youtube|tv1|travelog dikir ulangan": {
+  "url": null,
+  "at": "2026-11-28"
+ },
  "youtube|tv1|warna warni asia ulangan": {
   "url": null,
   "at": "2026-11-05"
@@ -5226,6 +5254,10 @@
  "youtube|tv2|a league of their own": {
   "url": null,
   "at": "2026-11-06"
+ },
+ "youtube|tv2|aku cinta aku rindu": {
+  "url": null,
+  "at": "2026-11-28"
  },
  "youtube|tv2|ammavin parambariya samayal": {
   "url": null,
@@ -6022,6 +6054,10 @@
  "youtube|tv9|kapsul surah 2018": {
   "url": "https://i.ytimg.com/vi/iIm2LZVz0po/hqdefault.jpg",
   "at": "2026-11-01"
+ },
+ "youtube|tv9|ketika daun berzikir": {
+  "url": null,
+  "at": "2026-11-28"
  },
  "youtube|tv9|kool 101 tv9 2026": {
   "url": null,
